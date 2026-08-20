@@ -76,6 +76,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | Doc | What it is |
 | --- | --- |
 | [Charter](docs/CHARTER.md) | What is fixed vs modular |
+| [Applying it in games](docs/APPLICATIONS.md) | Design-facing uses: RTS, RPG, FPS, sims, NPCs — not the C# API |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Citations](docs/CITATIONS.md) | Source registry |
 | [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) | Academic review and in-module mapping |
