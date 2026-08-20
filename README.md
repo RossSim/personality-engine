@@ -80,6 +80,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Citations](docs/CITATIONS.md) | Source registry |
 | [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) | Academic review and in-module mapping |
+| [Testing](docs/TESTING.md) | How to run the test suite locally |
 | [Releasing](docs/RELEASING.md) | How versions and GitHub Releases are cut |
 | [Changelog](CHANGELOG.md) | Notes for every version |
 

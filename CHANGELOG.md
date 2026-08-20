@@ -9,6 +9,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ### Added
 
+- Testing notes: `dotnet test`, `netstandard2.1` core, `net8.0` test host
 - Design-facing applications page: how to include the engine in games (RTS, RPG, FPS, sims, NPCs), with fifty concrete uses
 
 ### Changed
