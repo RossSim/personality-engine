@@ -24,7 +24,7 @@ Compose only the layers the fantasy needs. A bartender does not need Piaget stag
 | --- | --- |
 | Who is this person, slowly, across the whole game? | Personality (OCEAN; optional Stability/Plasticity) |
 | How are they doing this hour or this day? | Mood (PAD) |
-| What did this moment do to them? | Emotion (OCC, when wired) |
+| What did this moment do to them? | Emotion (OCC) |
 | Did their map of the world fail? | Meaning (order / chaos / knower) |
 | What has actually paid off in *this* run? | Learning (operant strength, deprivation, SD) |
 | Are they even able to think this thought yet? | Cognition (schemas, stages — host-set, not a clock) |

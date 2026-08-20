@@ -10,6 +10,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 ### Added
 
 - PAD mood dynamics: current mood decays toward the Gebhard-mapped baseline (`PadMood`; decay rate is project convention)
+- OCC emotion: host-tagged OCC types with optional ALMA-style OCC→PAD overlay (`OccEmotion`, `OccToPadMapping`)
 - Testing notes: `dotnet test`, `netstandard2.1` core, `net8.0` test host
 - Design-facing applications page: how to include the engine in games (RTS, RPG, FPS, sims, NPCs), with fifty concrete uses
 
