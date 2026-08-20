@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/RossSim/personality-engine)](https://github.com/RossSim/personality-engine/releases/latest)
+[![Test](https://github.com/RossSim/personality-engine/actions/workflows/test.yml/badge.svg)](https://github.com/RossSim/personality-engine/actions/workflows/test.yml)
 [![Target](https://img.shields.io/badge/target-netstandard2.1-512BD4)](https://github.com/RossSim/personality-engine/releases)
 
 A reusable C# socio-emotional engine for games. Events go in; a named-channel **affect snapshot** and optional **action weights** come out.
