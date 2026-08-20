@@ -90,4 +90,4 @@ The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC 
 
 Those may wrap this library later. They are not providers inside it.
 
-This repository includes a console host under [`samples/AlmaConsole`](../samples/AlmaConsole) so the default composition can be ticked without a game engine. It is a consumer, not a provider.
+This repository includes console hosts under [`samples/AlmaConsole`](../samples/AlmaConsole) and [`samples/AlmaTimeline`](../samples/AlmaTimeline) so the default composition can be ticked without a game engine. They are consumers, not providers.
