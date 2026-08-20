@@ -1,0 +1,10 @@
+namespace PersonalityEngine;
+
+/// <summary>Well-known layer names. Hosts may use other strings.</summary>
+public static class AffectLayer
+{
+    public const string Personality = "personality";
+    public const string Mood = "mood";
+    public const string Emotion = "emotion";
+    public const string Meaning = "meaning";
+}

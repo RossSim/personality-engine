@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>PersonalityEngine</RootNamespace>
+    <AssemblyName>PersonalityEngine.Core</AssemblyName>
+    <Description>Modular socio-emotional personality engine for games.</Description>
+  </PropertyGroup>
+</Project>
