@@ -2,7 +2,7 @@
 
 `personality-engine` is a reusable C# socio-emotional engine for games.
 
-**Home:** https://github.com/textide/personality-engine (public MIT)
+**Home:** https://github.com/RossSim/personality-engine (public MIT)
 **Board:** https://prayingforradar.atlassian.net/jira/software/projects/PE/summary
 **Jira:** project `PE`, charter ticket [PE-1](https://prayingforradar.atlassian.net/browse/PE-1)
 
