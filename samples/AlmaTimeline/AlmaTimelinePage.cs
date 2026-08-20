@@ -21,7 +21,8 @@ internal static class AlmaTimelinePage
 
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
-        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
 
     private static readonly string Template = """
@@ -106,7 +107,11 @@ internal static class AlmaTimelinePage
 
     DATA.metrics.forEach(m => {
       const item = document.createElement("span");
-      item.innerHTML = `<i class="swatch" style="background:${m.color}"></i>${m.label}`;
+      const swatch = document.createElement("i");
+      swatch.className = "swatch";
+      swatch.style.background = m.color;
+      item.appendChild(swatch);
+      item.appendChild(document.createTextNode(m.label));
       item.title = m.key;
       legend.appendChild(item);
     });
@@ -164,6 +169,15 @@ internal static class AlmaTimelinePage
       DATA.metrics.forEach((m, mi) => {
         const values = DATA.frames.slice(0, shown).map(f => f.values[mi]);
         polylines(values, m.color).forEach(el => series.appendChild(el));
+        values.forEach((v, i) => {
+          if (v == null) return;
+          const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          c.setAttribute("cx", x(i));
+          c.setAttribute("cy", y(v));
+          c.setAttribute("r", "3");
+          c.setAttribute("fill", m.color);
+          series.appendChild(c);
+        });
       });
       DATA.metrics.forEach((_, mi) => {
         const cells = tbody.rows[mi].cells;

@@ -41,6 +41,7 @@ public sealed class AlmaTimelineTests
         Assert.Contains("PAD baseline pleasure", html, StringComparison.Ordinal);
         Assert.Contains("OCC joy", html, StringComparison.Ordinal);
         Assert.Contains("\"t\":10", html, StringComparison.Ordinal);
+        Assert.Contains("\"label\":\"PAD baseline pleasure\"", html, StringComparison.Ordinal);
     }
 
     private static int IndexOf(string key)
