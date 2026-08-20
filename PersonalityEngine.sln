@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{54EEAB3C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalityEngine.Tests", "tests\PersonalityEngine.Tests\PersonalityEngine.Tests.csproj", "{670EF314-0050-4380-A0EF-403E17217C5B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5D20AA90-6969-D8BD-9DCD-8634F4692FDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlmaConsole", "samples\AlmaConsole\AlmaConsole.csproj", "{D1837B25-1E41-4B4F-A914-403FFB357BB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,9 +32,14 @@ Global
 		{670EF314-0050-4380-A0EF-403E17217C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{670EF314-0050-4380-A0EF-403E17217C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{670EF314-0050-4380-A0EF-403E17217C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1837B25-1E41-4B4F-A914-403FFB357BB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1837B25-1E41-4B4F-A914-403FFB357BB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1837B25-1E41-4B4F-A914-403FFB357BB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1837B25-1E41-4B4F-A914-403FFB357BB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D909CC62-6255-45CC-B03C-FE0D044E4850} = {B7626816-30D8-4515-BA57-226CBE443F13}
 		{670EF314-0050-4380-A0EF-403E17217C5B} = {54EEAB3C-AD07-4E81-9A7A-8A4B4AE41D07}
+		{D1837B25-1E41-4B4F-A914-403FFB357BB4} = {5D20AA90-6969-D8BD-9DCD-8634F4692FDA}
 	EndGlobalSection
 EndGlobal
