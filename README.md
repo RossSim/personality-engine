@@ -10,11 +10,11 @@ Default v0.1 composition follows Gebhard ALMA (2005) wiring — Big Five / OCEAN
 | --- | --- |
 | **Repo** | https://github.com/textide/personality-engine |
 | **Jira** | [PE board](https://prayingforradar.atlassian.net/jira/software/projects/PE/summary) · charter [PE-1](https://prayingforradar.atlassian.net/browse/PE-1) |
-| **Docs** | [Charter](docs/CHARTER.md) · [Architecture](docs/ARCHITECTURE.md) · [Citations](docs/CITATIONS.md) · [Peterson module](docs/peterson.md) · [Skinner module](docs/skinner.md) · [Cursor start](docs/CURSOR_START.md) |
+| **Docs** | [Charter](docs/CHARTER.md) · [Architecture](docs/ARCHITECTURE.md) · [Citations](docs/CITATIONS.md) · [Peterson module](docs/peterson.md) · [Skinner module](docs/skinner.md) · [Piaget module](docs/piaget.md) · [Cursor start](docs/CURSOR_START.md) |
 
 ## Status
 
-`PersonalityEngine.Core` (`netstandard2.1`) includes provider interfaces ([PE-6](https://prayingforradar.atlassian.net/browse/PE-6)), OCEAN → PAD (Gebhard’s example), a Peterson **meaning** supplement ([PE-7](https://prayingforradar.atlassian.net/browse/PE-7)), and a Skinner **learning** layer ([PE-8](https://prayingforradar.atlassian.net/browse/PE-8)): operant strengths under a three-term contingency.
+`PersonalityEngine.Core` (`netstandard2.1`) includes provider interfaces ([PE-6](https://prayingforradar.atlassian.net/browse/PE-6)), OCEAN → PAD (Gebhard’s example), a Peterson **meaning** supplement ([PE-7](https://prayingforradar.atlassian.net/browse/PE-7)), a Skinner **learning** layer ([PE-8](https://prayingforradar.atlassian.net/browse/PE-8)), and a Piaget **cognition** layer ([PE-9](https://prayingforradar.atlassian.net/browse/PE-9)): assimilation, accommodation, and host-set stages.
 
 ## Build / test
 
@@ -27,6 +27,7 @@ Target framework: `netstandard2.1` (Unity-consumable later; this repo is not a U
 ```csharp
 using PersonalityEngine.Providers.Ocean;
 using PersonalityEngine.Providers.Peterson;
+using PersonalityEngine.Providers.Piaget;
 using PersonalityEngine.Providers.Skinner;
 
 var meaning = PetersonComposition.Create(OceanTraits.GebhardExample);
@@ -34,4 +35,7 @@ meaning.Tick(new WorldEvent(OrderChaosMeaningProvider.AnomalyKind, 0.8f));
 
 var operant = SkinnerComposition.Create(new[] { "forage", "idle" });
 operant.Tick(new WorldEvent(OperantLearningProvider.EmitKind, 1f, "forage"));
+
+var cognition = PiagetComposition.Create(CognitiveStage.ConcreteOperational);
+cognition.Tick(new WorldEvent(PiagetEquilibrationProvider.EncounterKind, 0.2f));
 ```

@@ -8,4 +8,5 @@ public static class AffectLayer
     public const string Emotion = "emotion";
     public const string Meaning = "meaning";
     public const string Learning = "learning";
+    public const string Cognition = "cognition";
 }

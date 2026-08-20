@@ -69,6 +69,11 @@ Optional supplement ([PE-8](https://prayingforradar.atlassian.net/browse/PE-8); 
 8. `OperantLearningProvider` — Skinner (1953) / Ferster & Skinner (1957) operant strengths
 9. `OperantWeighter` — strength × deprivation × SD
 
+Optional supplement ([PE-9](https://prayingforradar.atlassian.net/browse/PE-9); [`piaget.md`](piaget.md)) — **new `cognition` layer**, not a personality or learning provider:
+
+10. `PiagetEquilibrationProvider` — Piaget schemas, equilibration, host-set stages (`cognition.piaget-equilibration.*`)
+11. `PiagetCognitionWeighter` — play vs imitate vs accommodate vs explore
+
 The first green test is (1)+(2): Gebhard’s numeric example. Mood dynamics and OCC ship as follow-on providers under [PE-3](https://prayingforradar.atlassian.net/browse/PE-3). The provider contract itself is [PE-6](https://prayingforradar.atlassian.net/browse/PE-6).
 
 ## Out of scope for the core

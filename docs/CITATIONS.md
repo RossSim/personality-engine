@@ -38,6 +38,17 @@ Full review: [`skinner.md`](skinner.md). **New layer** `learning` (not personali
 
 Documented, not implemented: Skinner (1957) *Verbal Behavior*; Ferster & Skinner interval schedules; Skinner (1971) *Beyond Freedom and Dignity* as NPC values.
 
+## Piaget module ([PE-9](https://prayingforradar.atlassian.net/browse/PE-9))
+
+Full review: [`piaget.md`](piaget.md). **New layer** `cognition` (not personality/mood/emotion/meaning/learning).
+
+| Provider / mapping | Layer | Source |
+| --- | --- | --- |
+| `PiagetEquilibrationProvider` | cognition | Piaget, J. (1952). *The Origins of Intelligence in Children* (orig. 1936). Piaget, J. (1954). *The Construction of Reality in the Child* (orig. 1937). Piaget, J. (1950). *The Psychology of Intelligence* (orig. 1947). Inhelder, B., & Piaget, J. (1958). *The Growth of Logical Thinking from Childhood to Adolescence.* Piaget, J. (1970). *Genetic Epistemology.* Piaget, J. (1985). *The Equilibration of Cognitive Structures* (orig. 1975). Numeric gains, host-set stages, and 0/1 flags: **project convention**. |
+| `PiagetCognitionWeighter` | action weights | Piaget, J. (1951). *Play, Dreams and Imitation in Childhood* (orig. 1945). Play ≈ assimilation, imitation ≈ accommodation. Mix coefficients: **project convention**. |
+
+Not implemented: automatic stage advancement; conservation-task scores; sensorimotor substages / A-not-B; neo-Piagetian or Vygotsky providers.
+
 ## First numeric check
 
 Gebhard (2005) example, slightly relaxed in tests:
