@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Test
+        run: dotnet test --nologo -c Release
+
+      - name: Pack
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          dotnet pack src/PersonalityEngine.Core/PersonalityEngine.Core.csproj -c Release -o dist --nologo
+          dotnet build src/PersonalityEngine.Core/PersonalityEngine.Core.csproj -c Release --nologo
+          VERSION="${GITHUB_REF_NAME#v}"
+          STAGE="src/PersonalityEngine.Core/bin/Release/netstandard2.1"
+          zip -j "dist/PersonalityEngine.Core.${VERSION}.zip" \
+            "${STAGE}/PersonalityEngine.Core.dll" \
+            LICENSE README.md CHANGELOG.md
+
+      - name: Notes from changelog
+        run: |
+          set -euo pipefail
+          VERSION="${GITHUB_REF_NAME#v}"
+          python3 - <<'PY'
+          import os, re, pathlib
+          version = os.environ["GITHUB_REF_NAME"].removeprefix("v")
+          text = pathlib.Path("CHANGELOG.md").read_text(encoding="utf-8")
+          pattern = rf"^## \[{re.escape(version)}\][^\n]*\n(.*?)(?=^## |\Z)"
+          match = re.search(pattern, text, flags=re.M | re.S)
+          notes = match.group(1).strip() if match else f"Personality Engine v{version}"
+          notes = re.sub(r"\n\[[^\]]+\]:.*", "", notes).strip()
+          pathlib.Path("dist/RELEASE_NOTES.md").write_text(notes + "\n", encoding="utf-8")
+          PY
+
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          body_path: dist/RELEASE_NOTES.md
+          files: |
+            dist/*.nupkg
+            dist/*.zip
+          fail_on_unmatched_files: true
