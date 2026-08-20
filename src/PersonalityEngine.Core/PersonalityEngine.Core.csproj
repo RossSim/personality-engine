@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>PersonalityEngine</RootNamespace>
+    <AssemblyName>PersonalityEngine.Core</AssemblyName>
+    <Version>0.1.0</Version>
+    <PackageId>PersonalityEngine.Core</PackageId>
+    <Authors>RossSim</Authors>
+    <Description>Modular socio-emotional personality engine for games.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/RossSim/personality-engine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RossSim/personality-engine.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>personality;affect;games;ai;ocean</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\CHANGELOG.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>
