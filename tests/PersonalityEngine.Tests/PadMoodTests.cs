@@ -21,7 +21,7 @@ public sealed class PadMoodTests
     [Fact]
     public void SeedsCurrentMood_FromGebhardBaseline()
     {
-        var snap = AlmaComposition.Create(OceanTraits.GebhardExample).Tick(WorldEvent.Tick);
+        var snap = AlmaComposition.Create(OceanTraits.GebhardExample, includeOcc: false).Tick(WorldEvent.Tick);
         Assert.Equal(0.38, snap.GetOrDefault(OceanToPadMapping.PleasureKey), 2);
         Assert.Equal(0.38, snap.GetOrDefault(PadMood.PleasureKey), 2);
         Assert.Equal(-0.08, snap.GetOrDefault(PadMood.ArousalKey), 2);
@@ -31,7 +31,7 @@ public sealed class PadMoodTests
     [Fact]
     public void Coexists_WithMappingBaselineChannels()
     {
-        var engine = AlmaComposition.Create(OceanTraits.GebhardExample);
+        var engine = AlmaComposition.Create(OceanTraits.GebhardExample, includeOcc: false);
         engine.Tick(WorldEvent.Tick);
         engine.Tick(Push(pleasure: 0.3f));
 
@@ -44,7 +44,7 @@ public sealed class PadMoodTests
     public void DecaysTowardBaseline_OverDt()
     {
         const float rate = 0.5f;
-        var engine = AlmaComposition.Create(OceanTraits.GebhardExample, decayRate: rate);
+        var engine = AlmaComposition.Create(OceanTraits.GebhardExample, decayRate: rate, includeOcc: false);
         engine.Tick(WorldEvent.Tick);
         var baseline = engine.Snapshot.GetOrDefault(OceanToPadMapping.PleasureKey);
         engine.Tick(Push(pleasure: 0.3f));
@@ -58,7 +58,7 @@ public sealed class PadMoodTests
     [Fact]
     public void RepeatedTicks_CloseTheGapToBaseline()
     {
-        var engine = AlmaComposition.Create(OceanTraits.GebhardExample);
+        var engine = AlmaComposition.Create(OceanTraits.GebhardExample, includeOcc: false);
         engine.Tick(WorldEvent.Tick);
         engine.Tick(Push(pleasure: 0.4f));
         var afterPush = Distance(engine.Snapshot);

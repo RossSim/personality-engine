@@ -43,7 +43,7 @@ Downstream code looks up **named channels**. Missing channels are absent, not er
 
 `AffectSnapshot` is a bag of named channels, not a fixed struct:
 
-- key: `layer.provider.channel` (example: `personality.ocean.openness`, `mood.pad.pleasure`)
+- key: `layer.provider.channel` (example: `personality.ocean.openness`, `mood.pad.pleasure`, `emotion.occ.joy`)
 - value: typically a float in a documented range for that provider
 - metadata: which providers ran this tick
 
@@ -55,31 +55,32 @@ Order:
 
 1. `OceanPersonality` — McCrae & Costa Big Five
 2. `OceanToPadMapping` — Gebhard ALMA 2005 baseline on `mood.pad.*`
-3. `PadMood` — current PAD on `mood.pad-mood.*`, pulled toward that baseline with exponential decay over `dt` (rate is project convention)
-4. `OccEmotion` — OCC appraisal of events (later slice; not required to compile the first test)
+3. `OccEmotion` — OCC types as `emotion.occ.*` (host-tagged eliciting events)
+4. `OccToPadMapping` — optional ALMA glue: OCC intensities → `mood.occ-to-pad.*` (coefficients are project convention)
+5. `PadMood` — current PAD on `mood.pad-mood.*`, pulled toward the mapped baseline; adds the OCC overlay when present
 
 Optional supplement ([`peterson.md`](peterson.md)):
 
-5. `StabilityPlasticityProvider` — DeYoung, Peterson & Higgins (2002) metatraits
-6. `OrderChaosMeaningProvider` — Peterson (1999) / CMT meaning layer (`meaning.peterson-maps.*`)
-7. `PetersonMeaningWeighter` — explore vs defend vs integrate vs withdraw
+6. `StabilityPlasticityProvider` — DeYoung, Peterson & Higgins (2002) metatraits
+7. `OrderChaosMeaningProvider` — Peterson (1999) / CMT meaning layer (`meaning.peterson-maps.*`)
+8. `PetersonMeaningWeighter` — explore vs defend vs integrate vs withdraw
 
 Optional supplement ([`skinner.md`](skinner.md)) — **new `learning` layer**, not a personality provider:
 
-8. `OperantLearningProvider` — Skinner (1953) / Ferster & Skinner (1957) operant strengths
-9. `OperantWeighter` — strength × deprivation × SD
+9. `OperantLearningProvider` — Skinner (1953) / Ferster & Skinner (1957) operant strengths
+10. `OperantWeighter` — strength × deprivation × SD
 
 Optional supplement ([`piaget.md`](piaget.md)) — **new `cognition` layer**, not a personality or learning provider:
 
-10. `PiagetEquilibrationProvider` — Piaget schemas, equilibration, host-set stages (`cognition.piaget-equilibration.*`)
-11. `PiagetCognitionWeighter` — play vs imitate vs accommodate vs explore
+11. `PiagetEquilibrationProvider` — Piaget schemas, equilibration, host-set stages (`cognition.piaget-equilibration.*`)
+12. `PiagetCognitionWeighter` — play vs imitate vs accommodate vs explore
 
 Optional supplement ([`erikson.md`](erikson.md)) — **new `identity` layer**, not a personality, cognition, or learning provider:
 
-12. `EriksonPsychosocialProvider` — eight ages, syntonic/dystonic ratio, ego identity (`identity.erikson-psychosocial.*`)
-13. `EriksonIdentityWeighter` — explore vs commit vs care vs withdraw
+13. `EriksonPsychosocialProvider` — eight ages, syntonic/dystonic ratio, ego identity (`identity.erikson-psychosocial.*`)
+14. `EriksonIdentityWeighter` — explore vs commit vs care vs withdraw
 
-The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` is optional: omit it and mood stays the static mapped baseline. OCC ships as a follow-on provider. The provider contract is `IAffectProvider` plus named-channel snapshots.
+The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC are optional: omit them and those channels stay absent. The provider contract is `IAffectProvider` plus named-channel snapshots.
 
 ## Out of scope for the core
 
