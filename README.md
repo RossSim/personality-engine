@@ -10,11 +10,11 @@ Default v0.1 composition follows Gebhard ALMA (2005) wiring — Big Five / OCEAN
 | --- | --- |
 | **Repo** | https://github.com/textide/personality-engine |
 | **Jira** | [PE board](https://prayingforradar.atlassian.net/jira/software/projects/PE/summary) · charter [PE-1](https://prayingforradar.atlassian.net/browse/PE-1) |
-| **Docs** | [Charter](docs/CHARTER.md) · [Architecture](docs/ARCHITECTURE.md) · [Citations](docs/CITATIONS.md) · [Peterson module](docs/peterson.md) · [Cursor start](docs/CURSOR_START.md) |
+| **Docs** | [Charter](docs/CHARTER.md) · [Architecture](docs/ARCHITECTURE.md) · [Citations](docs/CITATIONS.md) · [Peterson module](docs/peterson.md) · [Skinner module](docs/skinner.md) · [Cursor start](docs/CURSOR_START.md) |
 
 ## Status
 
-`PersonalityEngine.Core` (`netstandard2.1`) includes provider interfaces ([PE-6](https://prayingforradar.atlassian.net/browse/PE-6)), OCEAN → PAD (Gebhard’s example), and a Peterson supplement ([PE-7](https://prayingforradar.atlassian.net/browse/PE-7)): Stability/Plasticity metatraits and a Maps of Meaning / Complexity Management **meaning** layer.
+`PersonalityEngine.Core` (`netstandard2.1`) includes provider interfaces ([PE-6](https://prayingforradar.atlassian.net/browse/PE-6)), OCEAN → PAD (Gebhard’s example), a Peterson **meaning** supplement ([PE-7](https://prayingforradar.atlassian.net/browse/PE-7)), and a Skinner **learning** layer ([PE-8](https://prayingforradar.atlassian.net/browse/PE-8)): operant strengths under a three-term contingency.
 
 ## Build / test
 
@@ -27,8 +27,11 @@ Target framework: `netstandard2.1` (Unity-consumable later; this repo is not a U
 ```csharp
 using PersonalityEngine.Providers.Ocean;
 using PersonalityEngine.Providers.Peterson;
+using PersonalityEngine.Providers.Skinner;
 
-var engine = PetersonComposition.Create(OceanTraits.GebhardExample);
-engine.Tick(WorldEvent.Tick);
-engine.Tick(new WorldEvent(OrderChaosMeaningProvider.AnomalyKind, 0.8f));
+var meaning = PetersonComposition.Create(OceanTraits.GebhardExample);
+meaning.Tick(new WorldEvent(OrderChaosMeaningProvider.AnomalyKind, 0.8f));
+
+var operant = SkinnerComposition.Create(new[] { "forage", "idle" });
+operant.Tick(new WorldEvent(OperantLearningProvider.EmitKind, 1f, "forage"));
 ```

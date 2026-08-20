@@ -7,15 +7,22 @@ public sealed class WorldEvent
 {
     public static WorldEvent Tick { get; } = new WorldEvent("tick", 0f);
 
-    public WorldEvent(string kind, float intensity = 1f, IReadOnlyDictionary<string, float>? payload = null)
+    public WorldEvent(
+        string kind,
+        float intensity = 1f,
+        string? target = null,
+        IReadOnlyDictionary<string, float>? payload = null)
     {
         Kind = kind;
         Intensity = Clamp01(intensity);
+        Target = target;
         Payload = payload ?? Empty;
     }
 
     public string Kind { get; }
     public float Intensity { get; }
+    /// <summary>Optional action or stimulus id (used by operant events).</summary>
+    public string? Target { get; }
     public IReadOnlyDictionary<string, float> Payload { get; }
 
     private static readonly IReadOnlyDictionary<string, float> Empty =

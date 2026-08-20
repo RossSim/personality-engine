@@ -29,12 +29,13 @@ The engine is a **composition of providers** grouped into **layers**. Layers and
 | Mood | Medium-term affect | PAD | Mehrabian; Gebhard ALMA 2005 |
 | Emotion | Momentary affect | OCC | Ortony, Clore & Collins |
 | Meaning (optional) | Known / unknown / knower | Peterson Maps of Meaning | Peterson (1999); Peterson & Flanders (2002) |
+| Learning (optional) | Operant repertoire | Skinner three-term contingency | Skinner (1953); Ferster & Skinner (1957) |
 
 Gebhard ALMA (2005) is the **first wiring** among those three (OCEAN → PAD mood → OCC emotion). It is one cited composition, not the definition of the engine.
 
 ### Allowed without a charter change
 
-- **New layers** — values, relationships, morality, motives, or anything a host needs that is not personality, mood, or emotion.
+- **New layers** — values, relationships, morality, motives, **learning** (operant), or anything a host needs that is not personality, mood, or emotion.
 - **Alternate providers on an existing layer** — e.g. HEXACO instead of, or beside, OCEAN.
 - **Supplemental sources or methods on the same layer** — e.g. OCEAN + Dark Triad; PAD plus extra mood axes; a second OCC variant; a non-ALMA personality→mood mapping.
 - **Cited mappings between layers** — ALMA’s OCEAN→PAD is the first mapping provider, not the only allowed glue.

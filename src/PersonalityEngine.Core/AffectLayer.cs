@@ -7,4 +7,5 @@ public static class AffectLayer
     public const string Mood = "mood";
     public const string Emotion = "emotion";
     public const string Meaning = "meaning";
+    public const string Learning = "learning";
 }

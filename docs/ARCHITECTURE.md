@@ -64,6 +64,11 @@ Optional supplement ([PE-7](https://prayingforradar.atlassian.net/browse/PE-7); 
 6. `OrderChaosMeaningProvider` — Peterson (1999) / CMT meaning layer (`meaning.peterson-maps.*`)
 7. `PetersonMeaningWeighter` — explore vs defend vs integrate vs withdraw
 
+Optional supplement ([PE-8](https://prayingforradar.atlassian.net/browse/PE-8); [`skinner.md`](skinner.md)) — **new `learning` layer**, not a personality provider:
+
+8. `OperantLearningProvider` — Skinner (1953) / Ferster & Skinner (1957) operant strengths
+9. `OperantWeighter` — strength × deprivation × SD
+
 The first green test is (1)+(2): Gebhard’s numeric example. Mood dynamics and OCC ship as follow-on providers under [PE-3](https://prayingforradar.atlassian.net/browse/PE-3). The provider contract itself is [PE-6](https://prayingforradar.atlassian.net/browse/PE-6).
 
 ## Out of scope for the core

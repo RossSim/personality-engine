@@ -11,7 +11,7 @@ This is a standalone C# library (netstandard2.1), not Unity and not AviationStuf
 
 Read docs/CHARTER.md first. The engine is modular middleware: composable, citable providers. OCEAN, PAD, and OCC are the default v0.1 composition (Gebhard ALMA 2005 wiring), not the ceiling. Hosts may add layers, replace a layer’s provider, or supplement a layer with more sources/methods. No LLM in the core.
 
-Tickets: PE-2 docs, PE-4 citation map, PE-5 repo skeleton + first Gebhard OCEAN→PAD test, PE-6 provider interfaces, PE-7 Peterson meaning/metatraits module.
+Tickets: PE-2 docs, PE-4 citation map, PE-5 repo skeleton + first Gebhard OCEAN→PAD test, PE-6 provider interfaces, PE-7 Peterson meaning/metatraits module, PE-8 Skinner operant learning layer.
 END
 ```
 

@@ -27,6 +27,17 @@ Full review: [`peterson.md`](peterson.md).
 
 Not implemented (needs aspect-level BFAS, not domain OCEAN): Hirsh, J. B., DeYoung, C. G., Xu, X., & Peterson, J. B. (2010). Compassionate liberals and polite conservatives. *Personality and Social Psychology Bulletin, 36*(5), 655–664.
 
+## Skinner module ([PE-8](https://prayingforradar.atlassian.net/browse/PE-8))
+
+Full review: [`skinner.md`](skinner.md). **New layer** `learning` (not personality/mood/emotion/meaning).
+
+| Provider / mapping | Layer | Source |
+| --- | --- | --- |
+| `OperantLearningProvider` | learning | Skinner, B. F. (1938). *The Behavior of Organisms.* Skinner, B. F. (1953). *Science and Human Behavior* (three-term contingency, reinforcement, punishment, extinction, deprivation). Ferster, C. B., & Skinner, B. F. (1957). *Schedules of Reinforcement* (CRF, FR, VR). 0..1 strengths and gains: **project convention**. |
+| `OperantWeighter` | action weights | Skinner (1953). SD-absent multiplier and deprivation mix: **project convention**. |
+
+Documented, not implemented: Skinner (1957) *Verbal Behavior*; Ferster & Skinner interval schedules; Skinner (1971) *Beyond Freedom and Dignity* as NPC values.
+
 ## First numeric check
 
 Gebhard (2005) example, slightly relaxed in tests:
