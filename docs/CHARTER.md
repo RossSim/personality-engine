@@ -46,4 +46,4 @@ A host may enable a subset. Downstream code must not assume OCEAN, PAD, or OCC a
 
 ## First coding slice
 
-Prove the pipeline with the default ALMA-style composition. First numeric test: Gebhard’s example `O=0.4 C=0.8 E=0.6 A=0.3 N=0.4` → `P=0.38 A=-0.08 D=0.50` (slightly relaxed). That test belongs to the OCEAN and PAD providers plus their mapping. It does not freeze the set of theories.
+Prove the pipeline with the default ALMA-style composition. First numeric test: Gebhard’s example `O=0.4 C=0.8 E=0.6 A=0.3 N=0.4` → `P=0.38 A=-0.08 D=0.50` (slightly relaxed). That test belongs to the OCEAN and PAD mapping providers. `PadMood` is an optional current-mood layer on top of that baseline. OCC emotion is still a later slice. None of this freezes the set of theories.
