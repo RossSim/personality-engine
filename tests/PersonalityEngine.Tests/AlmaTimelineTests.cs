@@ -1,3 +1,4 @@
+using PersonalityEngine.Providers.Occ;
 using PersonalityEngine.Samples.AlmaTimeline;
 using Xunit;
 
@@ -18,7 +19,7 @@ public sealed class AlmaTimelineTests
     public void JoyAppearsAtOneSecond_ThenDecays()
     {
         var frames = AlmaTimeline.Run();
-        var joy = IndexOf("emotion.occ.joy");
+        var joy = IndexOf(OccEmotion.JoyKey);
         var moodP = IndexOf("mood.pad-mood.pleasure");
         var baselineP = IndexOf("mood.pad.pleasure");
 
@@ -32,16 +33,67 @@ public sealed class AlmaTimelineTests
     }
 
     [Fact]
-    public void Html_IncludesChartLegendAndTable()
+    public void TwoEvents_StaggerZero_FireOnTheSameTick()
     {
-        var html = AlmaTimeline.ToHtml(AlmaTimeline.Run());
+        var frames = AlmaTimeline.Run(new AlmaTimeline.TimelineRequest(
+            new[]
+            {
+                new AlmaTimeline.OccPulse(OccEmotion.JoyKind, 1f),
+                new AlmaTimeline.OccPulse(OccEmotion.FearKind, 1f)
+            },
+            StaggerSeconds: 0,
+            FirstAtSecond: 1));
+        Assert.True(frames[1].Values[IndexOf(OccEmotion.JoyKey)] > 0f);
+        Assert.True(frames[1].Values[IndexOf(OccEmotion.FearKey)] > 0f);
+        Assert.Null(frames[0].Values[IndexOf(OccEmotion.FearKey)]);
+    }
+
+    [Fact]
+    public void TwoEvents_StaggerTwo_AreTwoSecondsApart()
+    {
+        var frames = AlmaTimeline.Run(new AlmaTimeline.TimelineRequest(
+            new[]
+            {
+                new AlmaTimeline.OccPulse(OccEmotion.JoyKind, 1f),
+                new AlmaTimeline.OccPulse(OccEmotion.FearKind, 1f)
+            },
+            StaggerSeconds: 2,
+            FirstAtSecond: 1));
+        Assert.True(frames[1].Values[IndexOf(OccEmotion.JoyKey)] > 0f);
+        Assert.Null(frames[1].Values[IndexOf(OccEmotion.FearKey)]);
+        Assert.True(frames[3].Values[IndexOf(OccEmotion.FearKey)] > 0f);
+    }
+
+    [Fact]
+    public void Intensity_IsHonored()
+    {
+        var full = AlmaTimeline.Run(new AlmaTimeline.TimelineRequest(
+            new[] { new AlmaTimeline.OccPulse(OccEmotion.JoyKind, 1f) }, 0, 1));
+        var half = AlmaTimeline.Run(new AlmaTimeline.TimelineRequest(
+            new[] { new AlmaTimeline.OccPulse(OccEmotion.JoyKind, 0.4f) }, 0, 1));
+        Assert.True(half[1].Values[IndexOf(OccEmotion.JoyKey)] < full[1].Values[IndexOf(OccEmotion.JoyKey)]);
+    }
+
+    [Fact]
+    public void Schedule_RejectsUnknownKind()
+    {
+        Assert.Throws<ArgumentException>(() => AlmaTimeline.Schedule(
+            new AlmaTimeline.TimelineRequest(
+                new[] { new AlmaTimeline.OccPulse("occ.not-a-type", 1f) },
+                0)));
+    }
+
+    [Fact]
+    public void Html_IncludesControls()
+    {
+        var html = AlmaTimeline.ToHtml();
         Assert.Contains("<svg", html, StringComparison.Ordinal);
-        Assert.Contains("id=\"legend\"", html, StringComparison.Ordinal);
-        Assert.Contains("<table", html, StringComparison.Ordinal);
-        Assert.Contains("PAD baseline pleasure", html, StringComparison.Ordinal);
-        Assert.Contains("OCC joy", html, StringComparison.Ordinal);
-        Assert.Contains("\"t\":10", html, StringComparison.Ordinal);
-        Assert.Contains("\"label\":\"PAD baseline pleasure\"", html, StringComparison.Ordinal);
+        Assert.Contains("id=\"run\"", html, StringComparison.Ordinal);
+        Assert.Contains("id=\"stagger\"", html, StringComparison.Ordinal);
+        Assert.Contains("id=\"events\"", html, StringComparison.Ordinal);
+        Assert.Contains("occ.joy", html, StringComparison.Ordinal);
+        Assert.Contains("occ.fear", html, StringComparison.Ordinal);
+        Assert.Contains("Run Test", html, StringComparison.Ordinal);
     }
 
     private static int IndexOf(string key)
