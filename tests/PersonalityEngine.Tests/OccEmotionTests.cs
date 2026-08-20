@@ -59,6 +59,16 @@ public sealed class OccEmotionTests
     }
 
     [Fact]
+    public void Decay_WritesZero_WhenBelowFloor()
+    {
+        var engine = new AffectEngine(new IAffectProvider[] { new OccEmotion { DecayRate = 1.5f } });
+        engine.Tick(new WorldEvent(OccEmotion.FearKind, 1f));
+        for (var i = 0; i < 8; i++)
+            engine.Tick(WorldEvent.Tick, deltaTime: 1f);
+        Assert.Equal(0f, engine.Snapshot.GetOrDefault(OccEmotion.FearKey));
+    }
+
+    [Fact]
     public void AlmaComposition_OmitsEmotionWhenTold()
     {
         var engine = AlmaComposition.Create(OceanTraits.GebhardExample, includeOcc: false);
