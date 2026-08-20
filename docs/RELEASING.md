@@ -39,7 +39,7 @@ Move items out of `[Unreleased]`. Update the compare links at the bottom of that
    git push origin vX.Y.Z
    ```
 
-5. Pushing `v*` runs [`.github/workflows/release.yml`](../.github/workflows/release.yml): test, pack `.nupkg` + DLL zip, create the GitHub Release with the changelog section as notes. Pull requests and `main` already run `dotnet test`; the tag run is the last gate.
+5. Pushing `v*` runs [`.github/workflows/release.yml`](../.github/workflows/release.yml): test, pack `.nupkg` + DLL zip, create the GitHub Release with the changelog section as notes. Pull requests and `main` already run `dotnet test` and the console sample; the tag run is the last gate.
 
 If the workflow cannot run, pack locally and attach the same assets:
 

@@ -29,7 +29,10 @@ Or add a `PackageReference` after placing `PersonalityEngine.Core.0.2.0.nupkg` i
 git clone https://github.com/RossSim/personality-engine.git
 cd personality-engine
 dotnet test
+dotnet run --project samples/AlmaConsole
 ```
+
+The console sample is a first **host**: it ticks the default composition and prints channels a game would read. It is not a provider and is not in the NuGet package.
 
 ## Quick start
 
@@ -87,7 +90,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Citations](docs/CITATIONS.md) | Source registry |
 | [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) · [OCC](docs/occ.md) | Academic review and in-module mapping |
-| [Testing](docs/TESTING.md) | How to run the test suite locally |
+| [Testing](docs/TESTING.md) | How to run the test suite and the console sample locally |
 | [Releasing](docs/RELEASING.md) | How versions and GitHub Releases are cut |
 | [Changelog](CHANGELOG.md) | Notes for every version |
 

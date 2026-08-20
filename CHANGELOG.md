@@ -10,6 +10,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 ### Added
 
 - CI: run the test suite on pull requests and `main` pushes
+- Console sample host (`samples/AlmaConsole`): ticks the default composition and prints named-channel snapshot values
 
 ## [0.2.0] - 2026-08-20
 
