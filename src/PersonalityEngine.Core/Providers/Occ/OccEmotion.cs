@@ -81,14 +81,28 @@ public sealed class OccEmotion : IAffectProvider
         {
             var keep = MathF.Exp(-DecayRate * deltaTime);
             var keys = new List<string>(_intensity.Keys);
+            var dropped = new List<string>();
             foreach (var k in keys)
             {
                 var next = _intensity[k] * keep;
                 if (next < 0.001f)
+                {
                     _intensity.Remove(k);
+                    dropped.Add(k);
+                }
                 else
                     _intensity[k] = next;
             }
+
+            if (_intensity.Count == 0 && dropped.Count == 0)
+                return new AffectDelta();
+
+            var decayed = new AffectDelta();
+            foreach (var pair in _intensity)
+                decayed.Set(pair.Key, pair.Value);
+            foreach (var k in dropped)
+                decayed.Set(k, 0f);
+            return decayed;
         }
 
         if (_intensity.Count == 0)
