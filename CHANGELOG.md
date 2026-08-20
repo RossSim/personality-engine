@@ -7,6 +7,10 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-08-20
+
+Default ALMA-style composition now includes mood dynamics and OCC emotion. Both stay optional: omit a provider and its channels stay absent.
+
 ### Added
 
 - PAD mood dynamics: current mood decays toward the Gebhard-mapped baseline (`PadMood`; decay rate is project convention)
@@ -37,5 +41,6 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 - OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
-[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.2.0
 [0.1.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.1.0
