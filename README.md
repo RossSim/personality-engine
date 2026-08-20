@@ -8,7 +8,7 @@ Default v0.1 composition follows Gebhard ALMA (2005) wiring — Big Five / OCEAN
 
 | | |
 | --- | --- |
-| **Repo** | https://github.com/textide/personality-engine |
+| **Repo** | https://github.com/RossSim/personality-engine |
 | **Jira** | [PE board](https://prayingforradar.atlassian.net/jira/software/projects/PE/summary) · charter [PE-1](https://prayingforradar.atlassian.net/browse/PE-1) |
 | **Docs** | [Charter](docs/CHARTER.md) · [Architecture](docs/ARCHITECTURE.md) · [Citations](docs/CITATIONS.md) · [Peterson module](docs/peterson.md) · [Skinner module](docs/skinner.md) · [Piaget module](docs/piaget.md) · [Cursor start](docs/CURSOR_START.md) |
 

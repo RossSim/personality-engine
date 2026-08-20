@@ -4,7 +4,7 @@ Copy into a new Cursor chat if the session has no repo memory.
 
 ```
 START
-Repo: https://github.com/textide/personality-engine (public MIT)
+Repo: https://github.com/RossSim/personality-engine (public MIT)
 Jira: https://prayingforradar.atlassian.net/jira/software/projects/PE/summary
 Project key: PE. Charter: PE-1. Coding epic: PE-3.
 This is a standalone C# library (netstandard2.1), not Unity and not AviationStuff Assets/Systems.
