@@ -15,6 +15,18 @@ This file is a registry, not a closed canon. Adding a provider means adding a ro
 
 Inspiration for a *modular affective agent*, not a source to fork: Dias, J., Mascarenhas, S., & Paiva, A. FAtiMA. Do not treat FAtiMA-Toolkit types or code as this engine.
 
+## Peterson module ([PE-7](https://prayingforradar.atlassian.net/browse/PE-7))
+
+Full review: [`peterson.md`](peterson.md).
+
+| Provider / mapping | Layer | Source |
+| --- | --- | --- |
+| `StabilityPlasticityProvider` | personality | DeYoung, C. G., Peterson, J. B., & Higgins, D. M. (2002). Higher-order factors of the Big Five predict conformity: Are there neuroses of health? *Personality and Individual Differences, 33*(4), 533–552. After Digman (1997). Equal-weight aggregation and 0..1 conformity map: **project convention**. |
+| `OrderChaosMeaningProvider` | meaning | Peterson, J. B. (1999). *Maps of Meaning: The Architecture of Belief.* Peterson, J. B., & Flanders, J. L. (2002). Complexity Management Theory. *Cortex, 38*(3), 429–458. Peterson, J. B. (2013). Three forms of meaning. Numeric gains/decays: **project convention**. |
+| `PetersonMeaningWeighter` | action weights | Same CMT sources; mix of explore/defend/integrate/withdraw is **project convention**. |
+
+Not implemented (needs aspect-level BFAS, not domain OCEAN): Hirsh, J. B., DeYoung, C. G., Xu, X., & Peterson, J. B. (2010). Compassionate liberals and polite conservatives. *Personality and Social Psychology Bulletin, 36*(5), 655–664.
+
 ## First numeric check
 
 Gebhard (2005) example, slightly relaxed in tests:

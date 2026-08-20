@@ -58,6 +58,12 @@ Order:
 3. `PadMood` — Mehrabian PAD, pulled toward the mapped baseline, with ALMA-style decay
 4. `OccEmotion` — OCC appraisal of events (later slice; not required to compile the first test)
 
+Optional supplement ([PE-7](https://prayingforradar.atlassian.net/browse/PE-7); [`peterson.md`](peterson.md)):
+
+5. `StabilityPlasticityProvider` — DeYoung, Peterson & Higgins (2002) metatraits
+6. `OrderChaosMeaningProvider` — Peterson (1999) / CMT meaning layer (`meaning.peterson-maps.*`)
+7. `PetersonMeaningWeighter` — explore vs defend vs integrate vs withdraw
+
 The first green test is (1)+(2): Gebhard’s numeric example. Mood dynamics and OCC ship as follow-on providers under [PE-3](https://prayingforradar.atlassian.net/browse/PE-3). The provider contract itself is [PE-6](https://prayingforradar.atlassian.net/browse/PE-6).
 
 ## Out of scope for the core

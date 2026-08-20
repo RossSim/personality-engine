@@ -28,6 +28,7 @@ The engine is a **composition of providers** grouped into **layers**. Layers and
 | Stable personality | Slow traits | Big Five / OCEAN | McCrae & Costa |
 | Mood | Medium-term affect | PAD | Mehrabian; Gebhard ALMA 2005 |
 | Emotion | Momentary affect | OCC | Ortony, Clore & Collins |
+| Meaning (optional) | Known / unknown / knower | Peterson Maps of Meaning | Peterson (1999); Peterson & Flanders (2002) |
 
 Gebhard ALMA (2005) is the **first wiring** among those three (OCEAN → PAD mood → OCC emotion). It is one cited composition, not the definition of the engine.
 
