@@ -1,6 +1,6 @@
-using System.Globalization;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using PersonalityEngine.Providers.Occ;
 
 namespace PersonalityEngine.Samples.AlmaTimeline;
 
@@ -11,12 +11,18 @@ internal static class AlmaTimelinePage
         var payload = new
         {
             duration = AlmaTimeline.DurationSeconds,
-            joyAt = AlmaTimeline.JoyAtSecond,
+            firstAt = AlmaTimeline.JoyAtSecond,
+            events = AlmaTimeline.EventOptions.Select(e => new
+            {
+                e.Kind,
+                e.Label,
+                defaultOn = e.Kind == OccEmotion.JoyKind
+            }),
             metrics = AlmaTimeline.Metrics.Select(m => new { m.Key, m.Label, m.Color }),
             frames = frames.Select(f => new { t = f.Second, values = f.Values })
         };
         var json = JsonSerializer.Serialize(payload, JsonOptions);
-        return Template.Replace("__DATA__", json);
+        return Template.Replace("__CONFIG__", json);
     }
 
     private static readonly JsonSerializerOptions JsonOptions = new()
@@ -35,7 +41,16 @@ internal static class AlmaTimelinePage
     :root { color-scheme: light; }
     body { font: 14px/1.4 system-ui, sans-serif; margin: 24px; color: #1a1a1a; background: #fff; }
     h1 { font-size: 18px; font-weight: 650; margin: 0 0 4px; }
-    .caption { color: #555; margin: 0 0 16px; }
+    .caption { color: #555; margin: 0 0 16px; max-width: 920px; }
+    fieldset { border: 1px solid #ddd; padding: 12px 14px; margin: 0 0 14px; max-width: 920px; }
+    legend { font-weight: 650; padding: 0 4px; }
+    .events { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+    .event { display: flex; align-items: center; gap: 8px; }
+    .event label { flex: 1; }
+    .event input[type="number"] { width: 4.5rem; }
+    .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin: 0 0 16px; }
+    button { font: inherit; padding: 6px 14px; }
+    #status { color: #8a1f1f; min-height: 1.2em; }
     #chart { width: 100%; max-width: 920px; height: auto; display: block; }
     .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 12px 0 20px; max-width: 920px; }
     .legend span { display: inline-flex; align-items: center; gap: 6px; }
@@ -50,7 +65,25 @@ internal static class AlmaTimelinePage
 </head>
 <body>
   <h1>Alma composition — 10 second run</h1>
-  <p class="caption">Gebhard example traits. 1s ticks. Host tags joy at t=1s, then emotion and mood overlay decay. Y is channel value (−1 to 1); X is time in seconds.</p>
+  <p class="caption">Gebhard example traits. Check OCC events, set intensity (0–1), choose stagger, then Run Test. First event at t=1s. Stagger 0 fires every checked event on that same tick; 1–3 spaces them apart. Serve with <code>dotnet run --project samples/AlmaTimeline -- --serve</code>.</p>
+  <form id="controls">
+    <fieldset>
+      <legend>OCC events</legend>
+      <div class="events" id="events"></div>
+    </fieldset>
+    <div class="toolbar">
+      <label>Stagger
+        <select id="stagger" name="stagger">
+          <option value="0" selected>0s (same time)</option>
+          <option value="1">1s apart</option>
+          <option value="2">2s apart</option>
+          <option value="3">3s apart</option>
+        </select>
+      </label>
+      <button type="submit" id="run">Run Test</button>
+      <span id="status"></span>
+    </div>
+  </form>
   <p class="clock">t = <span id="clock">0</span>s</p>
   <svg id="chart" viewBox="0 0 920 400" role="img" aria-label="Line chart of affect channels over 10 seconds">
     <g id="grid"></g>
@@ -59,10 +92,10 @@ internal static class AlmaTimelinePage
   <div class="legend" id="legend"></div>
   <table id="table"></table>
   <script>
-    const DATA = __DATA__;
+    const CONFIG = __CONFIG__;
     const W = 920, H = 400, L = 48, R = 16, T = 16, B = 36;
     const plotW = W - L - R, plotH = H - T - B;
-    const xMax = DATA.duration, yMin = -1, yMax = 1;
+    const xMax = CONFIG.duration, yMin = -1, yMax = 1;
     const x = t => L + (t / xMax) * plotW;
     const y = v => T + (1 - (v - yMin) / (yMax - yMin)) * plotH;
 
@@ -71,6 +104,35 @@ internal static class AlmaTimelinePage
     const legend = document.getElementById("legend");
     const table = document.getElementById("table");
     const clock = document.getElementById("clock");
+    const status = document.getElementById("status");
+    const events = document.getElementById("events");
+    let frames = CONFIG.frames || [];
+    let timer = null;
+
+    CONFIG.events.forEach(e => {
+      const row = document.createElement("div");
+      row.className = "event";
+      const box = document.createElement("input");
+      box.type = "checkbox";
+      box.value = e.kind;
+      box.id = "ev-" + e.kind;
+      box.checked = !!e.defaultOn;
+      const label = document.createElement("label");
+      label.htmlFor = box.id;
+      label.textContent = e.label;
+      const intensity = document.createElement("input");
+      intensity.type = "number";
+      intensity.min = "0";
+      intensity.max = "1";
+      intensity.step = "0.1";
+      intensity.value = "1";
+      intensity.title = "Intensity";
+      intensity.setAttribute("aria-label", e.label + " intensity");
+      row.appendChild(box);
+      row.appendChild(label);
+      row.appendChild(intensity);
+      events.appendChild(row);
+    });
 
     function line(x1, y1, x2, y2, stroke, width) {
       const el = document.createElementNS("http://www.w3.org/2000/svg", "line");
@@ -105,7 +167,7 @@ internal static class AlmaTimelinePage
     yLabel.setAttribute("transform", `rotate(-90 14 ${T + plotH / 2})`);
     grid.appendChild(yLabel);
 
-    DATA.metrics.forEach(m => {
+    CONFIG.metrics.forEach(m => {
       const item = document.createElement("span");
       const swatch = document.createElement("i");
       swatch.className = "swatch";
@@ -127,9 +189,8 @@ internal static class AlmaTimelinePage
       head.appendChild(th);
     }
     const tbody = table.createTBody();
-    DATA.metrics.forEach((m, mi) => {
+    CONFIG.metrics.forEach((m, mi) => {
       const row = tbody.insertRow();
-      row.dataset.metric = String(mi);
       const name = row.insertCell();
       name.textContent = m.label;
       name.style.color = m.color;
@@ -166,8 +227,9 @@ internal static class AlmaTimelinePage
       const lastT = shown - 1;
       clock.textContent = String(Math.max(0, lastT));
       series.replaceChildren();
-      DATA.metrics.forEach((m, mi) => {
-        const values = DATA.frames.slice(0, shown).map(f => f.values[mi]);
+      if (!frames.length) return;
+      CONFIG.metrics.forEach((m, mi) => {
+        const values = frames.slice(0, shown).map(f => f.values[mi]);
         polylines(values, m.color).forEach(el => series.appendChild(el));
         values.forEach((v, i) => {
           if (v == null) return;
@@ -179,12 +241,12 @@ internal static class AlmaTimelinePage
           series.appendChild(c);
         });
       });
-      DATA.metrics.forEach((_, mi) => {
+      CONFIG.metrics.forEach((_, mi) => {
         const cells = tbody.rows[mi].cells;
         for (let t = 0; t <= xMax; t++) {
           const cell = cells[t + 1];
-          if (t < shown) {
-            cell.textContent = fmt(DATA.frames[t].values[mi]);
+          if (t < shown && frames[t]) {
+            cell.textContent = fmt(frames[t].values[mi]);
             cell.className = "";
           } else {
             cell.textContent = "";
@@ -194,13 +256,56 @@ internal static class AlmaTimelinePage
       });
     }
 
-    let shown = 1;
-    draw(shown);
-    const timer = setInterval(() => {
-      shown += 1;
+    function play() {
+      if (timer) clearInterval(timer);
+      let shown = 1;
       draw(shown);
-      if (shown > DATA.duration) clearInterval(timer);
-    }, 1000);
+      timer = setInterval(() => {
+        shown += 1;
+        draw(shown);
+        if (shown > xMax) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }, 1000);
+    }
+
+    function collectPulses() {
+      const pulses = [];
+      events.querySelectorAll(".event").forEach(row => {
+        const box = row.querySelector("input[type=checkbox]");
+        if (!box.checked) return;
+        const raw = row.querySelector("input[type=number]").value;
+        pulses.push({ kind: box.value, intensity: Number(raw) });
+      });
+      return pulses;
+    }
+
+    document.getElementById("controls").addEventListener("submit", async ev => {
+      ev.preventDefault();
+      if (timer) { clearInterval(timer); timer = null; }
+      status.textContent = "";
+      const body = {
+        pulses: collectPulses(),
+        stagger: Number(document.getElementById("stagger").value),
+        firstAt: CONFIG.firstAt
+      };
+      try {
+        const res = await fetch("/run", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
+        if (!res.ok) throw new Error(await res.text());
+        const json = await res.json();
+        frames = json.frames;
+        play();
+      } catch (err) {
+        status.textContent = "Start the host: dotnet run --project samples/AlmaTimeline -- --serve";
+      }
+    });
+
+    draw(0);
   </script>
 </body>
 </html>
