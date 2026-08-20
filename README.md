@@ -36,9 +36,13 @@ dotnet test
 using PersonalityEngine;
 using PersonalityEngine.Providers.Erikson;
 using PersonalityEngine.Providers.Ocean;
+using PersonalityEngine.Providers.Pad;
 using PersonalityEngine.Providers.Peterson;
 using PersonalityEngine.Providers.Piaget;
 using PersonalityEngine.Providers.Skinner;
+
+var mood = AlmaComposition.Create(OceanTraits.GebhardExample);
+mood.Tick(WorldEvent.Tick);
 
 var meaning = PetersonComposition.Create(OceanTraits.GebhardExample);
 meaning.Tick(new WorldEvent(OrderChaosMeaningProvider.AnomalyKind, 0.8f));
@@ -60,7 +64,7 @@ Hosts compose only the providers they want. Missing channels are **absent**, not
 | Layer | Role | First provider | Citation |
 | --- | --- | --- | --- |
 | Personality | Slow traits | Big Five / OCEAN | McCrae & Costa |
-| Mood | Medium-term affect | PAD (via ALMA mapping) | Mehrabian; Gebhard 2005 |
+| Mood | Medium-term affect | PAD baseline + optional dynamics | Mehrabian; Gebhard 2005 |
 | Emotion | Momentary affect | OCC (wired later) | Ortony, Clore & Collins |
 | Meaning (optional) | Known / unknown / knower | Peterson Maps of Meaning | Peterson (1999); CMT 2002 |
 | Learning (optional) | Operant repertoire | Three-term contingency | Skinner (1953); Ferster & Skinner (1957) |
