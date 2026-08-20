@@ -31,7 +31,7 @@
   <div class="legend" id="legend"></div>
   <table id="table"></table>
   <script>
-    const DATA = {"duration":10,"joyAt":1,"metrics":[{"Key":"mood.pad.pleasure","Label":"PAD baseline pleasure","Color":"#1565c0"},{"Key":"mood.pad.arousal","Label":"PAD baseline arousal","Color":"#0277bd"},{"Key":"mood.pad.dominance","Label":"PAD baseline dominance","Color":"#00838f"},{"Key":"mood.pad-mood.pleasure","Label":"Current mood pleasure","Color":"#c62828"},{"Key":"mood.pad-mood.arousal","Label":"Current mood arousal","Color":"#ef6c00"},{"Key":"mood.pad-mood.dominance","Label":"Current mood dominance","Color":"#6a1b9a"},{"Key":"emotion.occ.joy","Label":"OCC joy","Color":"#2e7d32"},{"Key":"mood.occ-to-pad.pleasure","Label":"OCC→PAD pleasure","Color":"#4527a0"}],"frames":[{"t":0,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,null,null]},{"t":1,"values":[0.379,-0.077999994,0.5,0.5128781,-0.011060938,0.522313,0.22313017,0.13387811]},{"t":2,"values":[0.379,-0.077999994,0.5,0.40887225,-0.063063875,0.5049787,0.04978707,0.029872244]},{"t":3,"values":[0.379,-0.077999994,0.5,0.38566542,-0.0746673,0.5011109,0.011108997,0.006665399]},{"t":4,"values":[0.379,-0.077999994,0.5,0.38048726,-0.07725637,0.5002479,0.0024787525,0.0014872516]},{"t":5,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":6,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":7,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":8,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":9,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":10,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]}]};
+    const DATA = {"duration":10,"joyAt":1,"metrics":[{"key":"mood.pad.pleasure","label":"PAD baseline pleasure","color":"#1565c0"},{"key":"mood.pad.arousal","label":"PAD baseline arousal","color":"#0277bd"},{"key":"mood.pad.dominance","label":"PAD baseline dominance","color":"#00838f"},{"key":"mood.pad-mood.pleasure","label":"Current mood pleasure","color":"#c62828"},{"key":"mood.pad-mood.arousal","label":"Current mood arousal","color":"#ef6c00"},{"key":"mood.pad-mood.dominance","label":"Current mood dominance","color":"#6a1b9a"},{"key":"emotion.occ.joy","label":"OCC joy","color":"#2e7d32"},{"key":"mood.occ-to-pad.pleasure","label":"OCC→PAD pleasure","color":"#4527a0"}],"frames":[{"t":0,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,null,null]},{"t":1,"values":[0.379,-0.077999994,0.5,0.5128781,-0.011060938,0.522313,0.22313017,0.13387811]},{"t":2,"values":[0.379,-0.077999994,0.5,0.40887225,-0.063063875,0.5049787,0.04978707,0.029872244]},{"t":3,"values":[0.379,-0.077999994,0.5,0.38566542,-0.0746673,0.5011109,0.011108997,0.006665399]},{"t":4,"values":[0.379,-0.077999994,0.5,0.38048726,-0.07725637,0.5002479,0.0024787525,0.0014872516]},{"t":5,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":6,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":7,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":8,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":9,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]},{"t":10,"values":[0.379,-0.077999994,0.5,0.379,-0.077999994,0.5,0,0]}]};
     const W = 920, H = 400, L = 48, R = 16, T = 16, B = 36;
     const plotW = W - L - R, plotH = H - T - B;
     const xMax = DATA.duration, yMin = -1, yMax = 1;
@@ -79,7 +79,11 @@
 
     DATA.metrics.forEach(m => {
       const item = document.createElement("span");
-      item.innerHTML = `<i class="swatch" style="background:${m.color}"></i>${m.label}`;
+      const swatch = document.createElement("i");
+      swatch.className = "swatch";
+      swatch.style.background = m.color;
+      item.appendChild(swatch);
+      item.appendChild(document.createTextNode(m.label));
       item.title = m.key;
       legend.appendChild(item);
     });
@@ -137,6 +141,15 @@
       DATA.metrics.forEach((m, mi) => {
         const values = DATA.frames.slice(0, shown).map(f => f.values[mi]);
         polylines(values, m.color).forEach(el => series.appendChild(el));
+        values.forEach((v, i) => {
+          if (v == null) return;
+          const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          c.setAttribute("cx", x(i));
+          c.setAttribute("cy", y(v));
+          c.setAttribute("r", "3");
+          c.setAttribute("fill", m.color);
+          series.appendChild(c);
+        });
       });
       DATA.metrics.forEach((_, mi) => {
         const cells = tbody.rows[mi].cells;
