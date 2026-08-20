@@ -7,6 +7,10 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+### Added
+
+- CI: run the test suite on pull requests and `main` pushes
+
 ## [0.2.0] - 2026-08-20
 
 Default ALMA-style composition now includes mood dynamics and OCC emotion. Both stay optional: omit a provider and its channels stay absent.
