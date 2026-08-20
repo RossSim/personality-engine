@@ -54,8 +54,8 @@ Optional **projectors** may derive a convenience view (for example PAD) when the
 Order:
 
 1. `OceanPersonality` — McCrae & Costa Big Five
-2. `OceanToPadMapping` — Gebhard ALMA 2005
-3. `PadMood` — Mehrabian PAD, pulled toward the mapped baseline, with ALMA-style decay
+2. `OceanToPadMapping` — Gebhard ALMA 2005 baseline on `mood.pad.*`
+3. `PadMood` — current PAD on `mood.pad-mood.*`, pulled toward that baseline with exponential decay over `dt` (rate is project convention)
 4. `OccEmotion` — OCC appraisal of events (later slice; not required to compile the first test)
 
 Optional supplement ([`peterson.md`](peterson.md)):
@@ -79,7 +79,7 @@ Optional supplement ([`erikson.md`](erikson.md)) — **new `identity` layer**, n
 12. `EriksonPsychosocialProvider` — eight ages, syntonic/dystonic ratio, ego identity (`identity.erikson-psychosocial.*`)
 13. `EriksonIdentityWeighter` — explore vs commit vs care vs withdraw
 
-The first green test is (1)+(2): Gebhard’s numeric example. Mood dynamics and OCC ship as follow-on providers. The provider contract is `IAffectProvider` plus named-channel snapshots.
+The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` is optional: omit it and mood stays the static mapped baseline. OCC ships as a follow-on provider. The provider contract is `IAffectProvider` plus named-channel snapshots.
 
 ## Out of scope for the core
 
