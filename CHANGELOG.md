@@ -11,7 +11,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 - CI: run the test suite on pull requests and `main` pushes
 - Console sample host (`samples/AlmaConsole`): ticks the default composition and prints named-channel snapshot values
-- Timeline host (`samples/AlmaTimeline`): 10s run at 1s ticks, writes an HTML line chart and values table
+- Timeline host (`samples/AlmaTimeline`): 10s run at 1s ticks, HTML chart and values table, OCC checkboxes, intensity, stagger, and Run Test (`--serve`)
 - OCC channels write 0 when intensity decays below the floor, so a snapshot does not keep a stale last pulse
 
 ## [0.2.0] - 2026-08-20
