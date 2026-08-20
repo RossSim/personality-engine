@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using PersonalityEngine.Providers.Occ;
 using PersonalityEngine.Providers.Ocean;
 
 namespace PersonalityEngine.Providers.Pad;
@@ -61,10 +62,20 @@ public sealed class PadMood : IAffectProvider
             _dominance += (baselineD - _dominance) * alpha;
         }
 
+        var pleasure = _pleasure;
+        var arousal = _arousal;
+        var dominance = _dominance;
+        if (snapshot.TryGet(OccToPadMapping.PleasureKey, out var occP))
+            pleasure += occP;
+        if (snapshot.TryGet(OccToPadMapping.ArousalKey, out var occA))
+            arousal += occA;
+        if (snapshot.TryGet(OccToPadMapping.DominanceKey, out var occD))
+            dominance += occD;
+
         return new AffectDelta()
-            .Set(PleasureKey, _pleasure)
-            .Set(ArousalKey, _arousal)
-            .Set(DominanceKey, _dominance);
+            .Set(PleasureKey, pleasure)
+            .Set(ArousalKey, arousal)
+            .Set(DominanceKey, dominance);
     }
 
     public static bool TryRead(AffectSnapshot snapshot, out float pleasure, out float arousal, out float dominance)

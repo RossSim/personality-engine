@@ -35,6 +35,7 @@ dotnet test
 ```csharp
 using PersonalityEngine;
 using PersonalityEngine.Providers.Erikson;
+using PersonalityEngine.Providers.Occ;
 using PersonalityEngine.Providers.Ocean;
 using PersonalityEngine.Providers.Pad;
 using PersonalityEngine.Providers.Peterson;
@@ -43,6 +44,7 @@ using PersonalityEngine.Providers.Skinner;
 
 var mood = AlmaComposition.Create(OceanTraits.GebhardExample);
 mood.Tick(WorldEvent.Tick);
+mood.Tick(new WorldEvent(OccEmotion.JoyKind, 1f));
 
 var meaning = PetersonComposition.Create(OceanTraits.GebhardExample);
 meaning.Tick(new WorldEvent(OrderChaosMeaningProvider.AnomalyKind, 0.8f));
@@ -65,7 +67,7 @@ Hosts compose only the providers they want. Missing channels are **absent**, not
 | --- | --- | --- | --- |
 | Personality | Slow traits | Big Five / OCEAN | McCrae & Costa |
 | Mood | Medium-term affect | PAD baseline + optional dynamics | Mehrabian; Gebhard 2005 |
-| Emotion | Momentary affect | OCC (wired later) | Ortony, Clore & Collins |
+| Emotion | Momentary affect | OCC (host-tagged types) | Ortony, Clore & Collins |
 | Meaning (optional) | Known / unknown / knower | Peterson Maps of Meaning | Peterson (1999); CMT 2002 |
 | Learning (optional) | Operant repertoire | Three-term contingency | Skinner (1953); Ferster & Skinner (1957) |
 | Cognition (optional) | Schemas and stages | Equilibration | Piaget (1950, 1985) |
@@ -83,7 +85,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Applying it in games](docs/APPLICATIONS.md) | Design-facing uses: RTS, RPG, FPS, sims, NPCs — not the C# API |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Citations](docs/CITATIONS.md) | Source registry |
-| [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) | Academic review and in-module mapping |
+| [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) · [OCC](docs/occ.md) | Academic review and in-module mapping |
 | [Testing](docs/TESTING.md) | How to run the test suite locally |
 | [Releasing](docs/RELEASING.md) | How versions and GitHub Releases are cut |
 | [Changelog](CHANGELOG.md) | Notes for every version |
