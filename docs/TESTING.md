@@ -12,8 +12,9 @@ Pull requests and pushes to `main` run the same `dotnet test` command on GitHub 
 
 ```bash
 dotnet run --project samples/AlmaConsole
+dotnet run --project samples/AlmaTimeline
 ```
 
-The sample is a host, not a provider. It is not packed with `PersonalityEngine.Core`.
+The samples are hosts, not providers. They are not packed with `PersonalityEngine.Core`. The timeline sample writes `samples/AlmaTimeline/index.html` (open in a browser): 10s of 1s ticks, line chart plus a metrics×time table.
 
 This repository is a C# library. It is not a Unity project.

@@ -30,9 +30,10 @@ git clone https://github.com/RossSim/personality-engine.git
 cd personality-engine
 dotnet test
 dotnet run --project samples/AlmaConsole
+dotnet run --project samples/AlmaTimeline
 ```
 
-The console sample is a first **host**: it ticks the default composition and prints channels a game would read. It is not a provider and is not in the NuGet package.
+The console sample is a first **host**: it ticks the default composition and prints channels a game would read. `samples/AlmaTimeline` writes a 10s HTML chart and values table (`samples/AlmaTimeline/index.html`). Neither is a provider; neither is in the NuGet package.
 
 ## Quick start
 
