@@ -9,6 +9,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ### Added
 
+- PAD mood dynamics: current mood decays toward the Gebhard-mapped baseline (`PadMood`; decay rate is project convention)
 - Testing notes: `dotnet test`, `netstandard2.1` core, `net8.0` test host
 - Design-facing applications page: how to include the engine in games (RTS, RPG, FPS, sims, NPCs), with fifty concrete uses
 
@@ -32,7 +33,7 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 
 ### Notes
 
-- OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
+- OCC emotion is chartered for the default composition; it is not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
 [Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.1.0...HEAD
