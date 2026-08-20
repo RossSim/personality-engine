@@ -7,11 +7,18 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-08-20
+
+First in-repo hosts and PR test CI. OCC decay no longer leaves a stale last pulse in the snapshot.
+
 ### Added
 
 - CI: run the test suite on pull requests and `main` pushes
 - Console sample host (`samples/AlmaConsole`): ticks the default composition and prints named-channel snapshot values
 - Timeline host (`samples/AlmaTimeline`): 10s run at 1s ticks, HTML chart and values table, OCC checkboxes, intensity, stagger, and Run Test (`--serve`)
+
+### Changed
+
 - OCC channels write 0 when intensity decays below the floor, so a snapshot does not keep a stale last pulse
 
 ## [0.2.0] - 2026-08-20
@@ -48,6 +55,7 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 - OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
-[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.3.0
 [0.2.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.2.0
 [0.1.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.1.0
