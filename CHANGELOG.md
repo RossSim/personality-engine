@@ -7,6 +7,10 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+### Added
+
+- Design-facing applications page: how to include the engine in games (RTS, RPG, FPS, sims, NPCs), with fifty concrete uses
+
 ### Changed
 
 - Public docs describe this library on its own. Do not name other private or internal projects.
