@@ -33,7 +33,7 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 
 ### Notes
 
-- OCC emotion is chartered for the default composition; it is not required to use the providers above
+- OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
 [Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.1.0...HEAD
