@@ -1,3 +1,4 @@
+using PersonalityEngine.Providers.Dyad;
 using PersonalityEngine.Providers.Occ;
 using PersonalityEngine.Providers.Ocean;
 using PersonalityEngine.Providers.Pad;
@@ -44,6 +45,8 @@ public sealed class HostEventsTests
         Assert.Equal(OccEmotion.PityKind, HostEvents.Pity("kin").Kind);
         Assert.Equal(OccEmotion.ResentmentKind, HostEvents.Resent("rival").Kind);
         Assert.Equal(OccEmotion.GloatingKind, HostEvents.Gloat("rival").Kind);
+        Assert.Equal(DyadProvider.LikeKind, HostEvents.Like("kin").Kind);
+        Assert.Equal(DyadProvider.DislikeKind, HostEvents.Dislike("rival").Kind);
     }
 
     [Fact]
@@ -61,6 +64,24 @@ public sealed class HostEventsTests
     [Fact]
     public void Gloat_WritesChannel_AndKeepsTarget() =>
         AssertSocial(HostEvents.Gloat("rival"), OccEmotion.GloatingKey, "rival");
+
+    [Fact]
+    public void Like_WritesLiking_AndKeepsTarget()
+    {
+        Assert.Equal("kin", HostEvents.Like("kin").Target);
+        var engine = DyadComposition.Create();
+        var snap = engine.Tick(HostEvents.Like("kin"));
+        Assert.True(snap.GetOrDefault(DyadProvider.LikingKey("kin")) > 0f);
+    }
+
+    [Fact]
+    public void Dislike_WritesNegativeLiking_AndKeepsTarget()
+    {
+        Assert.Equal("rival", HostEvents.Dislike("rival").Target);
+        var engine = DyadComposition.Create();
+        var snap = engine.Tick(HostEvents.Dislike("rival"));
+        Assert.True(snap.GetOrDefault(DyadProvider.LikingKey("rival")) < 0f);
+    }
 
     private static void AssertChannel(WorldEvent ev, string key)
     {

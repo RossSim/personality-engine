@@ -24,7 +24,7 @@ OCC groups emotions by eliciting conditions. Implemented here:
 | Attribution | pride, shame, admiration, reproach | `occ.pride`, `occ.shame`, `occ.admiration`, `occ.reproach` |
 | Fortune-of-others | happy-for, pity (sorry-for), resentment, gloating | `occ.happy-for`, `occ.pity`, `occ.resentment`, `occ.gloating` |
 
-The host still tags the eliciting condition. `WorldEvent.Target` may name the other person; snapshot channels stay **global** (`emotion.occ.happy-for`), not per-other keys. Pairwise liking belongs on an optional relationship provider, not in this emotion slice.
+The host still tags the eliciting condition. `WorldEvent.Target` may name the other person; snapshot channels stay **global** (`emotion.occ.happy-for`), not per-other keys. Pairwise liking belongs on the optional [`dyad.md`](dyad.md) relationship provider, not in this emotion slice.
 
 Not in this slice: attraction (love, hate), compound well-being/attribution (gratification, remorse, gratitude, anger), inferring fortune-of-others from untyped events or from liking, and automatic appraisal from untyped `WorldEvent`s.
 
