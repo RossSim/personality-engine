@@ -7,6 +7,11 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+### Changed
+
+- Plain-language applications intro for designers, programmers, and people using an AI to make a game
+- Mermaid diagrams on the applications, hosting, and architecture pages (tables kept)
+
 ## [0.6.0] - 2026-08-21
 
 Compound OCC: host-tagged gratification, gratitude, anger, and remorse.
