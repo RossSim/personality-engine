@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>PersonalityEngine</RootNamespace>
     <AssemblyName>PersonalityEngine.Core</AssemblyName>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <PackageId>PersonalityEngine.Core</PackageId>
     <Authors>RossSim</Authors>
     <Description>Modular socio-emotional personality engine for games.</Description>

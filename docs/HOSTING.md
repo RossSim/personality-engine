@@ -23,7 +23,9 @@ engine.Tick(ev, deltaTime);             // event + decay
 
 `AffectPersist` is a POCO (`Version`, `Channels`, `Providers`). The core does not take a JSON dependency. Hosts may serialize it with `System.Text.Json` or another serializer.
 
-Unknown provider ids and unknown bag keys are **ignored** on load. Extra snapshot channel keys are **kept** (the snapshot is an open bag). Missing bags leave that provider at constructor defaults.
+Unknown provider ids and unknown bag keys are **ignored** on load. Extra snapshot channel keys are **kept** (the snapshot is an open bag). Missing bags leave that provider at constructor defaults. Non-finite floats are dropped.
+
+`Import` is for **host-owned** saves. The core does not parse JSON or fetch blobs. If a host ever loads untrusted persist data (mods, other players), cap size before deserialize and treat the blob as untrusted input.
 
 v1 shape:
 
@@ -45,3 +47,38 @@ var blob = engine.Export();
 other.Import(blob);
 other.Tick(0f); // or Tick(WorldEvent.Tick)
 ```
+
+## Host events
+
+`HostEvents` is a **project-convention** catalog. It does not infer goals or standards. Each helper is a `WorldEvent` with an OCC kind the default composition already understands:
+
+| Helper | OCC kind | Typical host moment |
+| --- | --- | --- |
+| `NeedMet` | `occ.joy` | a need was satisfied |
+| `Harm` | `occ.distress` | damage or goal failure |
+| `Threat` | `occ.fear` | danger present |
+| `ThreatPassed` | `occ.relief` | danger gone |
+| `SelfCredit` | `occ.pride` | host attributes success to self |
+| `SelfBlame` | `occ.shame` | host attributes failure to self |
+
+```csharp
+engine.Tick(HostEvents.NeedMet());
+engine.Tick(HostEvents.Threat(0.7f), deltaTime);
+```
+
+Hosts may still send `new WorldEvent(OccEmotion.JoyKind, 1f)` directly.
+
+## Utility-AI tint
+
+`WeightActions` is a **tint**, not a second brain. The host Utility AI keeps `Pick`. Dual choosers (host Pick and a PE weighter both selecting actions) will fight.
+
+```csharp
+var bases = /* host considerations, opaque ids */;
+var tints = engine.WeightActions(new[] { "meet-need", "role-work", "wander" });
+var finals = HostChooser.Combine(bases, tints); // base + 0.35 * tint
+var pick = HostChooser.Pick(finals);            // host still decides
+```
+
+`UtilityTintWeighter` maps PAD/OCC onto those three ids. Coefficients are project convention. Missing channels score 0 and must not throw.
+
+Runnable sample: `dotnet run --project samples/UtilityTint`. It starts with host bases that prefer `role-work`, then a threat pulse flips Pick to `meet-need`.

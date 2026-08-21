@@ -146,12 +146,14 @@ public sealed class OperantLearningProvider : IAffectProvider, IStatefulProvider
         var strengthPrefix = StrengthKey("");
         foreach (var pair in bag)
         {
+            if (float.IsNaN(pair.Value) || float.IsInfinity(pair.Value))
+                continue;
             if (pair.Key.StartsWith(strengthPrefix, StringComparison.Ordinal) && pair.Key.Length > strengthPrefix.Length)
                 _strength[pair.Key.Substring(strengthPrefix.Length)] = Clamp01(pair.Value);
             else if (pair.Key.StartsWith(RatioPrefix, StringComparison.Ordinal) && pair.Key.Length > RatioPrefix.Length)
-                _responsesSinceReinforcer[pair.Key.Substring(RatioPrefix.Length)] = (int)pair.Value;
+                _responsesSinceReinforcer[pair.Key.Substring(RatioPrefix.Length)] = ClampCount(pair.Value);
             else if (pair.Key.StartsWith(NextVrPrefix, StringComparison.Ordinal) && pair.Key.Length > NextVrPrefix.Length)
-                _nextVr[pair.Key.Substring(NextVrPrefix.Length)] = Math.Max(1, (int)pair.Value);
+                _nextVr[pair.Key.Substring(NextVrPrefix.Length)] = Math.Max(1, ClampCount(pair.Value));
         }
     }
 
@@ -226,4 +228,11 @@ public sealed class OperantLearningProvider : IAffectProvider, IStatefulProvider
 
     private static float Clamp01(float value) =>
         value < 0f ? 0f : value > 1f ? 1f : value;
+
+    private static int ClampCount(float value)
+    {
+        if (float.IsNaN(value) || float.IsInfinity(value) || value < 0f)
+            return 0;
+        return value > 1_000_000f ? 1_000_000 : (int)value;
+    }
 }

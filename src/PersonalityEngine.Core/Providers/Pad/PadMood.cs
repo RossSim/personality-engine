@@ -99,16 +99,24 @@ public sealed class PadMood : IAffectProvider, IStatefulProvider
 
     public void ImportState(IReadOnlyDictionary<string, float> bag)
     {
-        if (bag.TryGetValue(InternalPleasure, out var p))
+        if (TryFinite(bag, InternalPleasure, out var p))
             _pleasure = p;
-        if (bag.TryGetValue(InternalArousal, out var a))
+        if (TryFinite(bag, InternalArousal, out var a))
             _arousal = a;
-        if (bag.TryGetValue(InternalDominance, out var d))
+        if (TryFinite(bag, InternalDominance, out var d))
             _dominance = d;
-        if (bag.TryGetValue(SeededKey, out var seeded))
+        if (TryFinite(bag, SeededKey, out var seeded))
             _seeded = seeded >= 0.5f;
         else
             _seeded = bag.ContainsKey(InternalPleasure);
+    }
+
+    private static bool TryFinite(IReadOnlyDictionary<string, float> bag, string key, out float value)
+    {
+        if (bag.TryGetValue(key, out value) && !(float.IsNaN(value) || float.IsInfinity(value)))
+            return true;
+        value = 0f;
+        return false;
     }
 
     public static bool TryRead(AffectSnapshot snapshot, out float pleasure, out float arousal, out float dominance)

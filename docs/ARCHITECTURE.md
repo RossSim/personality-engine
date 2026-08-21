@@ -15,7 +15,7 @@ WorldEvent  →  AffectEngine.Tick(event, dt)
                     └─ AffectSnapshot  →  optional IActionWeighter  →  action weights
 ```
 
-Hosts send typed events (and delta time). `Tick(dt)` is the idle path. They read a snapshot and, if they asked for it, weights over candidate actions. They do not own the psychology. Save/load: [`HOSTING.md`](HOSTING.md).
+Hosts send typed events (and delta time). `Tick(dt)` is the idle path. `HostEvents` wraps common OCC kinds as named helpers. They read a snapshot and, if they asked for it, weights over candidate actions. Weights tint a host chooser; they do not replace Pick. They do not own the psychology. Save/load, events, and tint: [`HOSTING.md`](HOSTING.md).
 
 ## Providers
 

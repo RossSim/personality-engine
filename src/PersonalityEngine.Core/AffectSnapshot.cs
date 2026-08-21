@@ -21,7 +21,11 @@ public sealed class AffectSnapshot
         _channels.Clear();
         _ran.Clear();
         foreach (var pair in channels)
+        {
+            if (float.IsNaN(pair.Value) || float.IsInfinity(pair.Value))
+                continue;
             _channels[pair.Key] = pair.Value;
+        }
     }
 
     internal void Apply(AffectDelta delta, string providerId)
