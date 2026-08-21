@@ -15,6 +15,7 @@ Inspired by FAtiMA, built from scratch. The product is **modular middleware**, n
 - **Every provider cites a source.** Coefficients, thresholds, and mappings that are project conventions are labeled as such.
 - **Hosts compose; they do not fork** the library to add a theory, a layer, or a method.
 - **GitHub stays public.** Do not put private issue-tracker URLs, project keys, or ticket ids in this repository, GitHub pull requests, issues, commit messages, Releases, or release notes.
+- **Docs live in this repository.** README, `docs/`, and the changelog are the product docs. Do not maintain a separate wiki.
 - **This repository is self-contained.** Do not name other private or internal projects, studios, or repos.
 
 ## What is modular

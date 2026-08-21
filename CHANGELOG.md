@@ -10,6 +10,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 ### Changed
 
 - Charter and start notes treat the first coding slice as shipped; current published library is 0.3.0
+- Charter and start notes: product docs live in this repository; the private tracker is Jira only
 
 ## [0.3.0] - 2026-08-20
 
