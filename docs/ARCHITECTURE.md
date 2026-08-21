@@ -80,7 +80,12 @@ Optional supplement ([`erikson.md`](erikson.md)) — **new `identity` layer**, n
 13. `EriksonPsychosocialProvider` — eight ages, syntonic/dystonic ratio, ego identity (`identity.erikson-psychosocial.*`)
 14. `EriksonIdentityWeighter` — explore vs commit vs care vs withdraw
 
-The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC are optional: omit them and those channels stay absent. The provider contract is `IAffectProvider` plus named-channel snapshots. Providers that keep private values implement `IStatefulProvider` so `AffectEngine.Export` / `Import` can round-trip them. Hosts serialize `AffectPersist` themselves. See [`HOSTING.md`](HOSTING.md). Providers that keep private values implement `IStatefulProvider` so `AffectEngine.Export` / `Import` can round-trip them. Hosts serialize `AffectPersist` themselves. See [`HOSTING.md`](HOSTING.md).
+Optional supplement ([`dyad.md`](dyad.md)) — **new `relationship` layer**, not an emotion provider:
+
+15. `DyadProvider` — pairwise liking toward a named other (`relationship.dyad.liking:{id}`)
+16. `DyadWeighter` — approach vs avoid for opaque `{other}` ids
+
+The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC are optional: omit them and those channels stay absent. The provider contract is `IAffectProvider` plus named-channel snapshots. Providers that keep private values implement `IStatefulProvider` so `AffectEngine.Export` / `Import` can round-trip them. Hosts serialize `AffectPersist` themselves. See [`HOSTING.md`](HOSTING.md).
 
 ## Out of scope for the core
 
@@ -90,4 +95,4 @@ The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC 
 
 Those may wrap this library later. They are not providers inside it.
 
-This repository includes console hosts under [`samples/AlmaConsole`](../samples/AlmaConsole) and [`samples/AlmaTimeline`](../samples/AlmaTimeline) so the default composition can be ticked without a game engine. They are consumers, not providers.
+This repository includes console hosts under [`samples/AlmaConsole`](../samples/AlmaConsole), [`samples/AlmaTimeline`](../samples/AlmaTimeline), [`samples/UtilityTint`](../samples/UtilityTint), and [`samples/SocialTint`](../samples/SocialTint). They are consumers, not providers.

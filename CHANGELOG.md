@@ -7,12 +7,22 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-08-21
+
+Social affect: fortune-of-others OCC, optional dyad liking, and a tint that does not steal Pick.
+
 ### Added
 
 - OCC fortune-of-others types: happy-for, pity, resentment, gloating (host-tagged; same decay and persist path as other OCC channels)
 - `HostEvents.HappyFor` / `Pity` / `Resent` / `Gloat` wrap those kinds and keep the other id as `Target`
+- Optional `relationship` layer: `DyadProvider` pairwise liking toward a named other (`relationship.dyad.liking:{id}`), persist, `HostEvents.Like` / `Dislike`
+- `DyadWeighter` tints `approach:{other}` / `avoid:{other}`; host Pick stays
+- Console sample: `samples/SocialTint`
+- Relationship notes: [`docs/dyad.md`](docs/dyad.md)
 
-## [0.4.0] - 2026-08-21
+### Changed
+
+- Charter and start notes: current published library is 0.5.0
 
 Host I/O: persist, idle ticks, named events, and a Utility-AI tint that does not steal Pick.
 
@@ -78,7 +88,8 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 - OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
-[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.0
 [0.4.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.4.0
 [0.3.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.3.0
 [0.2.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.2.0

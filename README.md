@@ -9,7 +9,7 @@ A reusable C# socio-emotional engine for games. Events go in; a named-channel **
 
 It is **modular middleware**, not a frozen psychology stack. Personality, mood, and emotion are the default layers. Hosts add, replace, or omit providers. Every provider cites a source. There is no LLM in the core.
 
-Current library version: **0.4.0**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
+Current library version: **0.5.0**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
 
 ## Install
 
@@ -19,7 +19,7 @@ Current library version: **0.4.0**. Downloads and notes: [Releases](https://gith
 dotnet add package PersonalityEngine.Core --source /path/to/downloaded/nupkg-folder
 ```
 
-Or add a `PackageReference` after placing `PersonalityEngine.Core.0.4.0.nupkg` in a local feed.
+Or add a `PackageReference` after placing `PersonalityEngine.Core.0.5.0.nupkg` in a local feed.
 
 **DLL:** unzip the `PersonalityEngine.Core.*.zip` asset from the [latest release](https://github.com/RossSim/personality-engine/releases/latest) and reference `PersonalityEngine.Core.dll` (`netstandard2.1`, Unity-consumable later; this repo is not a Unity project).
 
@@ -33,14 +33,16 @@ dotnet run --project samples/AlmaConsole
 dotnet run --project samples/AlmaTimeline
 dotnet run --project samples/AlmaTimeline -- --serve
 dotnet run --project samples/UtilityTint
+dotnet run --project samples/SocialTint
 ```
 
-The console sample is a first **host**: it ticks the default composition and prints channels a game would read. `samples/AlmaTimeline` writes a 10s HTML chart (`samples/AlmaTimeline/index.html`). Serve with `--serve` to pick OCC events, intensity, and stagger, then Run Test. `samples/UtilityTint` shows a host Utility AI keeping Pick while PE tints three opaque action ids. Samples are not providers and are not in the NuGet package.
+The console sample is a first **host**: it ticks the default composition and prints channels a game would read. `samples/AlmaTimeline` writes a 10s HTML chart (`samples/AlmaTimeline/index.html`). Serve with `--serve` to pick OCC events, intensity, and stagger, then Run Test. `samples/UtilityTint` shows a host Utility AI keeping Pick while PE tints three opaque action ids. `samples/SocialTint` does the same for `approach:{other}` / `avoid:{other}` after like and happy-for. Samples are not providers and are not in the NuGet package.
 
 ## Quick start
 
 ```csharp
 using PersonalityEngine;
+using PersonalityEngine.Providers.Dyad;
 using PersonalityEngine.Providers.Erikson;
 using PersonalityEngine.Providers.Occ;
 using PersonalityEngine.Providers.Ocean;
@@ -64,6 +66,9 @@ cognition.Tick(new WorldEvent(PiagetEquilibrationProvider.EncounterKind, 0.2f));
 
 var identity = EriksonComposition.Create(PsychosocialStage.IdentityVsRoleConfusion);
 identity.Tick(new WorldEvent(EriksonPsychosocialProvider.ExploreKind, 1f));
+
+var social = DyadComposition.Create();
+social.Tick(HostEvents.Like("kin"));
 ```
 
 Hosts compose only the providers they want. Missing channels are **absent**, not errors.
@@ -79,6 +84,7 @@ Hosts compose only the providers they want. Missing channels are **absent**, not
 | Learning (optional) | Operant repertoire | Three-term contingency | Skinner (1953); Ferster & Skinner (1957) |
 | Cognition (optional) | Schemas and stages | Equilibration | Piaget (1950, 1985) |
 | Identity (optional) | Psychosocial crises | Eight ages | Erikson (1963, 1968) |
+| Relationship (optional) | Pairwise liking | Dyad toward a named other | OCC 1988 (attitude); bumps/decay project convention |
 
 Gebhard ALMA (2005) is the **first wiring** among personality, mood, and emotion — not the definition of the engine. Numeric game knobs are labeled **project convention** and are not attributed to a paper.
 
@@ -93,7 +99,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser |
 | [Citations](docs/CITATIONS.md) | Source registry |
-| [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) · [OCC](docs/occ.md) | Academic review and in-module mapping |
+| [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) · [OCC](docs/occ.md) · [Dyad](docs/dyad.md) | Academic review and in-module mapping |
 | [Testing](docs/TESTING.md) | How to run the test suite and the console sample locally |
 | [Releasing](docs/RELEASING.md) | How versions and GitHub Releases are cut |
 | [Changelog](CHANGELOG.md) | Notes for every version |
@@ -102,7 +108,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 
 Each published version has:
 
-1. A `Version` in `PersonalityEngine.Core` (currently `0.4.0`)
+1. A `Version` in `PersonalityEngine.Core` (currently `0.5.0`)
 2. A `CHANGELOG.md` section for that version
 3. A git tag `vMAJOR.MINOR.PATCH`
 4. A [GitHub Release](https://github.com/RossSim/personality-engine/releases) with those notes and downloadable `.nupkg` / `.zip` assets

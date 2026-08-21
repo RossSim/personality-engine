@@ -15,5 +15,6 @@
     <ProjectReference Include="..\..\src\PersonalityEngine.Core\PersonalityEngine.Core.csproj" />
     <ProjectReference Include="..\..\samples\AlmaTimeline\AlmaTimeline.csproj" />
     <ProjectReference Include="..\..\samples\UtilityTint\UtilityTint.csproj" />
+    <ProjectReference Include="..\..\samples\SocialTint\SocialTint.csproj" />
   </ItemGroup>
 </Project>

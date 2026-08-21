@@ -61,6 +61,17 @@ Full review: [`erikson.md`](erikson.md). **New layer** `identity` (not personali
 
 Not implemented: automatic stage advancement; Marcia identity statuses; Joan Erikson 9th stage; EPSI/MEIM scores; psychohistory as NPC biography.
 
+## Dyad module
+
+Full review: [`dyad.md`](dyad.md). **New layer** `relationship` (not personality/mood/emotion/meaning/learning/cognition/identity).
+
+| Provider / mapping | Layer | Source |
+| --- | --- | --- |
+| `DyadProvider` | relationship | Ortony, A., Clore, G. L., & Collins, A. (1988). *The Cognitive Structure of Emotions.* Liking/disliking as an attitude that fortune-of-others assumes. Pairwise channel, bump size, and decay: **project convention**. |
+| `DyadWeighter` | action weights | Same OCC attitude plus fortune-of-others intensities. Mix onto `approach:{other}` / `avoid:{other}`: **project convention**. |
+
+Not implemented: Heider balance; reputation; inferring OCC fortune-of-others from the sign of liking; attraction OCC types as extra emotion channels.
+
 ## First numeric check
 
 Gebhard (2005) example, slightly relaxed in tests:
