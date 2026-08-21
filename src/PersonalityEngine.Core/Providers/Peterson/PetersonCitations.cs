@@ -8,7 +8,7 @@ internal static class PetersonCitations
 
     public static readonly Citation Digman1997 = new Citation(
         "digman-1997",
-        "Digman, J. M. (1997). Higher-order factors of the Big Five. Journal of Personality and Social Psychology, 73(6), 1246–1256.");
+        "Digman, J. M. (1997). Higher-order factors of the Big Five. Journal of Personality and Social Psychology, 73(6), 1246–1256. https://doi.org/10.1037/0022-3514.73.6.1246");
 
     public static readonly Citation MapsOfMeaning1999 = new Citation(
         "peterson-maps-1999",
@@ -20,7 +20,7 @@ internal static class PetersonCitations
 
     public static readonly Citation ThreeFormsOfMeaning2013 = new Citation(
         "peterson-meaning-2013",
-        "Peterson, J. B. (2013). Three forms of meaning and the management of complexity. In K. Markman, T. Proulx, & M. Lindberg (Eds.), The Psychology of Meaning. APA.");
+        "Peterson, J. B. (2013). Three forms of meaning and the management of complexity. In K. Markman, T. Proulx, & M. Lindberg (Eds.), The psychology of meaning. American Psychological Association.");
 
     public static readonly Citation EqualWeightAggregation = new Citation(
         "pe-equal-weight-metatraits",

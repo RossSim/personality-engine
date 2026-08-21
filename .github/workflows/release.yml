@@ -31,7 +31,7 @@ jobs:
           STAGE="src/PersonalityEngine.Core/bin/Release/netstandard2.1"
           zip -j "dist/PersonalityEngine.Core.${VERSION}.zip" \
             "${STAGE}/PersonalityEngine.Core.dll" \
-            LICENSE README.md CHANGELOG.md
+            LICENSE README.md CHANGELOG.md DISCLAIMER.md
 
       - name: Notes from changelog
         run: |

@@ -20,9 +20,7 @@ public sealed class OceanPersonality : IAffectProvider
     public string Id => ProviderId;
     public string Layer => AffectLayer.Personality;
 
-    public Citation Citation { get; } = new Citation(
-        "mccrae-costa-ocean",
-        "McCrae, R. R., & Costa, P. T., Jr. Five-factor (OCEAN) model of personality.");
+    public Citation Citation { get; } = OceanCitations.FiveFactor;
 
     public IReadOnlyList<Citation> AdditionalCitations { get; } = System.Array.Empty<Citation>();
 
