@@ -49,4 +49,4 @@ A host may enable a subset. Downstream code must not assume OCEAN, PAD, or OCC a
 
 The pipeline with the default ALMA-style composition is in the library. First numeric test: Gebhard’s example `O=0.4 C=0.8 E=0.6 A=0.3 N=0.4` → `P=0.38 A=-0.08 D=0.50` (slightly relaxed). That test belongs to the OCEAN and PAD mapping providers. `PadMood` and `OccEmotion` sit on that baseline in the default composition. None of this freezes the set of theories.
 
-Current published library: **0.5.0** (social affect: fortune-of-others OCC, optional dyad liking, social Utility-AI tint). Next coding work is a new milestone, not a rewrite of this charter.
+Current published library: **0.5.1** (social affect: fortune-of-others OCC, optional dyad liking, social Utility-AI tint; changelog heading patch). Next coding work is a new milestone, not a rewrite of this charter.

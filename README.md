@@ -9,7 +9,7 @@ A reusable C# socio-emotional engine for games. Events go in; a named-channel **
 
 It is **modular middleware**, not a frozen psychology stack. Personality, mood, and emotion are the default layers. Hosts add, replace, or omit providers. Every provider cites a source. There is no LLM in the core.
 
-Current library version: **0.5.0**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
+Current library version: **0.5.1**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
 
 ## Install
 
@@ -19,7 +19,7 @@ Current library version: **0.5.0**. Downloads and notes: [Releases](https://gith
 dotnet add package PersonalityEngine.Core --source /path/to/downloaded/nupkg-folder
 ```
 
-Or add a `PackageReference` after placing `PersonalityEngine.Core.0.5.0.nupkg` in a local feed.
+Or add a `PackageReference` after placing `PersonalityEngine.Core.0.5.1.nupkg` in a local feed.
 
 **DLL:** unzip the `PersonalityEngine.Core.*.zip` asset from the [latest release](https://github.com/RossSim/personality-engine/releases/latest) and reference `PersonalityEngine.Core.dll` (`netstandard2.1`, Unity-consumable later; this repo is not a Unity project).
 
@@ -108,7 +108,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 
 Each published version has:
 
-1. A `Version` in `PersonalityEngine.Core` (currently `0.5.0`)
+1. A `Version` in `PersonalityEngine.Core` (currently `0.5.1`)
 2. A `CHANGELOG.md` section for that version
 3. A git tag `vMAJOR.MINOR.PATCH`
 4. A [GitHub Release](https://github.com/RossSim/personality-engine/releases) with those notes and downloadable `.nupkg` / `.zip` assets
