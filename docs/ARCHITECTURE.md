@@ -49,7 +49,7 @@ Downstream code looks up **named channels**. Missing channels are absent, not er
 
 Optional **projectors** may derive a convenience view (for example PAD) when the required inputs exist. A projector is cited; it is not a back-door requirement that every composition speak PAD.
 
-## Default composition (v0.1)
+## Default composition
 
 Order:
 
