@@ -68,8 +68,12 @@ other.Tick(0f); // or Tick(WorldEvent.Tick)
 | `Gloat(other)` | `occ.gloating` | undesirable event for a disliked other |
 | `Like(other)` | `dyad.like` | host decided this other is liked more |
 | `Dislike(other)` | `dyad.dislike` | host decided this other is liked less |
+| `Anger(other)` | `occ.anger` | undesirable event attributed to another |
+| `Gratitude(other)` | `occ.gratitude` | desirable event attributed to another |
+| `Gratification` | `occ.gratification` | desirable event attributed to self |
+| `Remorse` | `occ.remorse` | undesirable event attributed to self |
 
-Fortune-of-others helpers take the other id as `WorldEvent.Target`. They do **not** read liking. The host already chose HappyFor vs Gloat.
+Fortune-of-others helpers take the other id as `WorldEvent.Target`. They do **not** read liking. The host already chose HappyFor vs Gloat. Compound helpers work the same way: `Anger` / `Gratitude` keep the other as `Target`; `Gratification` / `Remorse` are self-attribution. None of these infer from dyad liking or from pairing distress with reproach.
 
 ```csharp
 engine.Tick(HostEvents.NeedMet());
@@ -77,6 +81,8 @@ engine.Tick(HostEvents.Threat(0.7f), deltaTime);
 engine.Tick(HostEvents.HappyFor("kin"));
 engine.Tick(HostEvents.Gloat("rival", 0.8f));
 engine.Tick(HostEvents.Like("kin"));
+engine.Tick(HostEvents.Anger("rival"));
+engine.Tick(HostEvents.Gratitude("kin"));
 ```
 
 Hosts may still send `new WorldEvent(OccEmotion.JoyKind, 1f)` directly.
