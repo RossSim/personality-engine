@@ -45,6 +45,10 @@ public sealed class HostEventsTests
         Assert.Equal(OccEmotion.PityKind, HostEvents.Pity("kin").Kind);
         Assert.Equal(OccEmotion.ResentmentKind, HostEvents.Resent("rival").Kind);
         Assert.Equal(OccEmotion.GloatingKind, HostEvents.Gloat("rival").Kind);
+        Assert.Equal(OccEmotion.AngerKind, HostEvents.Anger("rival").Kind);
+        Assert.Equal(OccEmotion.GratitudeKind, HostEvents.Gratitude("kin").Kind);
+        Assert.Equal(OccEmotion.GratificationKind, HostEvents.Gratification().Kind);
+        Assert.Equal(OccEmotion.RemorseKind, HostEvents.Remorse().Kind);
         Assert.Equal(DyadProvider.LikeKind, HostEvents.Like("kin").Kind);
         Assert.Equal(DyadProvider.DislikeKind, HostEvents.Dislike("rival").Kind);
     }
@@ -64,6 +68,22 @@ public sealed class HostEventsTests
     [Fact]
     public void Gloat_WritesChannel_AndKeepsTarget() =>
         AssertSocial(HostEvents.Gloat("rival"), OccEmotion.GloatingKey, "rival");
+
+    [Fact]
+    public void Anger_WritesChannel_AndKeepsTarget() =>
+        AssertSocial(HostEvents.Anger("rival"), OccEmotion.AngerKey, "rival");
+
+    [Fact]
+    public void Gratitude_WritesChannel_AndKeepsTarget() =>
+        AssertSocial(HostEvents.Gratitude("kin"), OccEmotion.GratitudeKey, "kin");
+
+    [Fact]
+    public void Gratification_WritesChannel() =>
+        AssertChannel(HostEvents.Gratification(), OccEmotion.GratificationKey);
+
+    [Fact]
+    public void Remorse_WritesChannel() =>
+        AssertChannel(HostEvents.Remorse(), OccEmotion.RemorseKey);
 
     [Fact]
     public void Like_WritesLiking_AndKeepsTarget()

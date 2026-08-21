@@ -107,6 +107,25 @@ public sealed class PersistTests
     }
 
     [Fact]
+    public void Anger_RoundTrips_AndKeepsDecaying()
+    {
+        const float rate = 1.5f;
+        var live = new AffectEngine(new IAffectProvider[] { new OccEmotion { DecayRate = rate } });
+        live.Tick(new WorldEvent(OccEmotion.AngerKind, 1f, "rival"));
+
+        var restored = new AffectEngine(new IAffectProvider[] { new OccEmotion { DecayRate = rate } });
+        restored.Import(live.Export());
+
+        Assert.Equal(
+            live.Snapshot.GetOrDefault(OccEmotion.AngerKey),
+            restored.Snapshot.GetOrDefault(OccEmotion.AngerKey),
+            4);
+
+        Assert.Equal(live.Tick(1f).GetOrDefault(OccEmotion.AngerKey),
+            restored.Tick(1f).GetOrDefault(OccEmotion.AngerKey), 4);
+    }
+
+    [Fact]
     public void TickDt_MatchesWorldEventTick()
     {
         var a = AlmaComposition.Create(OceanTraits.GebhardExample, includeOcc: false);

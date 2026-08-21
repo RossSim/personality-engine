@@ -7,6 +7,20 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-08-21
+
+Compound OCC: host-tagged gratification, gratitude, anger, and remorse.
+
+### Added
+
+- OCC well-being+attribution compounds: gratification, gratitude, anger, remorse (host-tagged; same decay and persist path as other OCC channels)
+- `HostEvents.Anger` / `Gratitude` keep the other id as `Target`; `Gratification` / `Remorse` are self-attribution
+- AlmaTimeline checkboxes for fortune-of-others and the four compounds
+
+### Changed
+
+- Charter and start notes: current published library is 0.6.0
+
 ## [0.5.2] - 2026-08-21
 
 Public disclaimer and citation hygiene. MIT is unchanged.
@@ -109,7 +123,8 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 - OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
-[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.5.2...HEAD
+[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.6.0
 [0.5.2]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.2
 [0.5.1]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.1
 [0.5.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.0

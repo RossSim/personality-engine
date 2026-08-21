@@ -44,4 +44,16 @@ public static class HostEvents
 
     public static WorldEvent Dislike(string otherId, float intensity = 1f) =>
         new WorldEvent(DyadProvider.DislikeKind, intensity, otherId);
+
+    public static WorldEvent Anger(string otherId, float intensity = 1f) =>
+        new WorldEvent(OccEmotion.AngerKind, intensity, otherId);
+
+    public static WorldEvent Gratitude(string otherId, float intensity = 1f) =>
+        new WorldEvent(OccEmotion.GratitudeKind, intensity, otherId);
+
+    public static WorldEvent Gratification(float intensity = 1f) =>
+        new WorldEvent(OccEmotion.GratificationKind, intensity);
+
+    public static WorldEvent Remorse(float intensity = 1f) =>
+        new WorldEvent(OccEmotion.RemorseKind, intensity);
 }
