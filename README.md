@@ -67,7 +67,7 @@ identity.Tick(new WorldEvent(EriksonPsychosocialProvider.ExploreKind, 1f));
 
 Hosts compose only the providers they want. Missing channels are **absent**, not errors.
 
-## Layers (v0.1)
+## Layers
 
 | Layer | Role | First provider | Citation |
 | --- | --- | --- | --- |

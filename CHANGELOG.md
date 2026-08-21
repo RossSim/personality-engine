@@ -7,6 +7,10 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+### Changed
+
+- Charter and start notes treat the first coding slice as shipped; current published library is 0.3.0
+
 ## [0.3.0] - 2026-08-20
 
 First in-repo hosts and PR test CI. OCC decay no longer leaves a stale last pulse in the snapshot.

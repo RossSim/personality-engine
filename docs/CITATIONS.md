@@ -4,7 +4,7 @@ Every provider in this library names a source. Project-only numbers (game feel, 
 
 This file is a registry, not a closed canon. Adding a provider means adding a row. Replacing a method means citing the new method; do not silently retitle ALMA, OCEAN, PAD, or OCC.
 
-## Default composition (v0.1)
+## Default composition
 
 | Provider / mapping | What it covers | Source |
 | --- | --- | --- |
