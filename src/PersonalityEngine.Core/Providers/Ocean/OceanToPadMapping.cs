@@ -16,17 +16,10 @@ public sealed class OceanToPadMapping : IAffectProvider
     public string Id => ProviderId;
     public string Layer => AffectLayer.Mood;
 
-    public Citation Citation { get; } = new Citation(
-        "gebhard-alma-2005",
-        "Gebhard, P. (2005). ALMA: A Layered Model of Affect. AAMAS. Uses Mehrabian PAD mapping coefficients.");
+    public Citation Citation { get; } = OceanCitations.GebhardAlma2005;
 
     public IReadOnlyList<Citation> AdditionalCitations { get; } =
-        new[]
-        {
-            new Citation(
-                "mehrabian-pad",
-                "Mehrabian, A. Pleasure–Arousal–Dominance emotion/temperament space.")
-        };
+        new[] { OceanCitations.MehrabianPad };
 
     public AffectDelta Contribute(WorldEvent ev, float deltaTime, AffectSnapshot snapshot)
     {

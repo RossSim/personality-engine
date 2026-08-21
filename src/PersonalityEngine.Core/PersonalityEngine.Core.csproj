@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>PersonalityEngine</RootNamespace>
     <AssemblyName>PersonalityEngine.Core</AssemblyName>
-    <Version>0.5.1</Version>
+    <Version>0.5.2</Version>
     <PackageId>PersonalityEngine.Core</PackageId>
     <Authors>RossSim</Authors>
     <Description>Modular socio-emotional personality engine for games.</Description>
@@ -21,5 +21,7 @@
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
     <None Include="..\..\CHANGELOG.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\DISCLAIMER.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>

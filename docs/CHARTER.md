@@ -13,6 +13,7 @@ Inspired by FAtiMA, built from scratch. The product is **modular middleware**, n
 - **Shape:** events in; an affect snapshot and optional action weights out.
 - **No LLM in the core.** Language models may sit outside as a host, never as a required provider.
 - **Every provider cites a source.** Coefficients, thresholds, and mappings that are project conventions are labeled as such.
+- **Not a clinic.** The library is game/research middleware. It is not a psychometric test or a medical device. See [`DISCLAIMER.md`](../DISCLAIMER.md).
 - **Hosts compose; they do not fork** the library to add a theory, a layer, or a method.
 - **GitHub stays public.** Do not put private issue-tracker URLs, project keys, or ticket ids in this repository, GitHub pull requests, issues, commit messages, Releases, or release notes.
 - **Docs live in this repository.** README, `docs/`, and the changelog are the product docs. Do not maintain a separate wiki.
@@ -49,4 +50,4 @@ A host may enable a subset. Downstream code must not assume OCEAN, PAD, or OCC a
 
 The pipeline with the default ALMA-style composition is in the library. First numeric test: Gebhard’s example `O=0.4 C=0.8 E=0.6 A=0.3 N=0.4` → `P=0.38 A=-0.08 D=0.50` (slightly relaxed). That test belongs to the OCEAN and PAD mapping providers. `PadMood` and `OccEmotion` sit on that baseline in the default composition. None of this freezes the set of theories.
 
-Current published library: **0.5.1** (social affect: fortune-of-others OCC, optional dyad liking, social Utility-AI tint; changelog heading patch). Next coding work is a new milestone, not a rewrite of this charter.
+Current published library: **0.5.2** (social affect plus public disclaimer and citation hygiene). Next coding work is a new milestone, not a rewrite of this charter.

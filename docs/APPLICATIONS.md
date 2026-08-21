@@ -16,7 +16,7 @@ Compose only the layers the fantasy needs. A bartender does not need Piaget stag
 
 **Cost note.** Named heroes can run a full composition. Ambient crowds usually need only personality + mood, with Extraversion/Agreeableness jitter. Do not put a seven-layer stack on every background walker.
 
-**What you do not get.** A personality test of the player. A large language model. A guarantee that OCEAN scores are “realistic people.” Numeric gains in the library are **project convention** unless a citation says otherwise. You are directing a citable affect stack, not shipping a clinic.
+**What you do not get.** A personality test of the player. A large language model. A guarantee that OCEAN scores are “realistic people.” Numeric gains in the library are **project convention** unless a citation says otherwise. You are directing a citable affect stack, not shipping a clinic. Public legal notice: [`DISCLAIMER.md`](../DISCLAIMER.md).
 
 ## Which layer answers which design question
 

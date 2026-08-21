@@ -7,9 +7,9 @@
 
 A reusable C# socio-emotional engine for games. Events go in; a named-channel **affect snapshot** and optional **action weights** come out.
 
-It is **modular middleware**, not a frozen psychology stack. Personality, mood, and emotion are the default layers. Hosts add, replace, or omit providers. Every provider cites a source. There is no LLM in the core.
+It is **modular middleware**, not a frozen psychology stack. Personality, mood, and emotion are the default layers. Hosts add, replace, or omit providers. Every provider cites a source. There is no LLM in the core. It is **not** a clinical or psychometric instrument; see [Disclaimer](DISCLAIMER.md).
 
-Current library version: **0.5.1**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
+Current library version: **0.5.2**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
 
 ## Install
 
@@ -19,7 +19,7 @@ Current library version: **0.5.1**. Downloads and notes: [Releases](https://gith
 dotnet add package PersonalityEngine.Core --source /path/to/downloaded/nupkg-folder
 ```
 
-Or add a `PackageReference` after placing `PersonalityEngine.Core.0.5.1.nupkg` in a local feed.
+Or add a `PackageReference` after placing `PersonalityEngine.Core.0.5.2.nupkg` in a local feed.
 
 **DLL:** unzip the `PersonalityEngine.Core.*.zip` asset from the [latest release](https://github.com/RossSim/personality-engine/releases/latest) and reference `PersonalityEngine.Core.dll` (`netstandard2.1`, Unity-consumable later; this repo is not a Unity project).
 
@@ -99,6 +99,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser |
 | [Citations](docs/CITATIONS.md) | Source registry |
+| [Disclaimer](DISCLAIMER.md) | Not a test, not a medical device, MIT still governs |
 | [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) · [OCC](docs/occ.md) · [Dyad](docs/dyad.md) | Academic review and in-module mapping |
 | [Testing](docs/TESTING.md) | How to run the test suite and the console sample locally |
 | [Releasing](docs/RELEASING.md) | How versions and GitHub Releases are cut |
@@ -108,7 +109,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 
 Each published version has:
 
-1. A `Version` in `PersonalityEngine.Core` (currently `0.5.1`)
+1. A `Version` in `PersonalityEngine.Core` (currently `0.5.2`)
 2. A `CHANGELOG.md` section for that version
 3. A git tag `vMAJOR.MINOR.PATCH`
 4. A [GitHub Release](https://github.com/RossSim/personality-engine/releases) with those notes and downloadable `.nupkg` / `.zip` assets
@@ -117,7 +118,7 @@ Pushing a `v*` tag runs the release workflow. See [docs/RELEASING.md](docs/RELEA
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Additional public notice: [Disclaimer](DISCLAIMER.md). The disclaimer does not change the MIT grant.
 
 ## Development
 

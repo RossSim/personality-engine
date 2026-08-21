@@ -7,6 +7,19 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+## [0.5.2] - 2026-08-21
+
+Public disclaimer and citation hygiene. MIT is unchanged.
+
+### Added
+
+- [`DISCLAIMER.md`](DISCLAIMER.md): not a psychometric test or medical device; cited authors have not endorsed the library; MIT grant unchanged
+- LICENSE and DISCLAIMER packed with the Core nupkg and release zip
+
+### Changed
+
+- Bibliographic citations completed (McCrae & Costa 2008; Mehrabian 1974/1996; Gebhard AAMAS 2005 DOI; FAtiMA 2005/2014/2022 papers; named-but-not-implemented HEXACO, Dark Triad, Maslow, Marcia, Heider)
+
 ## [0.5.1] - 2026-08-21
 
 ### Fixed
@@ -96,7 +109,8 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 - OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
-[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.5.1...HEAD
+[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.5.2...HEAD
+[0.5.2]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.2
 [0.5.1]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.1
 [0.5.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.0
 [0.4.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.4.0
