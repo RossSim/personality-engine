@@ -27,6 +27,10 @@ public sealed class OccEmotion : IAffectProvider, IStatefulProvider
     public const string PityKind = "occ.pity";
     public const string ResentmentKind = "occ.resentment";
     public const string GloatingKind = "occ.gloating";
+    public const string GratificationKind = "occ.gratification";
+    public const string GratitudeKind = "occ.gratitude";
+    public const string AngerKind = "occ.anger";
+    public const string RemorseKind = "occ.remorse";
 
     public static readonly string JoyKey = Key("joy");
     public static readonly string DistressKey = Key("distress");
@@ -44,12 +48,17 @@ public sealed class OccEmotion : IAffectProvider, IStatefulProvider
     public static readonly string PityKey = Key("pity");
     public static readonly string ResentmentKey = Key("resentment");
     public static readonly string GloatingKey = Key("gloating");
+    public static readonly string GratificationKey = Key("gratification");
+    public static readonly string GratitudeKey = Key("gratitude");
+    public static readonly string AngerKey = Key("anger");
+    public static readonly string RemorseKey = Key("remorse");
 
     public static readonly IReadOnlyList<string> AllKeys = new[]
     {
         JoyKey, DistressKey, HopeKey, FearKey, SatisfactionKey, FearsConfirmedKey,
         ReliefKey, DisappointmentKey, PrideKey, ShameKey, AdmirationKey, ReproachKey,
-        HappyForKey, PityKey, ResentmentKey, GloatingKey
+        HappyForKey, PityKey, ResentmentKey, GloatingKey,
+        GratificationKey, GratitudeKey, AngerKey, RemorseKey
     };
 
     private static readonly Dictionary<string, string> KindToKey =
@@ -70,7 +79,11 @@ public sealed class OccEmotion : IAffectProvider, IStatefulProvider
             [HappyForKind] = HappyForKey,
             [PityKind] = PityKey,
             [ResentmentKind] = ResentmentKey,
-            [GloatingKind] = GloatingKey
+            [GloatingKind] = GloatingKey,
+            [GratificationKind] = GratificationKey,
+            [GratitudeKind] = GratitudeKey,
+            [AngerKind] = AngerKey,
+            [RemorseKind] = RemorseKey
         };
 
     private readonly Dictionary<string, float> _intensity =

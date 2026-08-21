@@ -1,5 +1,6 @@
 using System;
 using PersonalityEngine;
+using PersonalityEngine.Providers.Dyad;
 using PersonalityEngine.Providers.Occ;
 using PersonalityEngine.Providers.Ocean;
 using PersonalityEngine.Providers.Pad;
@@ -96,7 +97,11 @@ public sealed class OccEmotionTests
     [InlineData(OccEmotion.PityKind)]
     [InlineData(OccEmotion.ResentmentKind)]
     [InlineData(OccEmotion.GloatingKind)]
-    public void FortuneOfOthers_WritesGlobalChannel(string kind)
+    [InlineData(OccEmotion.GratificationKind)]
+    [InlineData(OccEmotion.GratitudeKind)]
+    [InlineData(OccEmotion.AngerKind)]
+    [InlineData(OccEmotion.RemorseKind)]
+    public void FortuneAndCompounds_WriteGlobalChannel(string kind)
     {
         var engine = new AffectEngine(new IAffectProvider[] { new OccEmotion() });
         var snap = engine.Tick(new WorldEvent(kind, 0.7f, target: "ally"));
@@ -137,6 +142,60 @@ public sealed class OccEmotionTests
         });
         var snap = engine.Tick(new WorldEvent(OccEmotion.GloatingKind, 1f));
         Assert.True(snap.GetOrDefault(OccToPadMapping.PleasureKey) > 0f);
+    }
+
+    [Fact]
+    public void Mapping_WritesPadOverlay_FromAnger()
+    {
+        var engine = new AffectEngine(new IAffectProvider[]
+        {
+            new OccEmotion(),
+            new OccToPadMapping()
+        });
+        var snap = engine.Tick(new WorldEvent(OccEmotion.AngerKind, 1f));
+        Assert.True(snap.GetOrDefault(OccToPadMapping.PleasureKey) < 0f);
+        Assert.True(snap.GetOrDefault(OccToPadMapping.ArousalKey) > 0f);
+        Assert.True(snap.GetOrDefault(OccToPadMapping.DominanceKey) > 0f);
+    }
+
+    [Fact]
+    public void Mapping_WritesPadOverlay_FromGratification()
+    {
+        var engine = new AffectEngine(new IAffectProvider[]
+        {
+            new OccEmotion(),
+            new OccToPadMapping()
+        });
+        var snap = engine.Tick(new WorldEvent(OccEmotion.GratificationKind, 1f));
+        Assert.True(snap.GetOrDefault(OccToPadMapping.PleasureKey) > 0f);
+        Assert.True(snap.GetOrDefault(OccToPadMapping.DominanceKey) > 0f);
+    }
+
+    [Fact]
+    public void Compound_DoesNotInferFromDistressAndReproach()
+    {
+        var engine = new AffectEngine(new IAffectProvider[] { new OccEmotion() });
+        engine.Tick(new WorldEvent(OccEmotion.DistressKind, 1f));
+        engine.Tick(new WorldEvent(OccEmotion.ReproachKind, 1f, "rival"));
+        Assert.False(engine.Snapshot.TryGet(OccEmotion.AngerKey, out _));
+    }
+
+    [Fact]
+    public void Compound_DoesNotInferFromDislike()
+    {
+        var engine = DyadComposition.CreateWithAlma(OceanTraits.GebhardExample);
+        engine.Tick(HostEvents.Dislike("rival"));
+        Assert.False(engine.Snapshot.TryGet(OccEmotion.AngerKey, out _));
+    }
+
+    [Fact]
+    public void Gratification_DoesNotAlsoWriteJoyOrPride()
+    {
+        var engine = new AffectEngine(new IAffectProvider[] { new OccEmotion() });
+        engine.Tick(new WorldEvent(OccEmotion.GratificationKind, 1f));
+        Assert.True(engine.Snapshot.GetOrDefault(OccEmotion.GratificationKey) > 0f);
+        Assert.False(engine.Snapshot.TryGet(OccEmotion.JoyKey, out _));
+        Assert.False(engine.Snapshot.TryGet(OccEmotion.PrideKey, out _));
     }
 
     [Fact]

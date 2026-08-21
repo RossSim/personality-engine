@@ -28,7 +28,15 @@ public static class AlmaTimeline
         new(OccEmotion.PrideKind, "Pride"),
         new(OccEmotion.ShameKind, "Shame"),
         new(OccEmotion.AdmirationKind, "Admiration"),
-        new(OccEmotion.ReproachKind, "Reproach")
+        new(OccEmotion.ReproachKind, "Reproach"),
+        new(OccEmotion.HappyForKind, "Happy-for"),
+        new(OccEmotion.PityKind, "Pity"),
+        new(OccEmotion.ResentmentKind, "Resentment"),
+        new(OccEmotion.GloatingKind, "Gloating"),
+        new(OccEmotion.GratificationKind, "Gratification"),
+        new(OccEmotion.GratitudeKind, "Gratitude"),
+        new(OccEmotion.AngerKind, "Anger"),
+        new(OccEmotion.RemorseKind, "Remorse")
     };
 
     public static readonly Metric[] Metrics =
@@ -51,6 +59,14 @@ public static class AlmaTimeline
         new(OccEmotion.ShameKey, "OCC shame", "#880e4f"),
         new(OccEmotion.AdmirationKey, "OCC admiration", "#33691e"),
         new(OccEmotion.ReproachKey, "OCC reproach", "#b71c1c"),
+        new(OccEmotion.HappyForKey, "OCC happy-for", "#2e7d32"),
+        new(OccEmotion.PityKey, "OCC pity", "#6a1b9a"),
+        new(OccEmotion.ResentmentKey, "OCC resentment", "#bf360c"),
+        new(OccEmotion.GloatingKey, "OCC gloating", "#4a148c"),
+        new(OccEmotion.GratificationKey, "OCC gratification", "#1b5e20"),
+        new(OccEmotion.GratitudeKey, "OCC gratitude", "#33691e"),
+        new(OccEmotion.AngerKey, "OCC anger", "#b71c1c"),
+        new(OccEmotion.RemorseKey, "OCC remorse", "#880e4f"),
         new(OccToPadMapping.PleasureKey, "OCC→PAD pleasure", "#4527a0"),
         new(OccToPadMapping.ArousalKey, "OCC→PAD arousal", "#283593"),
         new(OccToPadMapping.DominanceKey, "OCC→PAD dominance", "#1a237e")
