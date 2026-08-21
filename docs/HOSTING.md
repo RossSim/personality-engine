@@ -60,10 +60,18 @@ other.Tick(0f); // or Tick(WorldEvent.Tick)
 | `ThreatPassed` | `occ.relief` | danger gone |
 | `SelfCredit` | `occ.pride` | host attributes success to self |
 | `SelfBlame` | `occ.shame` | host attributes failure to self |
+| `HappyFor(other)` | `occ.happy-for` | desirable event for a liked other |
+| `Pity(other)` | `occ.pity` | undesirable event for a liked other |
+| `Resent(other)` | `occ.resentment` | desirable event for a disliked other |
+| `Gloat(other)` | `occ.gloating` | undesirable event for a disliked other |
+
+Fortune-of-others helpers take the other id as `WorldEvent.Target`. They do **not** read liking. The host already chose HappyFor vs Gloat.
 
 ```csharp
 engine.Tick(HostEvents.NeedMet());
 engine.Tick(HostEvents.Threat(0.7f), deltaTime);
+engine.Tick(HostEvents.HappyFor("kin"));
+engine.Tick(HostEvents.Gloat("rival", 0.8f));
 ```
 
 Hosts may still send `new WorldEvent(OccEmotion.JoyKind, 1f)` directly.
