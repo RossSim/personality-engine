@@ -24,6 +24,8 @@ Social affect: fortune-of-others OCC, optional dyad liking, and a tint that does
 
 - Charter and start notes: current published library is 0.5.0
 
+## [0.4.0] - 2026-08-21
+
 Host I/O: persist, idle ticks, named events, and a Utility-AI tint that does not steal Pick.
 
 ### Added
