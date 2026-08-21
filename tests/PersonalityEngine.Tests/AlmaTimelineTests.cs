@@ -93,6 +93,8 @@ public sealed class AlmaTimelineTests
         Assert.Contains("id=\"events\"", html, StringComparison.Ordinal);
         Assert.Contains("occ.joy", html, StringComparison.Ordinal);
         Assert.Contains("occ.fear", html, StringComparison.Ordinal);
+        Assert.Contains("occ.anger", html, StringComparison.Ordinal);
+        Assert.Contains("occ.gratitude", html, StringComparison.Ordinal);
         Assert.Contains("Run Test", html, StringComparison.Ordinal);
     }
 
