@@ -11,8 +11,8 @@ var engine = AlmaComposition.Create(OceanTraits.GebhardExample);
 engine.Tick(WorldEvent.Tick);
 Dump("Seeded from Gebhard OCEAN (mapped baseline = current mood)", engine.Snapshot);
 
-engine.Tick(new WorldEvent(OccEmotion.JoyKind, 1f));
-Dump("Host tagged the moment as joy", engine.Snapshot);
+engine.Tick(HostEvents.NeedMet());
+Dump("Host tagged the moment as need-met (joy)", engine.Snapshot);
 
 engine.Tick(WorldEvent.Tick, deltaTime: 1f);
 Dump("One second later (emotion decays; mood pulls toward baseline)", engine.Snapshot);

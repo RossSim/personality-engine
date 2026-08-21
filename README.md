@@ -9,7 +9,7 @@ A reusable C# socio-emotional engine for games. Events go in; a named-channel **
 
 It is **modular middleware**, not a frozen psychology stack. Personality, mood, and emotion are the default layers. Hosts add, replace, or omit providers. Every provider cites a source. There is no LLM in the core.
 
-Current library version: **0.3.0**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
+Current library version: **0.4.0**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
 
 ## Install
 
@@ -19,7 +19,7 @@ Current library version: **0.3.0**. Downloads and notes: [Releases](https://gith
 dotnet add package PersonalityEngine.Core --source /path/to/downloaded/nupkg-folder
 ```
 
-Or add a `PackageReference` after placing `PersonalityEngine.Core.0.3.0.nupkg` in a local feed.
+Or add a `PackageReference` after placing `PersonalityEngine.Core.0.4.0.nupkg` in a local feed.
 
 **DLL:** unzip the `PersonalityEngine.Core.*.zip` asset from the [latest release](https://github.com/RossSim/personality-engine/releases/latest) and reference `PersonalityEngine.Core.dll` (`netstandard2.1`, Unity-consumable later; this repo is not a Unity project).
 
@@ -32,9 +32,10 @@ dotnet test
 dotnet run --project samples/AlmaConsole
 dotnet run --project samples/AlmaTimeline
 dotnet run --project samples/AlmaTimeline -- --serve
+dotnet run --project samples/UtilityTint
 ```
 
-The console sample is a first **host**: it ticks the default composition and prints channels a game would read. `samples/AlmaTimeline` writes a 10s HTML chart (`samples/AlmaTimeline/index.html`). Serve with `--serve` to pick OCC events, intensity, and stagger, then Run Test. Neither sample is a provider; neither is in the NuGet package.
+The console sample is a first **host**: it ticks the default composition and prints channels a game would read. `samples/AlmaTimeline` writes a 10s HTML chart (`samples/AlmaTimeline/index.html`). Serve with `--serve` to pick OCC events, intensity, and stagger, then Run Test. `samples/UtilityTint` shows a host Utility AI keeping Pick while PE tints three opaque action ids. Samples are not providers and are not in the NuGet package.
 
 ## Quick start
 
@@ -50,7 +51,7 @@ using PersonalityEngine.Providers.Skinner;
 
 var mood = AlmaComposition.Create(OceanTraits.GebhardExample);
 mood.Tick(WorldEvent.Tick);
-mood.Tick(new WorldEvent(OccEmotion.JoyKind, 1f));
+mood.Tick(HostEvents.NeedMet());
 
 var meaning = PetersonComposition.Create(OceanTraits.GebhardExample);
 meaning.Tick(new WorldEvent(OrderChaosMeaningProvider.AnomalyKind, 0.8f));
@@ -90,7 +91,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Charter](docs/CHARTER.md) | What is fixed vs modular |
 | [Applying it in games](docs/APPLICATIONS.md) | Design-facing uses: RTS, RPG, FPS, sims, NPCs — not the C# API |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
-| [Hosting](docs/HOSTING.md) | Idle tick, persist, folding weights into a host chooser |
+| [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser |
 | [Citations](docs/CITATIONS.md) | Source registry |
 | [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) · [OCC](docs/occ.md) | Academic review and in-module mapping |
 | [Testing](docs/TESTING.md) | How to run the test suite and the console sample locally |
@@ -101,7 +102,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 
 Each published version has:
 
-1. A `Version` in `PersonalityEngine.Core` (currently `0.3.0`)
+1. A `Version` in `PersonalityEngine.Core` (currently `0.4.0`)
 2. A `CHANGELOG.md` section for that version
 3. A git tag `vMAJOR.MINOR.PATCH`
 4. A [GitHub Release](https://github.com/RossSim/personality-engine/releases) with those notes and downloadable `.nupkg` / `.zip` assets
