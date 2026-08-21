@@ -10,6 +10,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 ### Added
 
 - OCC fortune-of-others types: happy-for, pity, resentment, gloating (host-tagged; same decay and persist path as other OCC channels)
+- `HostEvents.HappyFor` / `Pity` / `Resent` / `Gloat` wrap those kinds and keep the other id as `Target`
 
 ## [0.4.0] - 2026-08-21
 
