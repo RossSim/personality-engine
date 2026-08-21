@@ -7,7 +7,7 @@ namespace PersonalityEngine.Providers.Skinner;
 /// Operant strengths under a three-term contingency (SD, response, consequence).
 /// Skinner (1953); schedules after Ferster &amp; Skinner (1957).
 /// </summary>
-public sealed class OperantLearningProvider : IAffectProvider
+public sealed class OperantLearningProvider : IAffectProvider, IStatefulProvider
 {
     public const string ProviderId = "skinner-operant";
 
@@ -23,6 +23,10 @@ public sealed class OperantLearningProvider : IAffectProvider
 
     public static string StrengthKey(string actionId) =>
         ChannelKey.Of(AffectLayer.Learning, ProviderId, "strength:" + actionId);
+
+    internal const string HasSdKey = "has-sd";
+    internal const string RatioPrefix = "ratio:";
+    internal const string NextVrPrefix = "next-vr:";
 
     private readonly Dictionary<string, float> _strength = new Dictionary<string, float>(StringComparer.Ordinal);
     private readonly Dictionary<string, int> _responsesSinceReinforcer = new Dictionary<string, int>(StringComparer.Ordinal);
@@ -100,6 +104,55 @@ public sealed class OperantLearningProvider : IAffectProvider
             delta.Set(StrengthKey(pair.Key), pair.Value);
 
         return delta;
+    }
+
+    public IReadOnlyDictionary<string, float> ExportState()
+    {
+        var bag = new Dictionary<string, float>(StringComparer.Ordinal)
+        {
+            [DeprivationKey] = _deprivation
+        };
+        if (_sd.HasValue)
+        {
+            bag[HasSdKey] = 1f;
+            bag[SdKey] = _sd.Value;
+        }
+
+        foreach (var pair in _strength)
+            bag[StrengthKey(pair.Key)] = pair.Value;
+        foreach (var pair in _responsesSinceReinforcer)
+            bag[RatioPrefix + pair.Key] = pair.Value;
+        foreach (var pair in _nextVr)
+            bag[NextVrPrefix + pair.Key] = pair.Value;
+
+        return bag;
+    }
+
+    public void ImportState(IReadOnlyDictionary<string, float> bag)
+    {
+        _strength.Clear();
+        _responsesSinceReinforcer.Clear();
+        _nextVr.Clear();
+        _sd = null;
+
+        if (bag.TryGetValue(DeprivationKey, out var deprivation))
+            _deprivation = Clamp01(deprivation);
+
+        if (bag.TryGetValue(HasSdKey, out var hasSd) && hasSd >= 0.5f && bag.TryGetValue(SdKey, out var sd))
+            _sd = Clamp01(sd);
+        else if (bag.TryGetValue(SdKey, out sd) && !bag.ContainsKey(HasSdKey))
+            _sd = Clamp01(sd);
+
+        var strengthPrefix = StrengthKey("");
+        foreach (var pair in bag)
+        {
+            if (pair.Key.StartsWith(strengthPrefix, StringComparison.Ordinal) && pair.Key.Length > strengthPrefix.Length)
+                _strength[pair.Key.Substring(strengthPrefix.Length)] = Clamp01(pair.Value);
+            else if (pair.Key.StartsWith(RatioPrefix, StringComparison.Ordinal) && pair.Key.Length > RatioPrefix.Length)
+                _responsesSinceReinforcer[pair.Key.Substring(RatioPrefix.Length)] = (int)pair.Value;
+            else if (pair.Key.StartsWith(NextVrPrefix, StringComparison.Ordinal) && pair.Key.Length > NextVrPrefix.Length)
+                _nextVr[pair.Key.Substring(NextVrPrefix.Length)] = Math.Max(1, (int)pair.Value);
+        }
     }
 
     private void HandleEmit(string actionId)
