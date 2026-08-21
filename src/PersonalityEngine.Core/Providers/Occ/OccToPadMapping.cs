@@ -37,6 +37,10 @@ public sealed class OccToPadMapping : IAffectProvider
         any |= Add(snapshot, OccEmotion.ShameKey, -0.5f, 0.3f, -0.5f, ref p, ref a, ref d);
         any |= Add(snapshot, OccEmotion.AdmirationKey, 0.3f, 0.1f, 0.0f, ref p, ref a, ref d);
         any |= Add(snapshot, OccEmotion.ReproachKey, -0.3f, 0.3f, 0.2f, ref p, ref a, ref d);
+        any |= Add(snapshot, OccEmotion.HappyForKey, 0.5f, 0.2f, 0.1f, ref p, ref a, ref d);
+        any |= Add(snapshot, OccEmotion.PityKey, -0.5f, 0.3f, -0.2f, ref p, ref a, ref d);
+        any |= Add(snapshot, OccEmotion.ResentmentKey, -0.4f, 0.4f, 0.1f, ref p, ref a, ref d);
+        any |= Add(snapshot, OccEmotion.GloatingKey, 0.4f, 0.3f, 0.3f, ref p, ref a, ref d);
 
         if (!any)
             return new AffectDelta();
