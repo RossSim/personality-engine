@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using PersonalityEngine.Providers.Occ;
 using PersonalityEngine.Providers.Ocean;
 
@@ -12,25 +13,30 @@ public static class AlmaComposition
     public static AffectEngine Create(
         OceanTraits traits,
         float decayRate = 0.5f,
-        bool includeOcc = true)
+        bool includeOcc = true,
+        IEnumerable<IActionWeighter>? weighters = null)
     {
         if (!includeOcc)
         {
-            return new AffectEngine(new IAffectProvider[]
+            return new AffectEngine(
+                new IAffectProvider[]
+                {
+                    new OceanPersonality(traits),
+                    new OceanToPadMapping(),
+                    new PadMood { DecayRate = decayRate }
+                },
+                weighters);
+        }
+
+        return new AffectEngine(
+            new IAffectProvider[]
             {
                 new OceanPersonality(traits),
                 new OceanToPadMapping(),
+                new OccEmotion(),
+                new OccToPadMapping(),
                 new PadMood { DecayRate = decayRate }
-            });
-        }
-
-        return new AffectEngine(new IAffectProvider[]
-        {
-            new OceanPersonality(traits),
-            new OceanToPadMapping(),
-            new OccEmotion(),
-            new OccToPadMapping(),
-            new PadMood { DecayRate = decayRate }
-        });
+            },
+            weighters);
     }
 }

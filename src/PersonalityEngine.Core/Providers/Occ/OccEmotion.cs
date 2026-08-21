@@ -7,7 +7,7 @@ namespace PersonalityEngine.Providers.Occ;
 /// OCC emotion types as named channels. Hosts tag eliciting conditions;
 /// this slice does not infer goals, standards, or attitudes from untyped world state.
 /// </summary>
-public sealed class OccEmotion : IAffectProvider
+public sealed class OccEmotion : IAffectProvider, IStatefulProvider
 {
     public const string ProviderId = "occ";
 
@@ -114,8 +114,40 @@ public sealed class OccEmotion : IAffectProvider
         return delta;
     }
 
+    public IReadOnlyDictionary<string, float> ExportState()
+    {
+        var bag = new Dictionary<string, float>(StringComparer.Ordinal);
+        foreach (var pair in _intensity)
+            bag[pair.Key] = pair.Value;
+        return bag;
+    }
+
+    public void ImportState(IReadOnlyDictionary<string, float> bag)
+    {
+        _intensity.Clear();
+        foreach (var pair in bag)
+        {
+            if (!IsOccChannel(pair.Key))
+                continue;
+            if (pair.Value < 0.001f)
+                continue;
+            _intensity[pair.Key] = Clamp01(pair.Value);
+        }
+    }
+
     public static string Key(string occType) =>
         ChannelKey.Of(AffectLayer.Emotion, ProviderId, occType);
+
+    private static bool IsOccChannel(string key)
+    {
+        foreach (var known in AllKeys)
+        {
+            if (known == key)
+                return true;
+        }
+
+        return false;
+    }
 
     private static float Clamp01(float value) =>
         value < 0f ? 0f : value > 1f ? 1f : value;
