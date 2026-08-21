@@ -7,6 +7,10 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+### Added
+
+- OCC fortune-of-others types: happy-for, pity, resentment, gloating (host-tagged; same decay and persist path as other OCC channels)
+
 ## [0.4.0] - 2026-08-21
 
 Host I/O: persist, idle ticks, named events, and a Utility-AI tint that does not steal Pick.

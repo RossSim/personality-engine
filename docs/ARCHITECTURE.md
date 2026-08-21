@@ -55,7 +55,7 @@ Order:
 
 1. `OceanPersonality` — McCrae & Costa Big Five
 2. `OceanToPadMapping` — Gebhard ALMA 2005 baseline on `mood.pad.*`
-3. `OccEmotion` — OCC types as `emotion.occ.*` (host-tagged eliciting events)
+3. `OccEmotion` — OCC types as `emotion.occ.*` (host-tagged eliciting events, including fortune-of-others)
 4. `OccToPadMapping` — optional ALMA glue: OCC intensities → `mood.occ-to-pad.*` (coefficients are project convention)
 5. `PadMood` — current PAD on `mood.pad-mood.*`, pulled toward the mapped baseline; adds the OCC overlay when present
 
