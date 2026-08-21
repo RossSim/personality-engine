@@ -15,7 +15,7 @@ WorldEvent  →  AffectEngine.Tick(event, dt)
                     └─ AffectSnapshot  →  optional IActionWeighter  →  action weights
 ```
 
-Hosts send typed events (and delta time). They read a snapshot and, if they asked for it, weights over candidate actions. They do not own the psychology.
+Hosts send typed events (and delta time). `Tick(dt)` is the idle path. `HostEvents` wraps common OCC kinds as named helpers. They read a snapshot and, if they asked for it, weights over candidate actions. Weights tint a host chooser; they do not replace Pick. They do not own the psychology. Save/load, events, and tint: [`HOSTING.md`](HOSTING.md).
 
 ## Providers
 
@@ -80,7 +80,7 @@ Optional supplement ([`erikson.md`](erikson.md)) — **new `identity` layer**, n
 13. `EriksonPsychosocialProvider` — eight ages, syntonic/dystonic ratio, ego identity (`identity.erikson-psychosocial.*`)
 14. `EriksonIdentityWeighter` — explore vs commit vs care vs withdraw
 
-The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC are optional: omit them and those channels stay absent. The provider contract is `IAffectProvider` plus named-channel snapshots.
+The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC are optional: omit them and those channels stay absent. The provider contract is `IAffectProvider` plus named-channel snapshots. Providers that keep private values implement `IStatefulProvider` so `AffectEngine.Export` / `Import` can round-trip them. Hosts serialize `AffectPersist` themselves. See [`HOSTING.md`](HOSTING.md). Providers that keep private values implement `IStatefulProvider` so `AffectEngine.Export` / `Import` can round-trip them. Hosts serialize `AffectPersist` themselves. See [`HOSTING.md`](HOSTING.md).
 
 ## Out of scope for the core
 

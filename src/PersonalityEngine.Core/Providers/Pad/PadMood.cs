@@ -9,7 +9,7 @@ namespace PersonalityEngine.Providers.Pad;
 /// Current PAD mood, pulled toward the Gebhard-mapped baseline over dt.
 /// Mapping channels stay the baseline; these channels are the moving mood.
 /// </summary>
-public sealed class PadMood : IAffectProvider
+public sealed class PadMood : IAffectProvider, IStatefulProvider
 {
     public const string ProviderId = "pad-mood";
     public const string PushKind = "pad.push";
@@ -25,6 +25,11 @@ public sealed class PadMood : IAffectProvider
 
     /// <summary>Exponential decay rate in 1/s. Project convention.</summary>
     public float DecayRate { get; init; } = 0.5f;
+
+    public const string InternalPleasure = "internal.pleasure";
+    public const string InternalArousal = "internal.arousal";
+    public const string InternalDominance = "internal.dominance";
+    public const string SeededKey = "seeded";
 
     public string Id => ProviderId;
     public string Layer => AffectLayer.Mood;
@@ -76,6 +81,42 @@ public sealed class PadMood : IAffectProvider
             .Set(PleasureKey, pleasure)
             .Set(ArousalKey, arousal)
             .Set(DominanceKey, dominance);
+    }
+
+    public IReadOnlyDictionary<string, float> ExportState()
+    {
+        if (!_seeded)
+            return new Dictionary<string, float>();
+
+        return new Dictionary<string, float>
+        {
+            [InternalPleasure] = _pleasure,
+            [InternalArousal] = _arousal,
+            [InternalDominance] = _dominance,
+            [SeededKey] = 1f
+        };
+    }
+
+    public void ImportState(IReadOnlyDictionary<string, float> bag)
+    {
+        if (TryFinite(bag, InternalPleasure, out var p))
+            _pleasure = p;
+        if (TryFinite(bag, InternalArousal, out var a))
+            _arousal = a;
+        if (TryFinite(bag, InternalDominance, out var d))
+            _dominance = d;
+        if (TryFinite(bag, SeededKey, out var seeded))
+            _seeded = seeded >= 0.5f;
+        else
+            _seeded = bag.ContainsKey(InternalPleasure);
+    }
+
+    private static bool TryFinite(IReadOnlyDictionary<string, float> bag, string key, out float value)
+    {
+        if (bag.TryGetValue(key, out value) && !(float.IsNaN(value) || float.IsInfinity(value)))
+            return true;
+        value = 0f;
+        return false;
     }
 
     public static bool TryRead(AffectSnapshot snapshot, out float pleasure, out float arousal, out float dominance)

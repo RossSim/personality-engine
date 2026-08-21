@@ -7,9 +7,22 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-08-21
+
+Host I/O: persist, idle ticks, named events, and a Utility-AI tint that does not steal Pick.
+
+### Added
+
+- Persist: `Export` / `Import` round-trip snapshot channels plus PadMood, OCC, and Skinner internal state
+- `AffectEngine.Tick(dt)` idle overload (same as `Tick(WorldEvent.Tick, dt)`)
+- `HostEvents` catalog (need-met, harm, threat, threat-passed, self-credit, self-blame) wrapping existing OCC kinds
+- `UtilityTintWeighter` and `HostChooser` so a host Utility AI keeps Pick; PE adds a small additive tint
+- Console sample: `samples/UtilityTint`
+- Hosting notes: [`docs/HOSTING.md`](docs/HOSTING.md)
+
 ### Changed
 
-- Charter and start notes treat the first coding slice as shipped; current published library is 0.3.0
+- Charter and start notes treat the first coding slice as shipped; current published library is 0.4.0
 - Charter and start notes: product docs live in this repository; the private tracker is Jira only
 
 ## [0.3.0] - 2026-08-20
@@ -60,7 +73,8 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 - OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
-[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.4.0
 [0.3.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.3.0
 [0.2.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.2.0
 [0.1.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.1.0
