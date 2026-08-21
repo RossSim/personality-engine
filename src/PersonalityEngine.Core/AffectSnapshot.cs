@@ -16,6 +16,14 @@ public sealed class AffectSnapshot
     public float GetOrDefault(string key, float fallback = 0f) =>
         _channels.TryGetValue(key, out var value) ? value : fallback;
 
+    internal void Replace(IReadOnlyDictionary<string, float> channels)
+    {
+        _channels.Clear();
+        _ran.Clear();
+        foreach (var pair in channels)
+            _channels[pair.Key] = pair.Value;
+    }
+
     internal void Apply(AffectDelta delta, string providerId)
     {
         foreach (var pair in delta.Values)

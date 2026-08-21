@@ -7,6 +7,12 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+### Added
+
+- Persist: `Export` / `Import` round-trip snapshot channels plus PadMood, OCC, and Skinner internal state
+- `AffectEngine.Tick(dt)` idle overload (same as `Tick(WorldEvent.Tick, dt)`)
+- Hosting notes: [`docs/HOSTING.md`](docs/HOSTING.md)
+
 ### Changed
 
 - Charter and start notes treat the first coding slice as shipped; current published library is 0.3.0

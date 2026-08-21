@@ -16,6 +16,6 @@ dotnet run --project samples/AlmaTimeline
 dotnet run --project samples/AlmaTimeline -- --serve
 ```
 
-The samples are hosts, not providers. They are not packed with `PersonalityEngine.Core`. The timeline sample writes `samples/AlmaTimeline/index.html`. Serve it with `--serve` to check OCC events, set intensity, stagger 0–3s, and press **Run Test** (10s of 1s ticks, line chart plus a metrics×time table).
+The samples are hosts, not providers. They are not packed with `PersonalityEngine.Core`. The timeline sample writes `samples/AlmaTimeline/index.html`. Serve it with `--serve` to check OCC events, set intensity, stagger 0–3s, and press **Run Test** (10s of 1s ticks, line chart plus a metrics×time table). Idle decay and save/load: [`HOSTING.md`](HOSTING.md).
 
 This repository is a C# library. It is not a Unity project.
