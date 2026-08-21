@@ -8,7 +8,7 @@ This slice is **host-tagged eliciting conditions**, not a full OCC goal / standa
 
 | Provider | Layer | What it does | Source |
 | --- | --- | --- | --- |
-| `OccEmotion` (`occ`) | emotion | 12 OCC types as `emotion.occ.*` channels | Ortony, Clore & Collins (1988) |
+| `OccEmotion` (`occ`) | emotion | 16 OCC types as `emotion.occ.*` channels | Ortony, Clore & Collins (1988) |
 | `OccToPadMapping` (`occ-to-pad`) | mood | Optional ALMA-style overlay: OCC intensities → PAD | Gebhard (2005) for the *wiring*; coefficients are **project convention** |
 
 `OccEmotion` does **not** require PadMood. Omit either provider and its channels stay absent.
@@ -22,8 +22,11 @@ OCC groups emotions by eliciting conditions. Implemented here:
 | Well-being | joy, distress | `occ.joy`, `occ.distress` |
 | Prospect-based | hope, fear, satisfaction, fears-confirmed, relief, disappointment | `occ.hope`, `occ.fear`, `occ.satisfaction`, `occ.fears-confirmed`, `occ.relief`, `occ.disappointment` |
 | Attribution | pride, shame, admiration, reproach | `occ.pride`, `occ.shame`, `occ.admiration`, `occ.reproach` |
+| Fortune-of-others | happy-for, pity (sorry-for), resentment, gloating | `occ.happy-for`, `occ.pity`, `occ.resentment`, `occ.gloating` |
 
-Not in this slice: fortune-of-others (happy-for, pity, gloating, resentment), attraction (love, hate), compound well-being/attribution (gratification, remorse, gratitude, anger), and automatic appraisal from untyped `WorldEvent`s.
+The host still tags the eliciting condition. `WorldEvent.Target` may name the other person; snapshot channels stay **global** (`emotion.occ.happy-for`), not per-other keys. Pairwise liking belongs on the optional [`dyad.md`](dyad.md) relationship provider, not in this emotion slice.
+
+Not in this slice: attraction (love, hate), compound well-being/attribution (gratification, remorse, gratitude, anger), inferring fortune-of-others from untyped events or from liking, and automatic appraisal from untyped `WorldEvent`s.
 
 Intensities are 0..1 eliciting potentials (**project convention**). Exponential decay toward 0 is **project convention** (OCC treats emotions as momentary; it does not publish this engine’s time constant).
 

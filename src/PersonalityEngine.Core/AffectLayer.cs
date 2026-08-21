@@ -10,4 +10,5 @@ public static class AffectLayer
     public const string Learning = "learning";
     public const string Cognition = "cognition";
     public const string Identity = "identity";
+    public const string Relationship = "relationship";
 }
