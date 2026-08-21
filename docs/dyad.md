@@ -16,6 +16,7 @@ Layer: `relationship`. Off the default ALMA composition: omit the provider and t
 - Slow exponential decay toward 0 over `dt` (**project convention**; default 0.05 /s). Below a floor the channel writes 0 and drops.
 - Persist via `IStatefulProvider`. Rebuild the same composition, then `Import`.
 - `DyadComposition.Create` / `CreateWithAlma` — like Skinner, not wired into `AlmaComposition`.
+- Fortune-of-others channels are **global**, so a happy-for pulse slightly tints every `approach:{id}`, not only the named Target. Pairwise bias still comes from liking.
 
 ## What stays out
 
