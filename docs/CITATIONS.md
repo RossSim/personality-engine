@@ -11,7 +11,7 @@ This file is a registry, not a closed canon. Adding a provider means adding a ro
 | `OceanPersonality` | Stable Big Five traits (O, C, E, A, N) | McCrae, R. R., & Costa, P. T., Jr. Five-factor (OCEAN) model of personality. |
 | `OceanToPadMapping` | Personality → PAD baseline | Gebhard, P. (2005). ALMA: A Layered Model of Affect. *AAMAS.* Uses Mehrabian’s PAD mapping coefficients. |
 | `PadMood` | Current PAD mood; exponential pull toward the mapped baseline over `dt` | Mehrabian, A. PAD (Pleasure–Arousal–Dominance) emotion/temperament space. Gebhard (2005) ALMA for the wiring (mood toward personality baseline). Decay rate and `pad.push` deltas: **project convention**. |
-| `OccEmotion` | OCC types as named emotion channels (well-being, prospect, attribution) | Ortony, A., Clore, G. L., & Collins, A. (1988). *The Cognitive Structure of Emotions.* Host-tagged eliciting events and decay: **project convention**. Full review: [`occ.md`](occ.md). |
+| `OccEmotion` | OCC types as named emotion channels (well-being, prospect, attribution, fortune-of-others) | Ortony, A., Clore, G. L., & Collins, A. (1988). *The Cognitive Structure of Emotions.* Host-tagged eliciting events and decay: **project convention**. Full review: [`occ.md`](occ.md). |
 | `OccToPadMapping` | OCC intensities → PAD overlay | Gebhard, P. (2005). ALMA. First wiring of emotion into mood; numeric coefficients: **project convention**. |
 
 Inspiration for a *modular affective agent*, not a source to fork: Dias, J., Mascarenhas, S., & Paiva, A. FAtiMA. Do not treat FAtiMA-Toolkit types or code as this engine.
@@ -60,6 +60,17 @@ Full review: [`erikson.md`](erikson.md). **New layer** `identity` (not personali
 | `EriksonIdentityWeighter` | action weights | Erikson (1968). Explore ≈ moratorium; commit ≈ fidelity; care ≈ generativity. Mix coefficients: **project convention**. |
 
 Not implemented: automatic stage advancement; Marcia identity statuses; Joan Erikson 9th stage; EPSI/MEIM scores; psychohistory as NPC biography.
+
+## Dyad module
+
+Full review: [`dyad.md`](dyad.md). **New layer** `relationship` (not personality/mood/emotion/meaning/learning/cognition/identity).
+
+| Provider / mapping | Layer | Source |
+| --- | --- | --- |
+| `DyadProvider` | relationship | Ortony, A., Clore, G. L., & Collins, A. (1988). *The Cognitive Structure of Emotions.* Liking/disliking as an attitude that fortune-of-others assumes. Pairwise channel, bump size, and decay: **project convention**. |
+| `DyadWeighter` | action weights | Same OCC attitude plus fortune-of-others intensities. Mix onto `approach:{other}` / `avoid:{other}`: **project convention**. |
+
+Not implemented: Heider balance; reputation; inferring OCC fortune-of-others from the sign of liking; attraction OCC types as extra emotion channels.
 
 ## First numeric check
 

@@ -29,6 +29,7 @@ Compose only the layers the fantasy needs. A bartender does not need Piaget stag
 | What has actually paid off in *this* run? | Learning (operant strength, deprivation, SD) |
 | Are they even able to think this thought yet? | Cognition (schemas, stages — host-set, not a clock) |
 | Who are they becoming across a life or campaign? | Identity (psychosocial crisis — host-set) |
+| Do they like *this* person, right now? | Relationship (pairwise liking) |
 
 Theories disagree about causes. A host may run Skinner beside OCEAN; the engine will not paper over that. That is a design feature: a traitor who is high in Agreeableness *and* has been reinforced for betrayal is more interesting than either model alone.
 
@@ -163,11 +164,11 @@ These are about *people in a situation*, not about scoring a curriculum document
 - **Narrative** writes against tags, then plays the game until a tick feels wrong; they ask for an event intensity change, not a new if-statement.
 - **Engineering** hosts the library, one instance per mind, and never puts engine objects in the scene graph. This repo is not a Unity project; any C# host (including a game engine) consumes the `netstandard2.1` API.
 
-If a later theory is needed (values, relationships, HEXACO), add a provider. Do not fork the library to invent a village-only personality system.
+If a later theory is needed (values, HEXACO), add a provider. Do not fork the library to invent a village-only personality system.
 
 ## See also
 
 - [Charter](CHARTER.md) — what is fixed vs modular
 - [Architecture](ARCHITECTURE.md) — pipeline and snapshot keys
 - [Citations](CITATIONS.md) — which paper owns which knob
-- [Peterson](peterson.md) · [Skinner](skinner.md) · [Piaget](piaget.md) · [Erikson](erikson.md) — academic mapping when a use above names that layer
+- [Peterson](peterson.md) · [Skinner](skinner.md) · [Piaget](piaget.md) · [Erikson](erikson.md) · [OCC](occ.md) · [Dyad](dyad.md) — academic mapping when a use above names that layer

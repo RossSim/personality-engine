@@ -7,7 +7,7 @@ START
 Repo: https://github.com/RossSim/personality-engine (public MIT)
 This is a standalone C# library (netstandard2.1), not a Unity project. This repository is self-contained; do not name other private or internal projects.
 
-Read docs/CHARTER.md first. For how games should *use* the engine at design time (not the C# API), read docs/APPLICATIONS.md. The engine is modular middleware: composable, citable providers. OCEAN, PAD, and OCC are the default composition (Gebhard ALMA 2005 wiring), not the ceiling. Hosts may add layers, replace a layer’s provider, or supplement a layer with more sources/methods. No LLM in the core. Current published library is 0.4.0 (persist, idle Tick(dt), HostEvents, Utility-AI tint sample).
+Read docs/CHARTER.md first. For how games should *use* the engine at design time (not the C# API), read docs/APPLICATIONS.md. The engine is modular middleware: composable, citable providers. OCEAN, PAD, and OCC are the default composition (Gebhard ALMA 2005 wiring), not the ceiling. Hosts may add layers, replace a layer’s provider, or supplement a layer with more sources/methods. No LLM in the core. Current published library is 0.5.0 (fortune-of-others OCC, optional dyad liking, social Utility-AI tint).
 
 GitHub is public. Do not put private issue-tracker URLs, project keys, or ticket ids in this repository, GitHub pull requests, issues, commit messages, Releases, or release notes. Product docs live in this repository. Use the Atlassian MCP for Jira only; keep that tracker private.
 END

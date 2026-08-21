@@ -90,4 +90,62 @@ public sealed class OccEmotionTests
         Assert.True(after > before);
         Assert.Equal(0.38, engine.Snapshot.GetOrDefault(OceanToPadMapping.PleasureKey), 2);
     }
+
+    [Theory]
+    [InlineData(OccEmotion.HappyForKind)]
+    [InlineData(OccEmotion.PityKind)]
+    [InlineData(OccEmotion.ResentmentKind)]
+    [InlineData(OccEmotion.GloatingKind)]
+    public void FortuneOfOthers_WritesGlobalChannel(string kind)
+    {
+        var engine = new AffectEngine(new IAffectProvider[] { new OccEmotion() });
+        var snap = engine.Tick(new WorldEvent(kind, 0.7f, target: "ally"));
+        var written = 0;
+        foreach (var key in OccEmotion.AllKeys)
+        {
+            if (!snap.TryGet(key, out var value) || value <= 0f)
+                continue;
+            written++;
+            Assert.Equal(0.7, value, 2);
+            Assert.DoesNotContain(":ally", key, StringComparison.Ordinal);
+        }
+
+        Assert.Equal(1, written);
+        Assert.False(snap.TryGet("emotion.occ.happy-for:ally", out _));
+    }
+
+    [Fact]
+    public void Mapping_WritesPadOverlay_FromPity()
+    {
+        var engine = new AffectEngine(new IAffectProvider[]
+        {
+            new OccEmotion(),
+            new OccToPadMapping()
+        });
+        var snap = engine.Tick(new WorldEvent(OccEmotion.PityKind, 1f));
+        Assert.True(snap.GetOrDefault(OccToPadMapping.PleasureKey) < 0f);
+        Assert.True(snap.GetOrDefault(OccToPadMapping.ArousalKey) > 0f);
+    }
+
+    [Fact]
+    public void Mapping_WritesPadOverlay_FromGloating()
+    {
+        var engine = new AffectEngine(new IAffectProvider[]
+        {
+            new OccEmotion(),
+            new OccToPadMapping()
+        });
+        var snap = engine.Tick(new WorldEvent(OccEmotion.GloatingKind, 1f));
+        Assert.True(snap.GetOrDefault(OccToPadMapping.PleasureKey) > 0f);
+    }
+
+    [Fact]
+    public void FortuneOfOthers_DecaysTowardZero_OverDt()
+    {
+        const float rate = 1.5f;
+        var engine = new AffectEngine(new IAffectProvider[] { new OccEmotion { DecayRate = rate } });
+        engine.Tick(new WorldEvent(OccEmotion.HappyForKind, 1f, "kin"));
+        var snap = engine.Tick(1f);
+        Assert.Equal(MathF.Exp(-rate), snap.GetOrDefault(OccEmotion.HappyForKey), 4);
+    }
 }

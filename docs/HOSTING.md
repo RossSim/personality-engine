@@ -20,6 +20,7 @@ engine.Tick(ev, deltaTime);             // event + decay
 - `PadMood` keeps internal P/A/D. Snapshot `mood.pad-mood.*` already includes the OCC overlay. Restoring those as internal mood would double-count overlay on the next tick.
 - `OccEmotion` decays a private intensity map. Restoring channels without that map freezes decay.
 - `OperantLearningProvider` keeps strengths, ratio counters, SD, and deprivation privately.
+- `DyadProvider` keeps pairwise liking privately.
 
 `AffectPersist` is a POCO (`Version`, `Channels`, `Providers`). The core does not take a JSON dependency. Hosts may serialize it with `System.Text.Json` or another serializer.
 
@@ -35,7 +36,8 @@ Channels: { "layer.provider.channel": float, ... }
 Providers: {
   "pad-mood": { "internal.pleasure", "internal.arousal", "internal.dominance", "seeded" },
   "occ": { "emotion.occ.joy": float, ... },
-  "skinner-operant": { deprivation, optional sd, strength:* , ratio:*, next-vr:* }
+  "skinner-operant": { deprivation, optional sd, strength:* , ratio:*, next-vr:* },
+  "dyad": { "relationship.dyad.liking:{otherId}": float, ... }
 }
 ```
 
@@ -50,9 +52,9 @@ other.Tick(0f); // or Tick(WorldEvent.Tick)
 
 ## Host events
 
-`HostEvents` is a **project-convention** catalog. It does not infer goals or standards. Each helper is a `WorldEvent` with an OCC kind the default composition already understands:
+`HostEvents` is a **project-convention** catalog. It does not infer goals, standards, or liking. OCC helpers wrap kinds the default composition already understands. Like/dislike wrap the optional dyad provider:
 
-| Helper | OCC kind | Typical host moment |
+| Helper | Kind | Typical host moment |
 | --- | --- | --- |
 | `NeedMet` | `occ.joy` | a need was satisfied |
 | `Harm` | `occ.distress` | damage or goal failure |
@@ -60,10 +62,21 @@ other.Tick(0f); // or Tick(WorldEvent.Tick)
 | `ThreatPassed` | `occ.relief` | danger gone |
 | `SelfCredit` | `occ.pride` | host attributes success to self |
 | `SelfBlame` | `occ.shame` | host attributes failure to self |
+| `HappyFor(other)` | `occ.happy-for` | desirable event for a liked other |
+| `Pity(other)` | `occ.pity` | undesirable event for a liked other |
+| `Resent(other)` | `occ.resentment` | desirable event for a disliked other |
+| `Gloat(other)` | `occ.gloating` | undesirable event for a disliked other |
+| `Like(other)` | `dyad.like` | host decided this other is liked more |
+| `Dislike(other)` | `dyad.dislike` | host decided this other is liked less |
+
+Fortune-of-others helpers take the other id as `WorldEvent.Target`. They do **not** read liking. The host already chose HappyFor vs Gloat.
 
 ```csharp
 engine.Tick(HostEvents.NeedMet());
 engine.Tick(HostEvents.Threat(0.7f), deltaTime);
+engine.Tick(HostEvents.HappyFor("kin"));
+engine.Tick(HostEvents.Gloat("rival", 0.8f));
+engine.Tick(HostEvents.Like("kin"));
 ```
 
 Hosts may still send `new WorldEvent(OccEmotion.JoyKind, 1f)` directly.
@@ -82,3 +95,7 @@ var pick = HostChooser.Pick(finals);            // host still decides
 `UtilityTintWeighter` maps PAD/OCC onto those three ids. Coefficients are project convention. Missing channels score 0 and must not throw.
 
 Runnable sample: `dotnet run --project samples/UtilityTint`. It starts with host bases that prefer `role-work`, then a threat pulse flips Pick to `meet-need`.
+
+`DyadWeighter` maps dyad liking and fortune-of-others onto `approach:{other}` / `avoid:{other}`. Missing channels score 0 and must not throw. Like OCC, the weighter does not pick.
+
+Runnable sample: `dotnet run --project samples/SocialTint`. It starts with host bases that prefer `avoid:rival`, then a like pulse on `ally` flips Pick to `approach:ally`.

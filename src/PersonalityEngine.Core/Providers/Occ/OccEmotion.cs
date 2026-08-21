@@ -23,6 +23,10 @@ public sealed class OccEmotion : IAffectProvider, IStatefulProvider
     public const string ShameKind = "occ.shame";
     public const string AdmirationKind = "occ.admiration";
     public const string ReproachKind = "occ.reproach";
+    public const string HappyForKind = "occ.happy-for";
+    public const string PityKind = "occ.pity";
+    public const string ResentmentKind = "occ.resentment";
+    public const string GloatingKind = "occ.gloating";
 
     public static readonly string JoyKey = Key("joy");
     public static readonly string DistressKey = Key("distress");
@@ -36,11 +40,16 @@ public sealed class OccEmotion : IAffectProvider, IStatefulProvider
     public static readonly string ShameKey = Key("shame");
     public static readonly string AdmirationKey = Key("admiration");
     public static readonly string ReproachKey = Key("reproach");
+    public static readonly string HappyForKey = Key("happy-for");
+    public static readonly string PityKey = Key("pity");
+    public static readonly string ResentmentKey = Key("resentment");
+    public static readonly string GloatingKey = Key("gloating");
 
     public static readonly IReadOnlyList<string> AllKeys = new[]
     {
         JoyKey, DistressKey, HopeKey, FearKey, SatisfactionKey, FearsConfirmedKey,
-        ReliefKey, DisappointmentKey, PrideKey, ShameKey, AdmirationKey, ReproachKey
+        ReliefKey, DisappointmentKey, PrideKey, ShameKey, AdmirationKey, ReproachKey,
+        HappyForKey, PityKey, ResentmentKey, GloatingKey
     };
 
     private static readonly Dictionary<string, string> KindToKey =
@@ -57,7 +66,11 @@ public sealed class OccEmotion : IAffectProvider, IStatefulProvider
             [PrideKind] = PrideKey,
             [ShameKind] = ShameKey,
             [AdmirationKind] = AdmirationKey,
-            [ReproachKind] = ReproachKey
+            [ReproachKind] = ReproachKey,
+            [HappyForKind] = HappyForKey,
+            [PityKind] = PityKey,
+            [ResentmentKind] = ResentmentKey,
+            [GloatingKind] = GloatingKey
         };
 
     private readonly Dictionary<string, float> _intensity =

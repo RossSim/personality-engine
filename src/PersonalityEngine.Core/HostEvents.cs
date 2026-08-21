@@ -1,3 +1,4 @@
+using PersonalityEngine.Providers.Dyad;
 using PersonalityEngine.Providers.Occ;
 
 namespace PersonalityEngine;
@@ -25,4 +26,22 @@ public static class HostEvents
 
     public static WorldEvent SelfBlame(float intensity = 1f) =>
         new WorldEvent(OccEmotion.ShameKind, intensity);
+
+    public static WorldEvent HappyFor(string otherId, float intensity = 1f) =>
+        new WorldEvent(OccEmotion.HappyForKind, intensity, otherId);
+
+    public static WorldEvent Pity(string otherId, float intensity = 1f) =>
+        new WorldEvent(OccEmotion.PityKind, intensity, otherId);
+
+    public static WorldEvent Resent(string otherId, float intensity = 1f) =>
+        new WorldEvent(OccEmotion.ResentmentKind, intensity, otherId);
+
+    public static WorldEvent Gloat(string otherId, float intensity = 1f) =>
+        new WorldEvent(OccEmotion.GloatingKind, intensity, otherId);
+
+    public static WorldEvent Like(string otherId, float intensity = 1f) =>
+        new WorldEvent(DyadProvider.LikeKind, intensity, otherId);
+
+    public static WorldEvent Dislike(string otherId, float intensity = 1f) =>
+        new WorldEvent(DyadProvider.DislikeKind, intensity, otherId);
 }
