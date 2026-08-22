@@ -16,5 +16,6 @@
     <ProjectReference Include="..\..\samples\AlmaTimeline\AlmaTimeline.csproj" />
     <ProjectReference Include="..\..\samples\UtilityTint\UtilityTint.csproj" />
     <ProjectReference Include="..\..\samples\SocialTint\SocialTint.csproj" />
+    <ProjectReference Include="..\..\samples\Examples\Examples.csproj" />
   </ItemGroup>
 </Project>

@@ -7,6 +7,10 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+### Added
+
+- Examples page and HTML host (`samples/Examples`): three game stories from real ticks (raid, shopkeeper visits, person-to-nation)
+
 ### Changed
 
 - Plain-language applications intro for designers, programmers, and people using an AI to make a game
