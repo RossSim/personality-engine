@@ -7,6 +7,10 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+### Changed
+
+- Named-theory pages and the citations registry state that references are the academic sources in each table
+
 ## [0.6.1] - 2026-08-21
 
 Plain-language front door, diagrams, and a playable examples host. Core API is unchanged.

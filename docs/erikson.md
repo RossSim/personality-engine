@@ -1,6 +1,6 @@
 # Erik Erikson — academic review and in-module mapping
 
-This note reviews Erikson's published research for Personality Engine and records **what is in the `identity` layer**, what is a **project convention**, and what stays **out of scope**.
+This note reviews Erikson's published research for Personality Engine and records **what is in the `identity` layer**, what is a **project convention**, and what stays **out of scope**. Citations are Erikson as named below.
 
 Layer: `identity`.
 

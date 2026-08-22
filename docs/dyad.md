@@ -1,6 +1,6 @@
 # Dyad (relationship)
 
-Optional **relationship** layer: pairwise liking toward a named other. OCC treats liking/disliking as an **attitude** that fortune-of-others assumes. This provider stores that attitude. It does not fire happy-for, pity, resentment, or gloating — the host still tags those eliciting conditions.
+Optional **relationship** layer: pairwise liking toward a named other. OCC treats liking/disliking as an **attitude** that fortune-of-others assumes. This provider stores that attitude. It does not fire happy-for, pity, resentment, or gloating — the host still tags those eliciting conditions. The citation is OCC (1988) for liking as attitude; range, bumps, and decay are **project convention**.
 
 Layer: `relationship`. Off the default ALMA composition: omit the provider and the channels stay absent.
 

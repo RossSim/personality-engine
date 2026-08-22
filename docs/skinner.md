@@ -1,6 +1,6 @@
 # Skinner module
 
-Supplemental providers for B. F. Skinner’s **experimental analysis of behavior** and radical-behaviorist philosophy. They do **not** live on the personality, mood, emotion, or meaning layers. Layer: `learning`. Skinner treated “personality” as a **repertoire of operants** shaped by contingencies, not as inner traits that cause action (*Science and Human Behavior*, 1953; *Beyond Freedom and Dignity*, 1971).
+Supplemental providers for B. F. Skinner’s **experimental analysis of behavior** and radical-behaviorist philosophy. They do **not** live on the personality, mood, emotion, or meaning layers. Layer: `learning`. Skinner treated “personality” as a **repertoire of operants** shaped by contingencies, not as inner traits that cause action (*Science and Human Behavior*, 1953; *Beyond Freedom and Dignity*, 1971). Citations in this file are those academic sources, plus Ferster & Skinner (1957) for schedules.
 
 This module can run **alone** or **beside** OCEAN and Peterson. Combining them is a host choice. The theories disagree about causes (traits / meaning vs. history of reinforcement); the engine does not paper over that.
 
@@ -41,7 +41,7 @@ FI / VI interval schedules are documented, not implemented in this slice.
 ## Philosophy
 
 - **Radical behaviorism:** private events (thinking, feeling) are behavior to be explained by the same contingencies, not unmoved movers. They are not denied; they are not given causal privilege (Skinner, 1953, “Private events in a natural science”).
-- **Autonomous man:** *Beyond Freedom and Dignity* (1971) argues that “freedom” and “dignity” as inner origination block a technology of behavior and sustain punishment. The *goals* those ideals served (reducing aversive control) should be pursued by changing environments. This is recorded as philosophy in citations. It is **not** encoded as an NPC political stance.
+- **Autonomous man:** *Beyond Freedom and Dignity* (1971) argues that “freedom” and “dignity” as inner origination block a technology of behavior and sustain punishment. The *goals* those ideals served (reducing aversive control) should be pursued by changing environments. Cited as philosophy; not a separate provider.
 - **Walden Two** (1948) is fiction about cultural design via contingencies. Not a provider.
 - **Verbal Behavior** (1957): mands, tacts, echoics, intraverbals. Documented; not implemented this slice.
 
@@ -72,7 +72,6 @@ Hosts may still run all three: Peterson can bias *which* operants are emitted; S
 - Herrnstein matching law as a Skinner formula
 - Verbal Behavior classes (mands/tacts)
 - Interval schedules (FI/VI)
-- Encoding 1971 cultural-design politics as trait values
 - Claiming 0..1 strengths are laboratory response rates
 
 ## Usage

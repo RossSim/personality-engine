@@ -1,6 +1,6 @@
 # Citations
 
-Every provider in this library names a source. Project-only numbers (game feel, clamping, extra channels) are labeled **project convention** and must not be attributed to a paper.
+Every provider in this library names a source. Named people (Peterson, Skinner, Piaget, Erikson, and the OCC / OCEAN / PAD authors) are cited for the academic papers and books in their tables. Project-only numbers (game feel, clamping, extra channels) are labeled **project convention** and must not be attributed to a paper.
 
 This file is a registry, not a closed canon. Adding a provider means adding a row. Replacing a method means citing the new method; do not silently retitle ALMA, OCEAN, PAD, or OCC.
 
@@ -32,7 +32,7 @@ Full review: [`peterson.md`](peterson.md).
 | `OrderChaosMeaningProvider` | meaning | Peterson, J. B. (1999). *Maps of Meaning: The Architecture of Belief.* Routledge. Peterson, J. B., & Flanders, J. L. (2002). Complexity Management Theory: Motivation for ideological rigidity and social conflict. *Cortex, 38*(3), 429–458. https://doi.org/10.1016/S0010-9452(08)70680-4 Peterson, J. B. (2013). Three forms of meaning and the management of complexity. In K. Markman, T. Proulx, & M. Lindberg (Eds.), *The psychology of meaning*. American Psychological Association. Numeric gains/decays: **project convention**. |
 | `PetersonMeaningWeighter` | action weights | Same CMT sources; mix of explore/defend/integrate/withdraw is **project convention**. |
 
-Not implemented (needs aspect-level BFAS, not domain OCEAN): Hirsh, J. B., DeYoung, C. G., Xu, X., & Peterson, J. B. (2010). Compassionate liberals and polite conservatives. *Personality and Social Psychology Bulletin, 36*(5), 655–664.
+Not implemented (needs aspect-level BFAS, not domain OCEAN): Hirsh, J. B., DeYoung, C. G., Xu, X., & Peterson, J. B. (2010). Compassionate liberals and polite conservatives: Associations of agreeableness with political ideology and moral values. *Personality and Social Psychology Bulletin, 36*(5), 655–664.
 
 ## Skinner module
 
@@ -43,7 +43,7 @@ Full review: [`skinner.md`](skinner.md). **New layer** `learning` (not personali
 | `OperantLearningProvider` | learning | Skinner, B. F. (1938). *The Behavior of Organisms.* Skinner, B. F. (1953). *Science and Human Behavior* (three-term contingency, reinforcement, punishment, extinction, deprivation). Ferster, C. B., & Skinner, B. F. (1957). *Schedules of Reinforcement* (CRF, FR, VR). 0..1 strengths and gains: **project convention**. |
 | `OperantWeighter` | action weights | Skinner (1953). SD-absent multiplier and deprivation mix: **project convention**. |
 
-Documented, not implemented: Skinner (1957) *Verbal Behavior*; Ferster & Skinner interval schedules; Skinner (1971) *Beyond Freedom and Dignity* as NPC values.
+Documented, not implemented: Skinner (1957) *Verbal Behavior*; Ferster & Skinner interval schedules. Skinner (1971) *Beyond Freedom and Dignity* is cited as philosophy; not a separate provider.
 
 ## Piaget module
 
@@ -104,7 +104,7 @@ Mapping used by that example (Mehrabian coefficients as used in ALMA):
 
 If a later provider uses different coefficients, cite that source on the provider. Do not overwrite this row.
 
-Legal notice: [`DISCLAIMER.md`](../DISCLAIMER.md). Citations are scholarly attribution, not endorsements or licenses.
+References named for each person are the academic sources in the tables. Legal notice: [`DISCLAIMER.md`](../DISCLAIMER.md) (attribution is not a copyright license).
 
 ## How to add a source
 
