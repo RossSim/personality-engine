@@ -53,11 +53,32 @@ Each of these is an optional layer or provider. Omit it and those channels stay 
 
 ## Later, not given a minor yet
 
-- Aspect-level Big Five, so a paper that needs those scores can be mapped without faking them from five domain traits
-- Self-efficacy (will they even try — distinct from what has paid off)
-- Approach vs inhibition as process personality
-- Promotion vs prevention for quest framing
-- Tight vs loose culture on a **faction** instance, not on every NPC
+Tracked as future epics in the private tracker (no ticket ids in this repo):
+
+| Theme | Cited direction | Layer |
+| --- | --- | --- |
+| Personality supplements | HEXACO (incl. Honesty-Humility), Dark Triad, BFAS aspects | personality |
+| Temperament types | Thomas & Chess easy / difficult / slow-to-warm-up → trait bands; Mehrabian temperament PAD bias | personality |
+| Values | Schwartz — what a character will not trade away | values |
+| Morality | Moral Foundations — what counts as a violation | morality |
+| Motives | McClelland (achievement, affiliation, power); Self-Determination Theory beside it | motives |
+| Vocational interest | Holland RIASEC — vocation fit, not job IQ tables | motives / vocation |
+| Relationship beyond liking | Attachment working models; Heider triads | relationship |
+| OCC goals and standards | Appraise events, not only host tags; host-tagged emotion stays valid | emotion |
+| Cognitive ability domains | Sternberg triarchic (analytic / creative / practical) — domains, not a g or IQ channel | cognition |
+| Agency and culture | Bandura self-efficacy; Gray BIS/BAS; Higgins promotion/prevention; Gelfand tightness–looseness on factions | personality / culture |
+| C++ core parity | Same host contract as C# (snapshot keys, events, persist) | infrastructure |
+
+Also on the “later” list without a dedicated epic yet:
+
+- Gardner multiple intelligences (only if scoped and cited on a child ticket)
+- Neo-Piagetian revisions (Case, Pascual-Leone) as sibling cognition providers
+
+After 0.12 and the rows above have settled: extras without a minor yet, then a **1.0** contract freeze.
+
+## Companion project (not this repo)
+
+**Archetypes** — [github.com/RossSim/archetypes](https://github.com/RossSim/archetypes) — preset catalogs (profession, temperament, fantasy clan) that map into PE constructor args (`OceanTraits`, Piaget stage, operant seeds, enabled providers). Not new `IAffectProvider` implementations. Presets use cited knobs per field (cognitive stage, operant history, trait bands), not a single IQ score. Real-world race or ethnicity presets are out of scope for the public catalog.
 
 ## Under consideration
 
@@ -68,7 +89,10 @@ Each of these is an optional layer or provider. Omit it and those channels stay 
 - Maslow as a hunger stack (the host already simulates food and rest; a hierarchy is a poor fit for simultaneous channels)
 - Deming’s management points as personality
 - Type inventories, including MBTI
+- IQ, g, or WAIS-style composite scores as a provider channel
+- Profession or fantasy-clan preset tables (companion Archetypes repo)
+- Race-based or real-world demographic cognitive rank presets
 - A language model in the core (a game that uses a model can still host this library: [Language models as a host](LANGUAGE_MODELS.md))
 - A clinic, diagnostic, or copyrighted item set
 
-Where it goes in a game: [Applying it in games](APPLICATIONS.md). How to tick and save: [Hosting](HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](LANGUAGE_MODELS.md).
+Where it goes in a game: [Applying it in games](APPLICATIONS.md). How to tick and save: [Hosting](HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](LANGUAGE_MODELS.md). Preset authoring: [Archetypes companion](https://github.com/RossSim/archetypes).
