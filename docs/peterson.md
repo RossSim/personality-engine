@@ -1,8 +1,6 @@
 # Peterson module
 
-This is not a model of Peterson-the-public-figure, and it does not encode partisan positions as engine values. Popular books (*12 Rules for Life*, *Beyond Order*) are treated as exposition of themes already in the academic sources, not as psychometric instruments.
-
-This is not a model of Peterson-the-public-figure, and it does not encode partisan positions as engine values. Popular books (*12 Rules for Life*, *Beyond Order*) are treated as exposition of themes already in the academic sources, not as psychometric instruments.
+This module implements the academic sources named below: DeYoung, Peterson & Higgins (2002), Digman (1997), Peterson (1999), Peterson & Flanders (2002), and Peterson (2013). Those papers and books are the citations.
 
 ## What is in the module
 
@@ -25,7 +23,7 @@ The 2002 paper also ties these metatraits to Peterson’s (1999) claim that main
 Related, not implemented here:
 
 - DeYoung, Peterson & Higgins (2005), *Journal of Personality* — cognitive/neuropsychological correlates of Openness/Intellect.
-- Hirsh, DeYoung, Xu & Peterson (2010), *PSPB* — **aspect-level** Agreeableness (Compassion vs Politeness) and Conscientiousness (Orderliness) associations with political ideology. Domain-level OCEAN is too coarse to implement that paper honestly. A later BFAS provider could add it.
+- Hirsh, DeYoung, Xu & Peterson (2010), *PSPB* — aspect-level Agreeableness and Conscientiousness. This module uses domain-level OCEAN, so that paper is not mapped here.
 
 ## Philosophy and meaning (*Maps of Meaning*, CMT)
 
@@ -56,10 +54,8 @@ Peterson (2013) distinguishes three forms of meaning: meaning of the known, mean
 
 ## What is out of scope
 
-- Encoding Peterson’s media commentary or party politics as NPC values
-- Using *12 Rules* chapter titles as traits
-- Pretending CMT or Maps of Meaning is a validated psychometric scale with published coefficients — the state variables are a **faithful qualitative implementation** with labeled numeric conventions
-- Implementing Hirsh et al. (2010) from five domain scores
+- Treating the meaning-layer numbers as a published psychometric scale. The state variables follow the qualitative dynamics in the cited sources; the numeric gains are **project convention**.
+- Hirsh et al. (2010) from five domain scores (that paper uses aspect-level scores)
 
 ## Usage
 
