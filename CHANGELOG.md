@@ -10,7 +10,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 ### Added
 
 - Public roadmap: shipped versions, intended next minors, and what is not planned
-- Language-model host page: how a game that uses a model can tick, persist, and rank lines without putting an LLM in this library
+- Public Unity host and macOS playable: [NPC-demo](https://github.com/RossSim/NPC-demo) (this repo stays a `netstandard2.1` library)
 - README author's note: why the library exists for small teams, with cited sources and no clinic claim
 - Plain-language OCEAN, PAD, and OCC: who they are, how they are this hour, what this moment did
 - Roadmap table for later provider themes (temperament types, vocational interest, cognitive ability domains, agency) and the Archetypes companion repo

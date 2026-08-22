@@ -44,7 +44,7 @@ dotnet add package PersonalityEngine.Core --source /path/to/downloaded/nupkg-fol
 
 Or add a `PackageReference` after placing `PersonalityEngine.Core.0.6.1.nupkg` in a local feed.
 
-**DLL:** unzip the `PersonalityEngine.Core.*.zip` asset from the [latest release](https://github.com/RossSim/personality-engine/releases/latest) and reference `PersonalityEngine.Core.dll` (`netstandard2.1`, Unity-consumable later; this repo is not a Unity project).
+**DLL:** unzip the `PersonalityEngine.Core.*.zip` asset from the [latest release](https://github.com/RossSim/personality-engine/releases/latest) and reference `PersonalityEngine.Core.dll` (`netstandard2.1`). This repo is not a Unity project. A Unity adapter and a macOS playable (no Editor required) live in [NPC-demo](https://github.com/RossSim/NPC-demo).
 
 **From source:**
 
@@ -129,7 +129,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Personality, mood, and feeling](docs/OCEAN_PAD_OCC.md) | OCEAN, PAD, and OCC in ordinary language (who they are, how they are this hour, what this moment did) |
 | [Examples](docs/EXAMPLES.md) | Three stories plus a tiny HTML host that plays real ticks |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
-| [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser |
+| [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser; Unity host is [NPC-demo](https://github.com/RossSim/NPC-demo) |
 | [Language models as a host](docs/LANGUAGE_MODELS.md) | How a game that uses a model can tick, persist, and rank lines without putting an LLM in this library |
 | [Citations](docs/CITATIONS.md) | Source registry |
 | [Disclaimer](DISCLAIMER.md) | Not a test, not a medical device, MIT still governs |
