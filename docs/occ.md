@@ -1,6 +1,6 @@
 # OCC emotion
 
-First emotion-layer provider: Ortony, Clore & Collins (1988) **OCC** types as named channels. Layer: `emotion`. Citations are OCC (1988) and Gebhard (2005) as named below.
+First emotion-layer provider: Ortony, Clore & Collins (1988) **OCC** types as named channels. Layer: `emotion`. Citations are OCC (1988) and Gebhard (2005) as named below. For a non-academic read of OCC next to personality and mood: [Personality, mood, and feeling](OCEAN_PAD_OCC.md).
 
 This slice is **host-tagged eliciting conditions**, not a full OCC goal / standard / attitude network. The host decides that an event is desirable, prospect-based, or an attribution; the provider stores intensities and decays them. A later provider may infer those conditions from richer snapshot state without a charter change.
 
