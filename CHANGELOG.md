@@ -12,6 +12,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 - Public roadmap: shipped versions, intended next minors, and what is not planned
 - Language-model host page: how a game that uses a model can tick, persist, and rank lines without putting an LLM in this library
 - README author's note: why the library exists for small teams, with cited sources and no clinic claim
+- Plain-language OCEAN, PAD, and OCC: who they are, how they are this hour, what this moment did
 
 ### Changed
 

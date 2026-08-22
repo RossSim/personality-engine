@@ -52,6 +52,8 @@ flowchart TD
 | Who are they becoming across a life or campaign? | Identity (psychosocial crisis — host-set) |
 | Do they like *this* person, right now? | Relationship (pairwise liking) |
 
+What OCEAN, PAD, and OCC mean without the papers: [Personality, mood, and feeling](OCEAN_PAD_OCC.md).
+
 Theories disagree about causes. A host may run Skinner beside OCEAN; the engine will not paper over that. That is a design feature: a traitor who is high in Agreeableness *and* has been reinforced for betrayal is more interesting than either model alone.
 
 ```mermaid
@@ -232,6 +234,7 @@ If a later theory is needed (values, HEXACO), add a provider. Do not fork the li
 
 - [Charter](CHARTER.md) — what is fixed vs modular
 - [Roadmap](ROADMAP.md) — shipped versions and intended next minors
+- [Personality, mood, and feeling](OCEAN_PAD_OCC.md) — OCEAN, PAD, and OCC in ordinary language
 - [Language models as a host](LANGUAGE_MODELS.md) — tick, persist, and rank lines beside a model; the model stays outside
 - [Architecture](ARCHITECTURE.md) — pipeline and snapshot keys
 - [Examples](EXAMPLES.md) — three stories and a tiny HTML host

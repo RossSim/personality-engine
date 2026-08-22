@@ -35,7 +35,7 @@ The engine is a **composition of providers** grouped into **layers**. Layers and
 | Cognition (optional) | Schemas and stages | Piaget equilibration | Piaget (1950, 1952, 1985); Inhelder & Piaget (1958) |
 | Identity (optional) | Psychosocial crises | Erikson eight ages | Erikson (1963, 1968, 1982) |
 
-Gebhard ALMA (2005) is the **first wiring** among those three (OCEAN → PAD mood → OCC emotion). It is one cited composition, not the definition of the engine.
+Gebhard ALMA (2005) is the **first wiring** among those three (OCEAN → PAD mood → OCC emotion). It is one cited composition, not the definition of the engine. Plain-language read of those three: [`OCEAN_PAD_OCC.md`](OCEAN_PAD_OCC.md).
 
 ### Allowed without a charter change
 

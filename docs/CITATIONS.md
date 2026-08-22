@@ -2,7 +2,7 @@
 
 Every provider in this library names a source. Named people (Peterson, Skinner, Piaget, Erikson, and the OCC / OCEAN / PAD authors) are cited for the academic papers and books in their tables. Project-only numbers (game feel, clamping, extra channels) are labeled **project convention** and must not be attributed to a paper.
 
-This file is a registry, not a closed canon. Adding a provider means adding a row. Replacing a method means citing the new method; do not silently retitle ALMA, OCEAN, PAD, or OCC.
+This file is a registry, not a closed canon. Adding a provider means adding a row. Replacing a method means citing the new method; do not silently retitle ALMA, OCEAN, PAD, or OCC. What OCEAN, PAD, and OCC mean without the papers: [Personality, mood, and feeling](OCEAN_PAD_OCC.md).
 
 ## Default composition
 
