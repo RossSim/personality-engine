@@ -11,6 +11,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 - Plain-language applications intro for designers, programmers, and people using an AI to make a game
 - Mermaid diagrams on the applications, hosting, and architecture pages (tables kept)
+- README opening matches that same plain-language explanation
 
 ## [0.6.0] - 2026-08-21
 
