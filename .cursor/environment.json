@@ -1,0 +1,4 @@
+{
+  "name": "Personality Engine",
+  "install": "bash .cursor/install.sh"
+}
