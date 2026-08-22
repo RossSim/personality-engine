@@ -34,6 +34,8 @@ Personality Engine is that plug-in layer. It is not a game engine and not a stud
 
 I will not presume this is academically or professionally useful outside of game development. I wanted cited works so the content is not made up out of thin air. Every provider names a source. Numbers that are only game feel are labeled **project convention**. It is not a test and not a clinic; see the [Disclaimer](DISCLAIMER.md).
 
+The three public RossSim repos for this work — this library, [Archetypes](https://github.com/RossSim/archetypes), and [NPC-demo](https://github.com/RossSim/NPC-demo) — were written primarily in Cursor with language models. I reviewed the documentation. I ran testing and security-sweep prompts and addressed findings to the best of my ability. That is not a substitute for your own review. Please test and verify the code and the docs before you use them.
+
 ## Install
 
 **NuGet package** (from a GitHub Release asset):
