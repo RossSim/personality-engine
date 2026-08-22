@@ -59,6 +59,10 @@ Each of these is an optional layer or provider. Omit it and those channels stay 
 - Promotion vs prevention for quest framing
 - Tight vs loose culture on a **faction** instance, not on every NPC
 
+## Under consideration
+
+- A C++ port of the core with the same host contract as C# (named snapshot keys, events, persist). C# stays the Unity path. Engine plugins (Unreal, Godot) would come after that port, not in it.
+
 ## Not on this roadmap
 
 - Maslow as a hunger stack (the host already simulates food and rest; a hierarchy is a poor fit for simultaneous channels)
