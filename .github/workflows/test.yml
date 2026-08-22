@@ -24,3 +24,4 @@ jobs:
           dotnet run --project samples/AlmaTimeline --nologo -c Release
           dotnet run --project samples/UtilityTint --nologo -c Release
           dotnet run --project samples/SocialTint --nologo -c Release
+          dotnet run --project samples/Examples --nologo -c Release

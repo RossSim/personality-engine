@@ -232,5 +232,6 @@ If a later theory is needed (values, HEXACO), add a provider. Do not fork the li
 
 - [Charter](CHARTER.md) — what is fixed vs modular
 - [Architecture](ARCHITECTURE.md) — pipeline and snapshot keys
+- [Examples](EXAMPLES.md) — three stories and a tiny HTML host
 - [Citations](CITATIONS.md) — which paper owns which knob
 - [Peterson](peterson.md) · [Skinner](skinner.md) · [Piaget](piaget.md) · [Erikson](erikson.md) · [OCC](occ.md) · [Dyad](dyad.md) — academic mapping when a use above names that layer
