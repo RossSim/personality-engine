@@ -5,9 +5,24 @@
 [![Test](https://github.com/RossSim/personality-engine/actions/workflows/test.yml/badge.svg)](https://github.com/RossSim/personality-engine/actions/workflows/test.yml)
 [![Target](https://img.shields.io/badge/target-netstandard2.1-512BD4)](https://github.com/RossSim/personality-engine/releases)
 
-A reusable C# socio-emotional engine for games. Events go in; a named-channel **affect snapshot** and optional **action weights** come out.
+Personality Engine gives game characters a **mood, a personality, and short-lived feelings** that other systems can read.
 
-It is **modular middleware**, not a frozen psychology stack. Personality, mood, and emotion are the default layers. Hosts add, replace, or omit providers. Every provider cites a source. There is no LLM in the core. It is **not** a clinical or psychometric instrument; see [Disclaimer](DISCLAIMER.md).
+You already have a game — or you are asking an AI assistant to help you make one. Characters take hits, hear bad news, keep promises, fail, meet friends, and get betrayed. This library does none of the walking, shooting, pathfinding, or dialogue writing. It sits beside those systems. You tell it what just happened. It hands back **named numbers**: how open this person is, how wound-up they are this minute, whether they are angry at someone. Animation, AI, UI, and writing use those numbers so the same companion, shopkeeper, or rival commander does not always behave the same way.
+
+You keep the actions you already allow (flee, haggle, hold the door). The engine can **rank** those actions; it does not invent new ones. You turn on only the layers the fantasy needs. A bartender does not need childhood development stages. Anything you leave out is simply missing, not an error.
+
+It is a small **C# library** (`netstandard2.1`), not a game engine and not a frozen psychology stack. Personality, mood, and emotion are the default layers. You add, replace, or omit the rest. Every piece cites a source. There is no language model inside the library. It is **not** a clinical or psychometric instrument; see [Disclaimer](DISCLAIMER.md).
+
+Where it goes in a game: [Applying it in games](docs/APPLICATIONS.md). How to tick, save, and fold weights into an existing AI: [Hosting](docs/HOSTING.md).
+
+```mermaid
+flowchart LR
+  happen[Something happens in the game]
+  engine[Personality Engine]
+  numbers[Named numbers: personality, mood, emotion]
+  face[Animation, AI, UI, writing]
+  happen --> engine --> numbers --> face
+```
 
 Current library version: **0.6.0**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
 
@@ -95,7 +110,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | Doc | What it is |
 | --- | --- |
 | [Charter](docs/CHARTER.md) | What is fixed vs modular |
-| [Applying it in games](docs/APPLICATIONS.md) | Design-facing uses: RTS, RPG, FPS, sims, NPCs — not the C# API |
+| [Applying it in games](docs/APPLICATIONS.md) | Where it goes in a game, in the same plain language as this page |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser |
 | [Citations](docs/CITATIONS.md) | Source registry |
