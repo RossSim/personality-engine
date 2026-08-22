@@ -20,7 +20,7 @@ internal static class SkinnerCitations
 
     public static readonly Citation BeyondFreedomAndDignity1971 = new Citation(
         "skinner-1971",
-        "Skinner, B. F. (1971). Beyond Freedom and Dignity. Knopf. Philosophy of environmental control; not encoded as NPC political values.");
+        "Skinner, B. F. (1971). Beyond Freedom and Dignity. Knopf. Cited as philosophy; not a separate provider.");
 
     public static readonly Citation StrengthDynamics = new Citation(
         "pe-skinner-strength-dynamics",
