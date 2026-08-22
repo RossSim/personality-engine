@@ -4,9 +4,30 @@ How a game (or other host) ticks, saves, and folds weights into an existing choo
 
 Rebuild the same composition before `Import` (same traits, same providers, same decay rates). Persist does not store constructor arguments.
 
+```mermaid
+flowchart LR
+  loop[Game loop]
+  tick[Tick]
+  snap[Affect snapshot]
+  save[Export / Import]
+  tint[Optional action weights]
+  loop --> tick --> snap
+  snap --> save
+  snap --> tint
+```
+
 ## Idle tick
 
 `AffectEngine.Tick(dt)` decays without a host event. It is the same as `Tick(WorldEvent.Tick, dt)`. Call it from the game loop when nothing happened this frame.
+
+```mermaid
+flowchart TD
+  frame[This frame]
+  frame -->|nothing happened| idle["Tick(dt) — idle decay"]
+  frame -->|something happened| ev["Tick(event, dt) — event plus decay"]
+  idle --> snap[Updated snapshot]
+  ev --> snap
+```
 
 ```csharp
 engine.Tick(deltaTime);                 // idle
@@ -16,6 +37,17 @@ engine.Tick(ev, deltaTime);             // event + decay
 ## Persist
 
 `Export` / `Import` round-trip **snapshot channels plus per-provider internal bags**. Snapshot floats alone are not enough:
+
+```mermaid
+sequenceDiagram
+  participant Host
+  participant Engine
+  Engine->>Engine: Export channels and provider bags
+  Engine->>Host: AffectPersist
+  Host->>Host: Write JSON or another blob
+  Host->>Engine: Import into a rebuilt composition
+  Engine->>Engine: Tick 0 to refresh channels
+```
 
 - `PadMood` keeps internal P/A/D. Snapshot `mood.pad-mood.*` already includes the OCC overlay. Restoring those as internal mood would double-count overlay on the next tick.
 - `OccEmotion` decays a private intensity map. Restoring channels without that map freezes decay.
@@ -54,6 +86,15 @@ other.Tick(0f); // or Tick(WorldEvent.Tick)
 
 `HostEvents` is a **project-convention** catalog. It does not infer goals, standards, or liking. OCC helpers wrap kinds the default composition already understands. Like/dislike wrap the optional dyad provider:
 
+```mermaid
+flowchart LR
+  decide[Host decides what happened]
+  helper[HostEvents helper]
+  event[Typed WorldEvent]
+  tick[Tick]
+  decide --> helper --> event --> tick
+```
+
 | Helper | Kind | Typical host moment |
 | --- | --- | --- |
 | `NeedMet` | `occ.joy` | a need was satisfied |
@@ -90,6 +131,19 @@ Hosts may still send `new WorldEvent(OccEmotion.JoyKind, 1f)` directly.
 ## Utility-AI tint
 
 `WeightActions` is a **tint**, not a second brain. The host Utility AI keeps `Pick`. Dual choosers (host Pick and a PE weighter both selecting actions) will fight.
+
+```mermaid
+flowchart LR
+  ids[Action ids you already have]
+  bases[Host Utility AI scores]
+  pe[WeightActions]
+  tints[PE tints]
+  mix[HostChooser.Combine]
+  pick[HostChooser.Pick]
+  ids --> pe --> tints
+  bases --> mix
+  tints --> mix --> pick
+```
 
 ```csharp
 var bases = /* host considerations, opaque ids */;
