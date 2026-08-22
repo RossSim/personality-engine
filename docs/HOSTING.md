@@ -159,3 +159,7 @@ Runnable sample: `dotnet run --project samples/UtilityTint`. It starts with host
 `DyadWeighter` maps dyad liking and fortune-of-others onto `approach:{other}` / `avoid:{other}`. Missing channels score 0 and must not throw. Like OCC, the weighter does not pick.
 
 Runnable sample: `dotnet run --project samples/SocialTint`. It starts with host bases that prefer `avoid:rival`, then a like pulse on `ally` flips Pick to `approach:ally`.
+
+## Unity
+
+This repository is not a Unity project. Games still consume `netstandard2.1`. A public Unity adapter (`NpcMind`, host events, persist) and a macOS playable — **no Unity Editor required** if you download that repo’s Release `.app` — live in [NPC-demo](https://github.com/RossSim/NPC-demo). It seeds minds from [Archetypes](https://github.com/RossSim/archetypes) catalog ids and ticks `HostEvents` the same way the console samples do.

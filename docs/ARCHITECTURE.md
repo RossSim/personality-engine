@@ -132,4 +132,4 @@ The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC 
 
 Those may wrap this library later. They are not providers inside it.
 
-This repository includes console hosts under [`samples/AlmaConsole`](../samples/AlmaConsole), [`samples/AlmaTimeline`](../samples/AlmaTimeline), [`samples/UtilityTint`](../samples/UtilityTint), [`samples/SocialTint`](../samples/SocialTint), and [`samples/Examples`](../samples/Examples). They are consumers, not providers.
+This repository includes console hosts under [`samples/AlmaConsole`](../samples/AlmaConsole), [`samples/AlmaTimeline`](../samples/AlmaTimeline), [`samples/UtilityTint`](../samples/UtilityTint), [`samples/SocialTint`](../samples/SocialTint), and [`samples/Examples`](../samples/Examples). They are consumers, not providers. A Unity host lives in [NPC-demo](https://github.com/RossSim/NPC-demo), not in this repo.

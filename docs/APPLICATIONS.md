@@ -226,7 +226,7 @@ flowchart TB
 - **Designers** name events and candidate actions in the GDD, in the same vocabulary as combat and economy. They tag lines and anims with channel names (`mood.pad.arousal`, `meaning.peterson-maps.chaos`, `identity.erikson-psychosocial.moratorium`).
 - **AI / gameplay** maps those names onto existing verbs and does not grow a parallel brain.
 - **Narrative** writes against tags, then plays the game until a tick feels wrong; they ask for an event intensity change, not a new if-statement.
-- **Engineering** hosts the library, one instance per mind, and never puts engine objects in the scene graph. This repo is not a Unity project; any C# host (including a game engine) consumes the `netstandard2.1` API.
+- **Engineering** hosts the library, one instance per mind, and never puts engine objects in the scene graph. This repo is not a Unity project; any C# host (including a game engine) consumes the `netstandard2.1` API. A Unity example host is [NPC-demo](https://github.com/RossSim/NPC-demo).
 
 If a later theory is needed (values, HEXACO), add a provider. Do not fork the library to invent a village-only personality system.
 
@@ -238,5 +238,6 @@ If a later theory is needed (values, HEXACO), add a provider. Do not fork the li
 - [Language models as a host](LANGUAGE_MODELS.md) — tick, persist, and rank lines beside a model; the model stays outside
 - [Architecture](ARCHITECTURE.md) — pipeline and snapshot keys
 - [Examples](EXAMPLES.md) — three stories and a tiny HTML host
+- [NPC-demo](https://github.com/RossSim/NPC-demo) — Unity host and macOS playable (no Editor required to run the Release player)
 - [Citations](CITATIONS.md) — which paper owns which knob
 - [Peterson](peterson.md) · [Skinner](skinner.md) · [Piaget](piaget.md) · [Erikson](erikson.md) · [OCC](occ.md) · [Dyad](dyad.md) — academic mapping when a use above names that layer
