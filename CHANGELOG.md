@@ -7,6 +7,10 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+### Added
+
+- Public roadmap: shipped versions, intended next minors, and what is not planned
+
 ### Changed
 
 - Named-theory pages and the citations registry state that references are the academic sources in each table

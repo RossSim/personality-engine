@@ -231,6 +231,7 @@ If a later theory is needed (values, HEXACO), add a provider. Do not fork the li
 ## See also
 
 - [Charter](CHARTER.md) — what is fixed vs modular
+- [Roadmap](ROADMAP.md) — shipped versions and intended next minors
 - [Architecture](ARCHITECTURE.md) — pipeline and snapshot keys
 - [Examples](EXAMPLES.md) — three stories and a tiny HTML host
 - [Citations](CITATIONS.md) — which paper owns which knob

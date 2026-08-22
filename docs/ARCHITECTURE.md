@@ -1,6 +1,6 @@
 # Architecture
 
-Charter: [`CHARTER.md`](CHARTER.md). Design uses: [`APPLICATIONS.md`](APPLICATIONS.md). Citations: [`CITATIONS.md`](CITATIONS.md).
+Charter: [`CHARTER.md`](CHARTER.md). Roadmap: [`ROADMAP.md`](ROADMAP.md). Design uses: [`APPLICATIONS.md`](APPLICATIONS.md). Citations: [`CITATIONS.md`](CITATIONS.md).
 
 The library is a **composition root** plus **providers**. The core never hard-codes “personality is five OCEAN floats, mood is PAD, emotion is OCC.” Those are the first providers in the default composition.
 

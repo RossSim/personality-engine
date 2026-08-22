@@ -84,9 +84,9 @@ These appear as *allowed future providers* or *out of scope*. They are cited so 
 
 | Name | Why it is mentioned | Source (not in this library) |
 | --- | --- | --- |
-| HEXACO | Alternate personality provider | Ashton, M. C., & Lee, K. (2007). Empirical, theoretical, and practical advantages of the HEXACO model of personality structure. *Personality and Social Psychology Review, 11*(2), 150–166. |
-| Dark Triad | Example supplement on the personality layer | Paulhus, D. L., & Williams, K. M. (2002). The dark triad of personality: Narcissism, Machiavellianism, and psychopathy. *Journal of Research in Personality, 36*(6), 556–563. |
-| Maslow | Motives / needs stack (out of current milestones) | Maslow, A. H. (1943). A theory of human motivation. *Psychological Review, 50*(4), 370–396. Maslow, A. H. (1954). *Motivation and Personality.* Harper. |
+| HEXACO | Alternate personality provider (intended; see [`ROADMAP.md`](ROADMAP.md)) | Ashton, M. C., & Lee, K. (2007). Empirical, theoretical, and practical advantages of the HEXACO model of personality structure. *Personality and Social Psychology Review, 11*(2), 150–166. |
+| Dark Triad | Example supplement on the personality layer (intended; see [`ROADMAP.md`](ROADMAP.md)) | Paulhus, D. L., & Williams, K. M. (2002). The dark triad of personality: Narcissism, Machiavellianism, and psychopathy. *Journal of Research in Personality, 36*(6), 556–563. |
+| Maslow | Named so the charter word is not orphaned; **not planned** as a provider (see [`ROADMAP.md`](ROADMAP.md)) | Maslow, A. H. (1943). A theory of human motivation. *Psychological Review, 50*(4), 370–396. Maslow, A. H. (1954). *Motivation and Personality.* Harper. |
 | Marcia identity statuses | Documented next to Erikson; not encoded | Marcia, J. E. (1966). Development and validation of ego-identity status. *Journal of Personality and Social Psychology, 3*(5), 551–558. |
 | Joan Erikson 9th stage | Documented next to Erikson; not encoded | Erikson, E. H., & Erikson, J. M. (1997). *The Life Cycle Completed* (extended version). W. W. Norton. |
 
