@@ -36,6 +36,8 @@ I will not presume this is academically or professionally useful outside of game
 
 The three public RossSim repos for this work — this library, [Archetypes](https://github.com/RossSim/archetypes), and [NPC-demo](https://github.com/RossSim/NPC-demo) — were written primarily in Cursor with language models. I reviewed the documentation. I ran testing and security-sweep prompts and addressed findings to the best of my ability. That is not a substitute for your own review. Please test and verify the code and the docs before you use them.
 
+Bugs or security findings: please write [rosssim@proton.me](mailto:rosssim@proton.me). I would appreciate it.
+
 ## Install
 
 **NuGet package** (from a GitHub Release asset):

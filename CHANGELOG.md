@@ -18,7 +18,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ### Changed
 
-- README author's note: the three RossSim PE-related repos were written primarily in Cursor with language models; docs were human-reviewed and test/security prompts were run — still verify before use
+- README author's note: the three RossSim PE-related repos were written primarily in Cursor with language models; docs were human-reviewed and test/security prompts were run — still verify before use. Bugs and security findings: rosssim@proton.me
 - Named-theory pages and the citations registry state that references are the academic sources in each table
 
 ## [0.6.1] - 2026-08-21
