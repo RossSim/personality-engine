@@ -1,0 +1,15 @@
+name: Public hygiene
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  no-private-tracker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fail if private tracker URLs or ticket ids are committed
+        run: bash scripts/check-public-hygiene.sh
