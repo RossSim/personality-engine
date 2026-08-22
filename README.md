@@ -24,7 +24,7 @@ flowchart LR
   happen --> engine --> numbers --> face
 ```
 
-Current library version: **0.6.1**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md).
+Current library version: **0.6.1**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md). Where it is going: [Roadmap](docs/ROADMAP.md).
 
 ## Install
 
@@ -112,6 +112,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | Doc | What it is |
 | --- | --- |
 | [Charter](docs/CHARTER.md) | What is fixed vs modular |
+| [Roadmap](docs/ROADMAP.md) | Shipped versions and intended next minors |
 | [Applying it in games](docs/APPLICATIONS.md) | Where it goes in a game, in the same plain language as this page |
 | [Examples](docs/EXAMPLES.md) | Three stories plus a tiny HTML host that plays real ticks |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
