@@ -7,6 +7,10 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-08-21
+
+Plain-language front door, diagrams, and a playable examples host. Core API is unchanged.
+
 ### Added
 
 - Examples page and HTML host (`samples/Examples`): three game stories from real ticks (raid, shopkeeper visits, person-to-nation)
@@ -16,6 +20,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 - Plain-language applications intro for designers, programmers, and people using an AI to make a game
 - Mermaid diagrams on the applications, hosting, and architecture pages (tables kept)
 - README opening matches that same plain-language explanation
+- Charter and start notes: current published library is 0.6.1
 
 ## [0.6.0] - 2026-08-21
 
@@ -133,7 +138,8 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 - OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
-[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.6.1...HEAD
+[0.6.1]: https://github.com/RossSim/personality-engine/releases/tag/v0.6.1
 [0.6.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.6.0
 [0.5.2]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.2
 [0.5.1]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.1
