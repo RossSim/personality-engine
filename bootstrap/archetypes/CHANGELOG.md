@@ -9,8 +9,12 @@ Versions follow [SemVer](https://semver.org/).
 
 ### Added
 
-- Repository skeleton: README, roadmap, design notes, disclaimer
-- Planned split from Personality Engine (presets vs providers)
+- Charter, Cursor start notes, and a public-hygiene check
+- Catalog-first sequencing: profession and clan tables before `MindPreset`
+
+### Changed
+
+- Roadmap and design: version cuts are later intent, not the next coding slice
 
 ## [0.0.0] - 2026-08-22
 
