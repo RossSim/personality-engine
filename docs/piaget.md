@@ -1,6 +1,6 @@
 # Jean Piaget — academic review and in-module mapping
 
-This note reviews Piaget's published research for Personality Engine and records **what is in the `cognition` layer**, what is a **project convention**, and what stays **out of scope**.
+This note reviews Piaget's published research for Personality Engine and records **what is in the `cognition` layer**, what is a **project convention**, and what stays **out of scope**. Citations are Piaget and Inhelder as named below.
 
 Layer: `cognition`.
 
