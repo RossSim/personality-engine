@@ -1,6 +1,6 @@
 # Hosting Personality Engine
 
-How a game (or other host) ticks, saves, and folds weights into an existing chooser. This is not a psychology paper. Numeric helpers here are **project convention** unless a citation says otherwise.
+How a game (or other host) ticks, saves, and folds weights into an existing chooser. This is not a psychology paper. Numeric helpers here are **project convention** unless a citation says otherwise. A language model may sit **outside** as that host; it is not a provider. See [Language models as a host](LANGUAGE_MODELS.md).
 
 Rebuild the same composition before `Import` (same traits, same providers, same decay rates). Persist does not store constructor arguments.
 
