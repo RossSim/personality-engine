@@ -10,6 +10,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 ### Added
 
 - Public roadmap: shipped versions, intended next minors, and what is not planned
+- Language-model host page: how a game that uses a model can tick, persist, and rank lines without putting an LLM in this library
 
 ### Changed
 

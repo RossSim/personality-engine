@@ -37,7 +37,7 @@ flowchart TD
 
 **Cost note.** Named heroes can run a full composition. Ambient crowds usually need only personality + mood, with Extraversion/Agreeableness jitter. Do not put a seven-layer stack on every background walker.
 
-**What you do not get.** A personality test of the player. A large language model. A guarantee that OCEAN scores are “realistic people.” Numeric gains in the library are **project convention** unless a citation says otherwise. You are directing a citable affect stack, not shipping a clinic. Public legal notice: [`DISCLAIMER.md`](../DISCLAIMER.md).
+**What you do not get.** A personality test of the player. A language model inside this library (a game that uses a model can still host it: [Language models as a host](LANGUAGE_MODELS.md)). A guarantee that OCEAN scores are “realistic people.” Numeric gains in the library are **project convention** unless a citation says otherwise. You are directing a citable affect stack, not shipping a clinic. Public legal notice: [`DISCLAIMER.md`](../DISCLAIMER.md).
 
 ## Which layer answers which design question
 
@@ -232,6 +232,7 @@ If a later theory is needed (values, HEXACO), add a provider. Do not fork the li
 
 - [Charter](CHARTER.md) — what is fixed vs modular
 - [Roadmap](ROADMAP.md) — shipped versions and intended next minors
+- [Language models as a host](LANGUAGE_MODELS.md) — tick, persist, and rank lines beside a model; the model stays outside
 - [Architecture](ARCHITECTURE.md) — pipeline and snapshot keys
 - [Examples](EXAMPLES.md) — three stories and a tiny HTML host
 - [Citations](CITATIONS.md) — which paper owns which knob

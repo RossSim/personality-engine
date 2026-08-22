@@ -127,7 +127,7 @@ The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC 
 ## Out of scope for the core
 
 - Unity scene objects or host-engine bindings
-- LLM calls, prompt templates, or token I/O
+- LLM calls, prompt templates, or token I/O (a game that uses a model can still host this library: [`LANGUAGE_MODELS.md`](LANGUAGE_MODELS.md))
 - A FAtiMA port or binary compatibility with FAtiMA-Toolkit
 
 Those may wrap this library later. They are not providers inside it.
