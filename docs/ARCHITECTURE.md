@@ -6,13 +6,16 @@ The library is a **composition root** plus **providers**. The core never hard-co
 
 ## Pipeline
 
-```
-WorldEvent  →  AffectEngine.Tick(event, dt)
-                    │
-                    ├─ each enabled IAffectProvider (order is composition order)
-                    │     reads AffectSnapshot, writes AffectDelta
-                    │
-                    └─ AffectSnapshot  →  optional IActionWeighter  →  action weights
+```mermaid
+flowchart TD
+  world[WorldEvent plus delta time]
+  engine[AffectEngine.Tick]
+  providers[Each enabled provider, in composition order]
+  snapshot[AffectSnapshot]
+  weighter[Optional action weighter]
+  weights[Action weights]
+  world --> engine --> providers --> snapshot
+  snapshot --> weighter --> weights
 ```
 
 Hosts send typed events (and delta time). `Tick(dt)` is the idle path. `HostEvents` wraps common OCC kinds as named helpers. They read a snapshot and, if they asked for it, weights over candidate actions. Weights tint a host chooser; they do not replace Pick. They do not own the psychology. Save/load, events, and tint: [`HOSTING.md`](HOSTING.md).
@@ -37,11 +40,25 @@ Providers are **additive**. Two personality providers can both run. A mapping (O
 | Keep OCEAN, change mood math | OCEAN + a different mood provider and/or mapping |
 | Add a layer | e.g. a `Values` provider; existing providers keep working |
 
+```mermaid
+flowchart LR
+  replace[Replace: HEXACO only]
+  supplement[Supplement: OCEAN plus HEXACO]
+  addLayer[Add a layer: existing stack plus Values]
+```
+
 Downstream code looks up **named channels**. Missing channels are absent, not errors. Action weighters must tolerate a host that omitted mood or emotion.
 
 ## Snapshot
 
 `AffectSnapshot` is a bag of named channels, not a fixed struct:
+
+```mermaid
+flowchart LR
+  layer["layer: personality"] --> provider["provider: ocean"] --> channel["channel: openness"]
+```
+
+Examples: `personality.ocean.openness`, `mood.pad.pleasure`, `emotion.occ.anger`.
 
 - key: `layer.provider.channel` (example: `personality.ocean.openness`, `mood.pad.pleasure`, `emotion.occ.joy`)
 - value: typically a float in a documented range for that provider
@@ -50,6 +67,26 @@ Downstream code looks up **named channels**. Missing channels are absent, not er
 Optional **projectors** may derive a convenience view (for example PAD) when the required inputs exist. A projector is cited; it is not a back-door requirement that every composition speak PAD.
 
 ## Default composition
+
+```mermaid
+flowchart TB
+  subgraph alma [Default ALMA-style stack]
+    ocean[OceanPersonality]
+    map[OceanToPadMapping]
+    occ[OccEmotion]
+    overlay[OccToPadMapping]
+    pad[PadMood]
+    ocean --> map --> occ --> overlay --> pad
+  end
+  subgraph optional [Optional layers]
+    meaning[Meaning]
+    learning[Learning]
+    cognition[Cognition]
+    identity[Identity]
+    relationship[Relationship]
+  end
+  alma --> optional
+```
 
 Order:
 

@@ -1,10 +1,21 @@
 # Applying Personality Engine in game design
 
-This page is for **designers and directors**, not for wiring C# types. It answers: *when we sit down to make a game, where does this engine go, and what does the player notice?*
+Personality Engine gives game characters a **mood, a personality, and short-lived feelings** that other systems can read.
 
-The library does not walk, shoot, pathfind, or write dialogue. It sits beside systems you already have. You already emit events (a unit dies, a clue fails to fit, a treat is missed). You already have actions (hold, trade, flee, lecture, explore). Personality Engine turns those events into a **named-channel affect snapshot** and, if you ask, **weights over the actions you named**. Animation, AI, UI, and writing read those numbers.
+You already have a game — or you are asking an AI assistant to help you make one. Characters take hits, hear bad news, keep promises, fail, meet friends, and get betrayed. This library does none of the walking, shooting, pathfinding, or dialogue writing. It sits beside those systems. You tell it what just happened. It hands back **named numbers**: how open this person is, how wound-up they are this minute, whether they are angry at someone. Animation, AI, UI, and writing use those numbers so the same companion, shopkeeper, or rival commander does not always behave the same way.
 
-Compose only the layers the fantasy needs. A bartender does not need Piaget stages. A child puzzle-giver does not need operant schedules. Missing channels are absent, not errors.
+You keep the actions you already allow (flee, haggle, hold the door). The engine can **rank** those actions; it does not invent new ones. You turn on only the layers the fantasy needs. A bartender does not need childhood development stages. A child giving a puzzle does not need a training-schedule model. Anything you leave out is simply missing, not an error.
+
+This page is for **designers, directors, programmers, and people using an AI to build a game**. It answers: when you sit down to make the game, where does this go, and what does the player notice? You do not need to write C# to follow it. Wiring, saving, and ticks live in [Hosting](HOSTING.md); how the pieces snap together lives in [Architecture](ARCHITECTURE.md).
+
+```mermaid
+flowchart LR
+  happen[Something happens in the game]
+  engine[Personality Engine]
+  numbers[Named numbers: personality, mood, emotion]
+  face[Animation, AI, UI, writing]
+  happen --> engine --> numbers --> face
+```
 
 ## The design loop
 
@@ -13,6 +24,16 @@ Compose only the layers the fantasy needs. A bartender does not need Piaget stag
 3. **List actions you already allow.** GOAP actions, utility behaviors, dialogue moves, camera stances. The engine ranks them; it does not invent new verbs.
 4. **Pick layers.** Slow who-they-are (personality), how-they-are-this-session (mood), what-just-happened (emotion), did-the-world-stop-making-sense (meaning), what-has-paid-off (learning), can-they-think-this-yet (cognition), who-are-they-becoming (identity).
 5. **Author content against channels, not against if-else trees.** Tag lines, poses, and music stems with “high arousal,” “defend-belief,” “moratorium,” “hungry for the reinforcer.” Designers own the tags. The engine owns the numbers.
+
+```mermaid
+flowchart TD
+  mind[1. Name who has a mind]
+  events[2. List events you already simulate]
+  actions[3. List actions you already allow]
+  layers[4. Pick only the layers you need]
+  tags[5. Tag lines, poses, and music with those names]
+  mind --> events --> actions --> layers --> tags
+```
 
 **Cost note.** Named heroes can run a full composition. Ambient crowds usually need only personality + mood, with Extraversion/Agreeableness jitter. Do not put a seven-layer stack on every background walker.
 
@@ -32,6 +53,26 @@ Compose only the layers the fantasy needs. A bartender does not need Piaget stag
 | Do they like *this* person, right now? | Relationship (pairwise liking) |
 
 Theories disagree about causes. A host may run Skinner beside OCEAN; the engine will not paper over that. That is a design feature: a traitor who is high in Agreeableness *and* has been reinforced for betrayal is more interesting than either model alone.
+
+```mermaid
+flowchart TB
+  subgraph coreLayers [Start here]
+    personality[Personality — who they are, slowly]
+    mood[Mood — how they are this hour]
+    emotion[Emotion — what this moment did]
+    personality --> mood --> emotion
+  end
+  subgraph extra [Add when the fantasy needs them]
+    relationship[Relationship — do they like this person]
+    meaning[Meaning — did their map of the world fail]
+    learning[Learning — what has paid off this run]
+    cognition[Cognition — can they think this yet]
+    identity[Identity — who they are becoming]
+  end
+  coreLayers --> extra
+```
+
+Read the stack from the top when you are choosing layers. Personality is the slow floor. Mood and emotion are what most games need next. The second group is optional extras.
 
 ## Worked sketches
 
@@ -149,6 +190,14 @@ These are about *people in a situation*, not about scoring a curriculum document
 
 ## NPCs, and who else
 
+```mermaid
+flowchart TD
+  q{Would you treat this as a person with experiences?}
+  q -->|Named character| named[Own engine instance]
+  q -->|Crowd, district, faction| shared[One shared instance, or a cheap personality-plus-mood seed]
+  q -->|Turret, wildlife, physics prop| skip[Skip the library]
+```
+
 **Yes, NPCs.** That is the default. Named NPCs take a full or partial composition. Background NPCs take a cheap personality+mood seed. Factions can hold a meaning instance (“what our doctrine cannot survive seeing”). A crowd can be one instance if you only need a district mood.
 
 **Player characters.** Use an instance when *the body* should feel different (wounded, grieving, newly titled), not to diagnose the player at the other side of the screen.
@@ -158,6 +207,19 @@ These are about *people in a situation*, not about scoring a curriculum document
 **Not every agent.** Wildlife, turrets, and pure physics props do not need this library. If there is no event you would be ashamed to show a psychologist as “an experience,” skip the stack.
 
 ## Production pattern
+
+```mermaid
+flowchart TB
+  pe[Personality Engine]
+  design[Designers name events and actions]
+  narrative[Narrative tags lines and poses]
+  ai[Gameplay maps names onto existing verbs]
+  eng[Engineering hosts one instance per mind]
+  design --> pe
+  narrative --> pe
+  ai --> pe
+  eng --> pe
+```
 
 - **Designers** name events and candidate actions in the GDD, in the same vocabulary as combat and economy. They tag lines and anims with channel names (`mood.pad.arousal`, `meaning.peterson-maps.chaos`, `identity.erikson-psychosocial.moratorium`).
 - **AI / gameplay** maps those names onto existing verbs and does not grow a parallel brain.
