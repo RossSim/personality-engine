@@ -115,6 +115,10 @@ Gebhard ALMA (2005) is the **first wiring** among personality, mood, and emotion
 
 Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 
+## Companion: Archetypes
+
+[Archetypes](https://github.com/RossSim/archetypes) is a separate MIT repo for **preset catalogs** (profession, temperament, fantasy clan) that build a PE composition — `OceanTraits`, Piaget stage, operant seeds, enabled providers. It is not a second psychology stack and does not add providers to this library. Use it when you want cited defaults for NPC authoring instead of hand-seeding every character.
+
 ## Documentation
 
 | Doc | What it is |
@@ -133,6 +137,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Testing](docs/TESTING.md) | How to run the test suite and the console sample locally |
 | [Releasing](docs/RELEASING.md) | How versions and GitHub Releases are cut |
 | [Changelog](CHANGELOG.md) | Notes for every version |
+| [Archetypes companion](https://github.com/RossSim/archetypes) | Preset tables and builders (separate repo) |
 
 ## Versioning and releases
 
