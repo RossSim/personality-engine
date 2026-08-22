@@ -16,8 +16,10 @@ dotnet run --project samples/AlmaTimeline
 dotnet run --project samples/AlmaTimeline -- --serve
 dotnet run --project samples/UtilityTint
 dotnet run --project samples/SocialTint
+dotnet run --project samples/Examples
+dotnet run --project samples/Examples -- --serve
 ```
 
-The samples are hosts, not providers. They are not packed with `PersonalityEngine.Core`. The timeline sample writes `samples/AlmaTimeline/index.html`. Serve it with `--serve` to check OCC events, set intensity, stagger 0–3s, and press **Run Test** (10s of 1s ticks, line chart plus a metrics×time table). Idle decay, save/load, host events, Utility-AI tint, and social tint: [`HOSTING.md`](HOSTING.md).
+The samples are hosts, not providers. They are not packed with `PersonalityEngine.Core`. The timeline sample writes `samples/AlmaTimeline/index.html`. Serve it with `--serve` to check OCC events, set intensity, stagger 0–3s, and press **Run Test** (10s of 1s ticks, line chart plus a metrics×time table). `samples/Examples` writes `samples/Examples/index.html` and serves three game stories on `127.0.0.1:8766`. Idle decay, save/load, host events, Utility-AI tint, and social tint: [`HOSTING.md`](HOSTING.md). Three short stories: [`EXAMPLES.md`](EXAMPLES.md).
 
 This repository is a C# library. It is not a Unity project.
