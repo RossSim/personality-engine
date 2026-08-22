@@ -11,9 +11,9 @@ You already have a game — or you are asking an AI assistant to help you make o
 
 You keep the actions you already allow (flee, haggle, hold the door). The engine can **rank** those actions; it does not invent new ones. You turn on only the layers the fantasy needs. A bartender does not need childhood development stages. Anything you leave out is simply missing, not an error.
 
-It is a small **C# library** (`netstandard2.1`), not a game engine and not a frozen psychology stack. Personality, mood, and emotion are the default layers. You add, replace, or omit the rest. Every piece cites a source. There is no language model inside the library. It is **not** a clinical or psychometric instrument; see [Disclaimer](DISCLAIMER.md).
+It is a small **C# library** (`netstandard2.1`), not a game engine and not a frozen psychology stack. Personality, mood, and emotion are the default layers. You add, replace, or omit the rest. Every piece cites a source. There is no language model inside the library. A game that uses a model can still host it; see [Language models as a host](docs/LANGUAGE_MODELS.md). It is **not** a clinical or psychometric instrument; see [Disclaimer](DISCLAIMER.md).
 
-Where it goes in a game: [Applying it in games](docs/APPLICATIONS.md). Three short stories, including a playable HTML host: [Examples](docs/EXAMPLES.md). How to tick, save, and fold weights into an existing AI: [Hosting](docs/HOSTING.md).
+Where it goes in a game: [Applying it in games](docs/APPLICATIONS.md). Three short stories, including a playable HTML host: [Examples](docs/EXAMPLES.md). How to tick, save, and fold weights into an existing AI: [Hosting](docs/HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](docs/LANGUAGE_MODELS.md).
 
 ```mermaid
 flowchart LR
@@ -117,6 +117,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Examples](docs/EXAMPLES.md) | Three stories plus a tiny HTML host that plays real ticks |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser |
+| [Language models as a host](docs/LANGUAGE_MODELS.md) | How a game that uses a model can tick, persist, and rank lines without putting an LLM in this library |
 | [Citations](docs/CITATIONS.md) | Source registry |
 | [Disclaimer](DISCLAIMER.md) | Not a test, not a medical device, MIT still governs |
 | [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) · [OCC](docs/occ.md) · [Dyad](docs/dyad.md) | Academic review and in-module mapping |

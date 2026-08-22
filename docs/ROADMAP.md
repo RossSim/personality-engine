@@ -64,7 +64,7 @@ Each of these is an optional layer or provider. Omit it and those channels stay 
 - Maslow as a hunger stack (the host already simulates food and rest; a hierarchy is a poor fit for simultaneous channels)
 - Deming’s management points as personality
 - Type inventories, including MBTI
-- A language model in the core
+- A language model in the core (a game that uses a model can still host this library: [Language models as a host](LANGUAGE_MODELS.md))
 - A clinic, diagnostic, or copyrighted item set
 
-Where it goes in a game: [Applying it in games](APPLICATIONS.md). How to tick and save: [Hosting](HOSTING.md).
+Where it goes in a game: [Applying it in games](APPLICATIONS.md). How to tick and save: [Hosting](HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](LANGUAGE_MODELS.md).
