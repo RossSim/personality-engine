@@ -13,7 +13,7 @@ You keep the actions you already allow (flee, haggle, hold the door). The engine
 
 It is a small **C# library** (`netstandard2.1`), not a game engine and not a frozen psychology stack. Personality, mood, and emotion are the default layers. You add, replace, or omit the rest. Every piece cites a source. There is no language model inside the library. A game that uses a model can still host it; see [Language models as a host](docs/LANGUAGE_MODELS.md). It is **not** a clinical or psychometric instrument; see [Disclaimer](DISCLAIMER.md).
 
-Where it goes in a game: [Applying it in games](docs/APPLICATIONS.md). Three short stories, including a playable HTML host: [Examples](docs/EXAMPLES.md). How to tick, save, and fold weights into an existing AI: [Hosting](docs/HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](docs/LANGUAGE_MODELS.md).
+Where it goes in a game: [Applying it in games](docs/APPLICATIONS.md). What OCEAN, PAD, and OCC mean in ordinary language: [Personality, mood, and feeling](docs/OCEAN_PAD_OCC.md). Three short stories, including a playable HTML host: [Examples](docs/EXAMPLES.md). How to tick, save, and fold weights into an existing AI: [Hosting](docs/HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](docs/LANGUAGE_MODELS.md).
 
 ```mermaid
 flowchart LR
@@ -111,7 +111,7 @@ Hosts compose only the providers they want. Missing channels are **absent**, not
 | Identity (optional) | Psychosocial crises | Eight ages | Erikson (1963, 1968) |
 | Relationship (optional) | Pairwise liking | Dyad toward a named other | OCC 1988 (attitude); bumps/decay project convention |
 
-Gebhard ALMA (2005) is the **first wiring** among personality, mood, and emotion — not the definition of the engine. Numeric game knobs are labeled **project convention** and are not attributed to a paper.
+Gebhard ALMA (2005) is the **first wiring** among personality, mood, and emotion — not the definition of the engine. Numeric game knobs are labeled **project convention** and are not attributed to a paper. What the letters mean without the papers: [Personality, mood, and feeling](docs/OCEAN_PAD_OCC.md).
 
 Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 
@@ -122,6 +122,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Charter](docs/CHARTER.md) | What is fixed vs modular |
 | [Roadmap](docs/ROADMAP.md) | Shipped versions and intended next minors |
 | [Applying it in games](docs/APPLICATIONS.md) | Where it goes in a game, in the same plain language as this page |
+| [Personality, mood, and feeling](docs/OCEAN_PAD_OCC.md) | OCEAN, PAD, and OCC in ordinary language (who they are, how they are this hour, what this moment did) |
 | [Examples](docs/EXAMPLES.md) | Three stories plus a tiny HTML host that plays real ticks |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser |
