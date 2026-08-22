@@ -11,7 +11,7 @@ Inspired by FAtiMA, built from scratch. The product is **modular middleware**, n
 ## What is fixed
 
 - **Shape:** events in; an affect snapshot and optional action weights out.
-- **No LLM in the core.** Language models may sit outside as a host, never as a required provider.
+- **No LLM in the core.** Language models may sit outside as a host, never as a required provider. How that host ticks and prompts: [`LANGUAGE_MODELS.md`](LANGUAGE_MODELS.md).
 - **Every provider cites a source.** Coefficients, thresholds, and mappings that are project conventions are labeled as such.
 - **Not a clinic.** The library is game/research middleware. It is not a psychometric test or a medical device. See [`DISCLAIMER.md`](../DISCLAIMER.md).
 - **Hosts compose; they do not fork** the library to add a theory, a layer, or a method.
