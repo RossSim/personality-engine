@@ -13,7 +13,7 @@ You keep the actions you already allow (flee, haggle, hold the door). The engine
 
 It is a small **C# library** (`netstandard2.1`), not a game engine and not a frozen psychology stack. Personality, mood, and emotion are the default layers. You add, replace, or omit the rest. Every piece cites a source. There is no language model inside the library. It is **not** a clinical or psychometric instrument; see [Disclaimer](DISCLAIMER.md).
 
-Where it goes in a game: [Applying it in games](docs/APPLICATIONS.md). How to tick, save, and fold weights into an existing AI: [Hosting](docs/HOSTING.md).
+Where it goes in a game: [Applying it in games](docs/APPLICATIONS.md). Three short stories, including a playable HTML host: [Examples](docs/EXAMPLES.md). How to tick, save, and fold weights into an existing AI: [Hosting](docs/HOSTING.md).
 
 ```mermaid
 flowchart LR
@@ -49,9 +49,11 @@ dotnet run --project samples/AlmaTimeline
 dotnet run --project samples/AlmaTimeline -- --serve
 dotnet run --project samples/UtilityTint
 dotnet run --project samples/SocialTint
+dotnet run --project samples/Examples
+dotnet run --project samples/Examples -- --serve
 ```
 
-The console sample is a first **host**: it ticks the default composition and prints channels a game would read. `samples/AlmaTimeline` writes a 10s HTML chart (`samples/AlmaTimeline/index.html`). Serve with `--serve` to pick OCC events, intensity, and stagger, then Run Test. `samples/UtilityTint` shows a host Utility AI keeping Pick while PE tints three opaque action ids. `samples/SocialTint` does the same for `approach:{other}` / `avoid:{other}` after like and happy-for. Samples are not providers and are not in the NuGet package.
+The console sample is a first **host**: it ticks the default composition and prints channels a game would read. `samples/AlmaTimeline` writes a 10s HTML chart (`samples/AlmaTimeline/index.html`). Serve with `--serve` to pick OCC events, intensity, and stagger, then Run Test. `samples/UtilityTint` shows a host Utility AI keeping Pick while PE tints three opaque action ids. `samples/SocialTint` does the same for `approach:{other}` / `avoid:{other}` after like and happy-for. `samples/Examples` plays three game stories (raid, shopkeeper visits, person-to-nation) from real ticks; serve with `--serve`. Samples are not providers and are not in the NuGet package.
 
 ## Quick start
 
@@ -111,6 +113,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | --- | --- |
 | [Charter](docs/CHARTER.md) | What is fixed vs modular |
 | [Applying it in games](docs/APPLICATIONS.md) | Where it goes in a game, in the same plain language as this page |
+| [Examples](docs/EXAMPLES.md) | Three stories plus a tiny HTML host that plays real ticks |
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser |
 | [Citations](docs/CITATIONS.md) | Source registry |
