@@ -26,6 +26,14 @@ flowchart LR
 
 Current library version: **0.6.1**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md). Where it is going: [Roadmap](docs/ROADMAP.md).
 
+## Author's note
+
+I always wanted more realistic behavior **over time** from NPCs: a companion who is still angry after the fight, a shopkeeper who remembers a slight, a rival who does not reset when you leave the room. Some larger titles build that kind of affect into the game. For a small team, the desire is easy and the implementation is not. The papers are scattered, the wiring is custom, and there is rarely a small library you can tick from the combat, dialogue, and AI you already have.
+
+Personality Engine is that plug-in layer. It is not a game engine and not a studio's full NPC brain. You tell it what happened; it keeps named personality, mood, and feeling so animation, AI, UI, and writing can read them. It is open source (MIT) so you can tweak it, omit a layer, or replace a mapping to suit the fantasy.
+
+I will not presume this is academically or professionally useful outside of game development. I wanted cited works so the content is not made up out of thin air. Every provider names a source. Numbers that are only game feel are labeled **project convention**. It is not a test and not a clinic; see the [Disclaimer](DISCLAIMER.md).
+
 ## Install
 
 **NuGet package** (from a GitHub Release asset):
