@@ -1,4 +1,4 @@
-# Jean Piaget — academic review and in-module mapping
+# Jean Piaget: academic review and in-module mapping
 
 This note reviews Piaget's published research for Personality Engine and records **what is in the `cognition` layer**, what is a **project convention**, and what stays **out of scope**. Citations are Piaget and Inhelder as named below.
 
@@ -17,14 +17,14 @@ Piaget is **not** a personality theory. His project is genetic epistemology: how
 
 *The Origins of Intelligence in Children* (Piaget, 1952; French 1936) treats intelligence as biological **adaptation**. Two complementary processes keep the organism in contact with the environment:
 
-- **Assimilation** — current **schemas** (organized action patterns) take in new material without changing form. The infant who already grasps treats a new rattle as another thing-to-grasp.
-- **Accommodation** — schemas change when the material will not fit. The same infant must alter grasp for a much larger object.
+- **Assimilation**: current **schemas** (organized action patterns) take in new material without changing form. The infant who already grasps treats a new rattle as another thing-to-grasp.
+- **Accommodation**: schemas change when the material will not fit. The same infant must alter grasp for a much larger object.
 
 Neither process is sufficient alone. Adaptation is their **equilibrium**. This is constructivism, not associationism: knowledge is neither a copy of the world nor an unfolding of innate ideas, but a construction through action.
 
 ### Object permanence and the construction of reality (1937 / 1954)
 
-*The Construction of Reality in the Child* (Piaget, 1954; French 1937) traces how the infant builds a world of permanent objects, spatial relations, causality, and time. **Object permanence** — the object continues to exist when out of sight — is not given at birth. It is constructed across sensorimotor substages, from no search, through search at the last seen location (including the famous A-not-B error), to invisible displacements.
+*The Construction of Reality in the Child* (Piaget, 1954; French 1937) traces how the infant builds a world of permanent objects, spatial relations, causality, and time. **Object permanence**: the object continues to exist when out of sight. It is not given at birth. It is constructed across sensorimotor substages, from no search, through search at the last seen location (including the famous A-not-B error), to invisible displacements.
 
 This is a **cognitive** achievement, not a mood or a trait. An NPC that "forgets" unseen objects is a sensorimotor-stage convention, not a Neuroticism score.
 
@@ -36,7 +36,7 @@ This is a **cognitive** achievement, not a mood or a trait. An NPC that "forgets
 | --- | --- | --- |
 | Sensorimotor | ~0–2 | Action schemas; object permanence by the end |
 | Preoperational | ~2–7 | Symbolic thought; **egocentrism**; failure of **conservation** |
-| Concrete operational | ~7–11 | Conservation, classification, seriation — on concrete material |
+| Concrete operational | ~7–11 | Conservation, classification, seriation on concrete material |
 | Formal operational | ~11+ | **Hypothetical-deductive** reasoning; thinking about thinking |
 
 Piaget's ages are **observational summaries**, not genetic deadlines. Cross-cultural and training studies later showed that timing varies; the **order** of structures is the claim that mattered to him. Personality Engine therefore treats stage as **host-set**, never as an automatic function of event count.
@@ -59,7 +59,7 @@ Dreams, for Piaget, continue assimilative play. Personality Engine does **not** 
 
 ### Equilibration as the motor of development (1975 / 1985)
 
-*The Equilibration of Cognitive Structures* (Piaget, 1985; French 1975) makes **equilibration** — not maturation or social transmission alone — the central developmental mechanism. When assimilation fails, **disequilibrium** motivates accommodation and the construction of a higher-order scheme. *Genetic Epistemology* (Piaget, 1970) states the same program as a theory of knowledge: structures are neither innate nor copied; they are constructed.
+*The Equilibration of Cognitive Structures* (Piaget, 1985; French 1975) makes equilibration the central developmental mechanism, not maturation or social transmission alone. When assimilation fails, **disequilibrium** motivates accommodation and the construction of a higher-order scheme. *Genetic Epistemology* (Piaget, 1970) states the same program as a theory of knowledge: structures are neither innate nor copied; they are constructed.
 
 Personality Engine's `disequilibrium` channel is a **project-convention scalar** standing in for that pressure. It is not a psychometric of "cognitive dissonance" in the Festinger sense, and it is not Peterson's **chaos**.
 
@@ -88,7 +88,7 @@ Personality Engine's `disequilibrium` channel is a **project-convention scalar**
 - **Conservation-task psychometrics.** We do not implement pouring-liquid trials or report "percent conservers." Flags are stage-gated conventions.
 - **Sensorimotor substages 1–6 and A-not-B.** Those need a dedicated infant-cognition model, not a 0..1 channel.
 - **Neo-Piagetian information-processing revisions** (Case, Pascual-Leone) and **Vygotsky** (ZPD, inner speech). Different theories; add them as sibling providers if a host wants them.
-- **Stuffing Piaget into Peterson meaning.** Both describe "this does not fit, reorganize" — but Piaget's object is **cognitive schemas**, Peterson's is **affective meaning and ideology** (Maps of Meaning; CMT). Chaos and disequilibrium can rise together; they are not aliases.
+- **Stuffing Piaget into Peterson meaning.** Both describe "this does not fit, reorganize": but Piaget's object is **cognitive schemas**, Peterson's is **affective meaning and ideology** (Maps of Meaning; CMT). Chaos and disequilibrium can rise together; they are not aliases.
 - **Stuffing Piaget into Skinner.** Piaget explicitly rejected explaining knowledge as a history of reinforcements. Operant `learning.*` channels remain a separate layer.
 - **Moral stages** in the Kohlberg line. Related historically, not Piaget's operational theory, not this module.
 

@@ -10,10 +10,10 @@ Tables come first. A profession or clan file in `presets/` is a **row**: fiction
 
 | Layer | Personality Engine | Archetypes |
 | --- | --- | --- |
-| Runtime tick | `AffectEngine.Tick` | — |
-| Cited theory | `IAffectProvider` implementations | — |
+| Runtime tick | `AffectEngine.Tick` | (none) |
+| Cited theory | `IAffectProvider` implementations | (none) |
 | Starting profile | Constructor args | Catalog tables, later `MindPreset` |
-| Lore names | — | `philobrain-scholar`, `trog-warrior` |
+| Lore names | (none) | `philobrain-scholar`, `trog-warrior` |
 | Builder (later) | `AlmaComposition.Create(...)` | `PresetBuilder.Build(preset)` |
 
 ## Catalog row (now)
@@ -21,10 +21,10 @@ Tables come first. A profession or clan file in `presets/` is a **row**: fiction
 Every public entry should be able to carry:
 
 - `id`, `category` (`profession`, `clan`, later `temperament`)
-- `traits` — five OCEAN 0..1, or a documented band plus a midpoint
-- `operantSeeds` — action-id → strength for training history
-- `enabledProviderIds` — which PE providers this seed expects
-- `citations` — per knob: paper **or** `project convention`
+- `traits`: five OCEAN 0..1, or a documented band plus a midpoint
+- `operantSeeds`: action-id → strength for training history
+- `enabledProviderIds`: which PE providers this seed expects
+- `citations`: per knob: paper **or** `project convention`
 - optional `cognitiveStage`, `identityStage`
 - optional `jitter` notes (named vs ambient)
 - a short **fiction** blurb separate from knobs
@@ -53,9 +53,9 @@ public sealed record MindPreset(
 
 Each clan preset should split:
 
-1. **Fiction** — what players see in the world (“Philobrain clan prizes hypotheticals”)
-2. **Knobs** — Piaget formal operational, high Openness, strong explore operants
-3. **Citations** — Piaget 1950; McCrae & Costa 2008; project convention for operant strengths
+1. **Fiction**: what players see in the world (“Philobrain clan prizes hypotheticals”)
+2. **Knobs**: Piaget formal operational, high Openness, strong explore operants
+3. **Citations**: Piaget 1950; McCrae & Costa 2008; project convention for operant strengths
 
 Avoid one bibliography backing the whole archetype.
 
@@ -71,10 +71,10 @@ Avoid one bibliography backing the whole archetype.
 
 ## Tiers and jitter
 
-- **Named** — full preset composition
-- **Ambient** — personality + mood only, ± jitter on traits
-- **Crowd** — shared district seed (Personality Engine applications notes: cost of one instance per walker)
+- **Named**: full preset composition
+- **Ambient**: personality + mood only, ± jitter on traits
+- **Crowd**: shared district seed (Personality Engine applications notes: cost of one instance per walker)
 
 ## Multiplayer note
 
-Presets produce local PE state. Games replicate persist blobs or authoritative channels on the server — Archetypes does not handle netcode.
+Presets produce local PE state. Games replicate persist blobs or authoritative channels on the server. Archetypes does not handle netcode.

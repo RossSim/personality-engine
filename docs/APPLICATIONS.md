@@ -2,7 +2,7 @@
 
 Personality Engine gives game characters a **mood, a personality, and short-lived feelings** that other systems can read.
 
-You already have a game — or you are asking an AI assistant to help you make one. Characters take hits, hear bad news, keep promises, fail, meet friends, and get betrayed. This library does none of the walking, shooting, pathfinding, or dialogue writing. It sits beside those systems. You tell it what just happened. It hands back **named numbers**: how open this person is, how wound-up they are this minute, whether they are angry at someone. Animation, AI, UI, and writing use those numbers so the same companion, shopkeeper, or rival commander does not always behave the same way.
+You already have a game, or you are building one with help from an AI assistant. Characters take hits, hear bad news, keep promises, fail, meet friends, and get betrayed. This library does none of the walking, shooting, pathfinding, or dialogue writing. It sits beside those systems. You tell it what happened; it hands back **named numbers**: how open this person is, how wound-up they are this minute, whether they are angry at someone. Animation, AI, UI, and writing use those numbers so the same companion, shopkeeper, or rival commander does not always behave the same way.
 
 You keep the actions you already allow (flee, haggle, hold the door). The engine can **rank** those actions; it does not invent new ones. You turn on only the layers the fantasy needs. A bartender does not need childhood development stages. A child giving a puzzle does not need a training-schedule model. Anything you leave out is simply missing, not an error.
 
@@ -48,8 +48,8 @@ flowchart TD
 | What did this moment do to them? | Emotion (OCC) |
 | Did their map of the world fail? | Meaning (order / chaos / knower) |
 | What has actually paid off in *this* run? | Learning (operant strength, deprivation, SD) |
-| Are they even able to think this thought yet? | Cognition (schemas, stages — host-set, not a clock) |
-| Who are they becoming across a life or campaign? | Identity (psychosocial crisis — host-set) |
+| Are they even able to think this thought yet? | Cognition (schemas, stages (host-set, not a clock) |
+| Who are they becoming across a life or campaign? | Identity (psychosocial crisis, host-set) |
 | Do they like *this* person, right now? | Relationship (pairwise liking) |
 
 What OCEAN, PAD, and OCC mean without the papers: [Personality, mood, and feeling](OCEAN_PAD_OCC.md).
@@ -59,17 +59,17 @@ Theories disagree about causes. A host may run Skinner beside OCEAN; the engine 
 ```mermaid
 flowchart TB
   subgraph coreLayers [Start here]
-    personality[Personality — who they are, slowly]
-    mood[Mood — how they are this hour]
-    emotion[Emotion — what this moment did]
+    personality[Personality: who they are, slowly]
+    mood[Mood: how they are this hour]
+    emotion[Emotion: what this moment did]
     personality --> mood --> emotion
   end
   subgraph extra [Add when the fantasy needs them]
-    relationship[Relationship — do they like this person]
-    meaning[Meaning — did their map of the world fail]
-    learning[Learning — what has paid off this run]
-    cognition[Cognition — can they think this yet]
-    identity[Identity — who they are becoming]
+    relationship[Relationship: do they like this person]
+    meaning[Meaning: did their map of the world fail]
+    learning[Learning: what has paid off this run]
+    cognition[Cognition: can they think this yet]
+    identity[Identity: who they are becoming]
   end
   coreLayers --> extra
 ```
@@ -80,7 +80,7 @@ Read the stack from the top when you are choosing layers. Personality is the slo
 
 These are fictional games. They are not recommendations of setting. They show *where the plug goes*.
 
-### *Ashline* — real-time strategy
+### *Ashline*: real-time strategy
 
 The player fights rival commanders, not a bag of identical AIs. Each commander is an OCEAN seed plus a meaning stack. **Events you already have:** army lost, tech revealed, fog tile opened, supply cut. **Actions you already have:** attack, consolidate, scout, turtle, switch build.
 
@@ -88,27 +88,27 @@ A high-Openness, high-Plasticity commander treats a new unit type as something t
 
 Player-facing: two opponents on the same map play differently without extra behavior trees. Designers author one action set; weights choose.
 
-### *Saltwind* — role-playing game
+### *Saltwind*: role-playing game
 
 Companions, shopkeepers, and a coming-of-age lead share the same verbs (talk, follow, refuse, haggle, leave) and different compositions. **Events:** promise kept or broken, town saved, relic that contradicts the faith, training montage completed. **Actions:** loyalty dialogue, price modifier, leave-the-party, take the heretical quest.
 
 The companion does not need a custom “betrayal flag.” A rupture event on the identity layer plus a mood drop is enough for the writer to hang three line variants: still-committed, moratorium (“I need to think”), withdraw. A child quest-giver on a preoperational stage cannot complete a conservation puzzle you designed for adults; that is a cognition constraint, not a low Intelligence stat. The merchant’s Agreeableness and current pleasure shift the haggle window. The paladin’s fidelity channel, not a scripted cutscene index, decides whether they will burn the heretical book or walk into the unknown with you.
 
-### *Glass Corridor* — close-quarters shooter
+### *Glass Corridor*: close-quarters shooter
 
 A fireteam and a handful of named civilians, not a global “realism slider.” **Events:** round impacting nearby, buddy down, room cleared, hostage spotted. **Actions you already have:** hold, push, revive, freeze, flee, aid.
 
 The stack lead’s dominance and arousal weight *push* vs *hold* after a failed entry. A conscientious, low-arousal marksman keeps the hold-breath action heavy when everyone else is panicking. A civilian medic with high Agreeableness and a recent “aid was reinforced” history (they helped and the hostage lived) will move to a downed player when a more neurotic civilian’s freeze weight wins. You are not simulating ballistics of fear. You are ranking the three civilian verbs you already animated.
 
-### *Drift Catalog* — field-science internship (training)
+### *Drift Catalog*: field-science internship (training)
 
 Trainees collect specimens that sometimes *do not fit* last week’s schema. This is not a tool for grading lesson plans. It is a sim of people in the field. **Events:** data point that assimilates, data point that will not, mentor support, public presentation. **Actions:** repeat the old protocol, change the protocol, ask for help, fake the log.
 
 Piaget’s disequilibrium is the gameplay: a stubborn intern keeps assimilating (play/repeat) until accommodation weight wins. Erikson’s industry vs inferiority (host-set to the trainee’s career stage) decides whether a failed presentation produces “practice more” or “I am not a scientist.” Operant history matters when faking the log paid off once. The player is a senior researcher who sees *behavior*, not a dashboard of theory names.
 
-### *Lampwick* — conversation-first Unity host (local model)
+### *Lampwick*: conversation-first Unity host (local model)
 
-A harbor lantern shop. The player talks; that is the game. Named people keep a Personality Engine instance between visits. **Dialogue System for Unity** (or Yarn Spinner) owns conversation UI, barks, and allowed speech acts so the host does not invent a dialogue mechanic. A language model on **localhost** realizes the act Dialogue System already Picked — it does not Pick, and it does not leave the machine.
+A harbor lantern shop. The player talks; that is the game. Named people keep a Personality Engine instance between visits. **Dialogue System for Unity** (or Yarn Spinner) owns conversation UI, barks, and allowed speech acts so the host does not invent a dialogue mechanic. A language model on **localhost** realizes the act Dialogue System already Picked. It does not Pick, and it does not leave the machine.
 
 **Events you already have:** insult, gift, promise kept or broken, harbor news, silence. **Actions you already have:** greet, refuse, haggle, confess, leave. Writers tag plot nodes as authored VO; everyday texture is rank-then-realize. Crowd walkers skip the stack.
 
@@ -240,13 +240,13 @@ If a later theory is needed (values, HEXACO), add a provider. Do not fork the li
 
 ## See also
 
-- [Charter](CHARTER.md) — what is fixed vs modular
-- [Roadmap](ROADMAP.md) — shipped versions and intended next minors
-- [Personality, mood, and feeling](OCEAN_PAD_OCC.md) — OCEAN, PAD, and OCC in ordinary language
-- [Language models as a host](LANGUAGE_MODELS.md) — tick, persist, and rank lines beside a model; the model stays outside
-- [Lampwick](LAMPWICK.md) — fictional Unity conversation host with a local model; Dialogue System (or Yarn) Picks
-- [Architecture](ARCHITECTURE.md) — pipeline and snapshot keys
-- [Examples](EXAMPLES.md) — three stories and a tiny HTML host
-- [NPC-demo](https://github.com/RossSim/NPC-demo) — Unity host and macOS playable (no Editor required to run the Release player)
-- [Citations](CITATIONS.md) — which paper owns which knob
-- [Peterson](peterson.md) · [Skinner](skinner.md) · [Piaget](piaget.md) · [Erikson](erikson.md) · [OCC](occ.md) · [Dyad](dyad.md) — academic mapping when a use above names that layer
+- [Charter](CHARTER.md): what is fixed vs modular
+- [Roadmap](ROADMAP.md): shipped versions and intended next minors
+- [Personality, mood, and feeling](OCEAN_PAD_OCC.md): OCEAN, PAD, and OCC in ordinary language
+- [Language models as a host](LANGUAGE_MODELS.md): tick, persist, and rank lines beside a model; the model stays outside
+- [Lampwick](LAMPWICK.md): fictional Unity conversation host with a local model; Dialogue System (or Yarn) Picks
+- [Architecture](ARCHITECTURE.md): pipeline and snapshot keys
+- [Examples](EXAMPLES.md): three stories and a tiny HTML host
+- [NPC-demo](https://github.com/RossSim/NPC-demo): Unity host and macOS playable (no Editor required to run the Release player)
+- [Citations](CITATIONS.md): which paper owns which knob
+- [Peterson](peterson.md) · [Skinner](skinner.md) · [Piaget](piaget.md) · [Erikson](erikson.md) · [OCC](occ.md) · [Dyad](dyad.md): academic mapping when a use above names that layer

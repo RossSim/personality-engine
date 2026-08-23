@@ -15,7 +15,7 @@ END
 
 Standing rules:
 
-- GitHub is public; the issue tracker is private. Never commit or publish Jira/Atlassian links or ticket ids — including PR titles, PR bodies, issues, commit messages, and GitHub Releases.
+- GitHub is public; the issue tracker is private. Never commit or publish Jira/Atlassian links or ticket ids, including PR titles, PR bodies, issues, commit messages, and GitHub Releases.
 - Product docs live in this repository. The private tracker is Jira only. Do not search, create, or update wiki pages.
 - This repository is self-contained. Do not name other private or internal projects, studios, or repos.
 - Every provider cites a paper; project numbers are labeled project convention.

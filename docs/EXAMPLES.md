@@ -39,8 +39,8 @@ Bram the shopkeeper keeps a slow liking toward the player. Gratitude and anger f
 ```mermaid
 flowchart LR
   visit[Each visit]
-  occ[Anger or gratitude — decays]
-  dyad[Liking toward player — stays]
+  occ[Anger or gratitude: decays]
+  dyad[Liking toward player: stays]
   verbs[approach:player / avoid:player]
   visit --> occ --> verbs
   visit --> dyad --> verbs
@@ -57,10 +57,10 @@ A shrine burns. That is one world fact and several minds. A nation can be a mean
 ```mermaid
 flowchart TB
   fire[Shrine burns]
-  nation[Nation — meaning]
-  village[Village — mood]
-  priest[Named priest — emotion]
-  skip[Crowd walkers — no instance]
+  nation[Nation: meaning]
+  village[Village: mood]
+  priest[Named priest: emotion]
+  skip[Crowd walkers: no instance]
   fire --> nation
   fire --> village
   fire --> priest
