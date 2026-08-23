@@ -130,6 +130,6 @@ The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC 
 - LLM calls, prompt templates, or token I/O (a game that uses a model can still host this library: [`LANGUAGE_MODELS.md`](LANGUAGE_MODELS.md))
 - A FAtiMA port or binary compatibility with FAtiMA-Toolkit
 
-Those may wrap this library later. They are not providers inside it.
+Those may wrap this library later. They are not providers inside it. A Unity conversation host that keeps the model on the player’s machine is sketched in [Lampwick](LAMPWICK.md).
 
 This repository includes console hosts under [`samples/AlmaConsole`](../samples/AlmaConsole), [`samples/AlmaTimeline`](../samples/AlmaTimeline), [`samples/UtilityTint`](../samples/UtilityTint), [`samples/SocialTint`](../samples/SocialTint), and [`samples/Examples`](../samples/Examples). They are consumers, not providers. A Unity host lives in [NPC-demo](https://github.com/RossSim/NPC-demo), not in this repo.

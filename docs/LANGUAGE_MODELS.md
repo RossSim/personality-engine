@@ -2,7 +2,7 @@
 
 Personality Engine does **not** call a language model, store prompts, or spend tokens. A game that uses a model can still **host** this library the same way a dialogue tree or Utility AI does: something happens, you tick, you read named numbers (and optional action weights), then writing, animation, or a chooser use those numbers.
 
-This page is for that host. It is not an SDK for any vendor. Wiring, save/load, and `HostEvents` stay in [Hosting](HOSTING.md). Design uses that are not model-specific stay in [Applying it in games](APPLICATIONS.md).
+This page is for that host. It is not an SDK for any vendor. Wiring, save/load, and `HostEvents` stay in [Hosting](HOSTING.md). Design uses that are not model-specific stay in [Applying it in games](APPLICATIONS.md). A Unity conversation host that keeps the model on localhost is sketched in [Lampwick](LAMPWICK.md).
 
 ## Why plug it in
 
@@ -103,3 +103,5 @@ Fold `tints` into the chooser you already have (`HostChooser` in [Hosting](HOSTI
 ## Not in this library
 
 Vendor clients, prompt templates, and token I/O stay **out of this repository**. A later game can wrap PE; that wrapper is the game, not a Personality Engine provider. See [Roadmap](ROADMAP.md).
+
+A Unity conversation host that uses this pattern with Dialogue System (or Yarn Spinner) and a **local** llama.cpp sidecar is sketched as [Lampwick](LAMPWICK.md). It is a fictional game concept, not a project in this repo.

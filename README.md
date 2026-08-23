@@ -13,7 +13,7 @@ You keep the actions you already allow (flee, haggle, hold the door). The engine
 
 It is a small **C# library** (`netstandard2.1`), not a game engine and not a frozen psychology stack. Personality, mood, and emotion are the default layers. You add, replace, or omit the rest. Every piece cites a source. There is no language model inside the library. A game that uses a model can still host it; see [Language models as a host](docs/LANGUAGE_MODELS.md). It is **not** a clinical or psychometric instrument; see [Disclaimer](DISCLAIMER.md).
 
-Where it goes in a game: [Applying it in games](docs/APPLICATIONS.md). What OCEAN, PAD, and OCC mean in ordinary language: [Personality, mood, and feeling](docs/OCEAN_PAD_OCC.md). Three short stories, including a playable HTML host: [Examples](docs/EXAMPLES.md). How to tick, save, and fold weights into an existing AI: [Hosting](docs/HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](docs/LANGUAGE_MODELS.md).
+Where it goes in a game: [Applying it in games](docs/APPLICATIONS.md). What OCEAN, PAD, and OCC mean in ordinary language: [Personality, mood, and feeling](docs/OCEAN_PAD_OCC.md). Three short stories, including a playable HTML host: [Examples](docs/EXAMPLES.md). How to tick, save, and fold weights into an existing AI: [Hosting](docs/HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](docs/LANGUAGE_MODELS.md). A Unity conversation-host sketch (local llama.cpp, Dialogue System or Yarn Spinner): [Lampwick](docs/LAMPWICK.md).
 
 ```mermaid
 flowchart LR
@@ -135,6 +135,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 | [Architecture](docs/ARCHITECTURE.md) | Pipeline, snapshot keys, composition |
 | [Hosting](docs/HOSTING.md) | Idle tick, persist, host events, folding weights into a host chooser; Unity host is [NPC-demo](https://github.com/RossSim/NPC-demo) |
 | [Language models as a host](docs/LANGUAGE_MODELS.md) | How a game that uses a model can tick, persist, and rank lines without putting an LLM in this library |
+| [Lampwick](docs/LAMPWICK.md) | Fictional Unity conversation host: PE + Archetypes + Dialogue System, local llama.cpp, project layout and build steps |
 | [Citations](docs/CITATIONS.md) | Source registry |
 | [Disclaimer](DISCLAIMER.md) | Not a test, not a medical device, MIT still governs |
 | [Peterson](docs/peterson.md) · [Skinner](docs/skinner.md) · [Piaget](docs/piaget.md) · [Erikson](docs/erikson.md) · [OCC](docs/occ.md) · [Dyad](docs/dyad.md) | Academic review and in-module mapping |
