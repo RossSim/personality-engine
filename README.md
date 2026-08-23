@@ -24,7 +24,7 @@ flowchart LR
   happen --> engine --> numbers --> face
 ```
 
-Current library version: **0.6.1**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). History: [CHANGELOG.md](CHANGELOG.md). Where it is going: [Roadmap](docs/ROADMAP.md).
+Current library version: **0.6.2**. Downloads and notes: [Releases](https://github.com/RossSim/personality-engine/releases). NuGet feed: [GitHub Packages](https://github.com/RossSim/personality-engine/packages). History: [CHANGELOG.md](CHANGELOG.md). Where it is going: [Roadmap](docs/ROADMAP.md).
 
 ## Author's note
 
@@ -40,13 +40,28 @@ Bugs or security findings: please write [rosssim@proton.me](mailto:rosssim@proto
 
 ## Install
 
-**NuGet package** (from a GitHub Release asset):
+**GitHub Packages** (recommended; needs a [personal access token](https://github.com/settings/tokens) with `read:packages`):
+
+```bash
+dotnet nuget add source \
+  --username RossSim \
+  --password YOUR_GITHUB_TOKEN \
+  --store-password-in-clear-text \
+  --name github \
+  "https://nuget.pkg.github.com/RossSim/index.json"
+
+dotnet add package PersonalityEngine.Core --version 0.6.2
+```
+
+Package page: [PersonalityEngine.Core](https://github.com/RossSim/personality-engine/packages/nuget/PersonalityEngine.Core).
+
+**Release asset** (offline or no token): download `PersonalityEngine.Core.*.nupkg` from the [latest release](https://github.com/RossSim/personality-engine/releases/latest), then:
 
 ```bash
 dotnet add package PersonalityEngine.Core --source /path/to/downloaded/nupkg-folder
 ```
 
-Or add a `PackageReference` after placing `PersonalityEngine.Core.0.6.1.nupkg` in a local feed.
+Or add a `PackageReference` after placing `PersonalityEngine.Core.0.6.2.nupkg` in a local feed.
 
 **DLL:** unzip the `PersonalityEngine.Core.*.zip` asset from the [latest release](https://github.com/RossSim/personality-engine/releases/latest) and reference `PersonalityEngine.Core.dll` (`netstandard2.1`). This repo is not a Unity project. A Unity adapter and a macOS playable (no Editor required) live in [NPC-demo](https://github.com/RossSim/NPC-demo).
 
@@ -148,7 +163,7 @@ Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 
 Each published version has:
 
-1. A `Version` in `PersonalityEngine.Core` (currently `0.6.1`)
+1. A `Version` in `PersonalityEngine.Core` (currently `0.6.2`)
 2. A `CHANGELOG.md` section for that version
 3. A git tag `vMAJOR.MINOR.PATCH`
 4. A [GitHub Release](https://github.com/RossSim/personality-engine/releases) with those notes and downloadable `.nupkg` / `.zip` assets

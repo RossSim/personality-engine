@@ -7,8 +7,13 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ## [Unreleased]
 
+## [0.6.2] - 2026-08-23
+
+First **GitHub Packages** publish (`PersonalityEngine.Core` on `nuget.pkg.github.com`). Core API unchanged from 0.6.1.
+
 ### Added
 
+- GitHub Packages: release tags now push `PersonalityEngine.Core` to the registry (Release assets unchanged)
 - [Lampwick](docs/LAMPWICK.md): fictional Unity conversation host using Personality Engine, Archetypes, Dialogue System (or Yarn Spinner), and a local llama.cpp sidecar — tech stack, diagrams, project layout, and build steps. The model stays outside this library.
 - Public roadmap: shipped versions, intended next minors, and what is not planned
 - Public Unity host and macOS playable: [NPC-demo](https://github.com/RossSim/NPC-demo) (this repo stays a `netstandard2.1` library)
@@ -22,6 +27,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 - README author's note: the three RossSim PE-related repos were written primarily in Cursor with language models; docs were human-reviewed and test/security prompts were run — still verify before use. Bugs and security findings: rosssim@proton.me
 - Named-theory pages and the citations registry state that references are the academic sources in each table
+- README install: GitHub Packages feed documented alongside Release `.nupkg` assets
 
 ## [0.6.1] - 2026-08-21
 
@@ -154,7 +160,8 @@ First public library cut. `PersonalityEngine.Core` targets `netstandard2.1`.
 - OCC emotion and PAD mood *dynamics* are chartered for the default composition; they are not required to use the providers above
 - Numeric gains, 0..1 flags, and stage clocks are **project convention**, not psychometrics
 
-[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.6.1...HEAD
+[Unreleased]: https://github.com/RossSim/personality-engine/compare/v0.6.2...HEAD
+[0.6.2]: https://github.com/RossSim/personality-engine/releases/tag/v0.6.2
 [0.6.1]: https://github.com/RossSim/personality-engine/releases/tag/v0.6.1
 [0.6.0]: https://github.com/RossSim/personality-engine/releases/tag/v0.6.0
 [0.5.2]: https://github.com/RossSim/personality-engine/releases/tag/v0.5.2
