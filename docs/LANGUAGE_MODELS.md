@@ -8,7 +8,7 @@ This page is for that host. It is not an SDK for any vendor. Wiring, save/load, 
 
 A language model is good at **lines**. It is a poor mood system. If you ask it to remember every hit, insult, and gift, you pay for that history on every call, and the same companion will “forget” to be angry after a long scene.
 
-Personality Engine keeps **affect over time** as a small bag of named floats: how open this person is, how wound-up they are this minute, whether they are angry at someone, whether they still like `kin`. You persist that bag with the save. Between generations you `Tick` for free. When you do generate, you send a **short scene** plus **current channels** (and, if you use them, ranked moves)—not the combat log.
+Personality Engine keeps **affect over time** as a small bag of named floats: how open this person is, how wound-up they are this minute, whether they are angry at someone, whether they still like `kin`. You persist that bag with the save. Between generations you `Tick` for free. When you do generate, you send a **short scene** plus **current channels** (and, if you use them, ranked moves), not the combat log.
 
 That does not make generation cheap. It makes **affect tracking** cheap and stable so the model does not have to be the memory of every punch.
 
@@ -44,7 +44,7 @@ flowchart LR
 
 **3. Writer.** Two honest patterns:
 
-- **Rank, then realize (fits this library best).** Candidate speech acts are action ids you already allow (`stay`, `leave`, `haggle`). `WeightActions` tints them. The host Pick (or you) chooses. A model, if you use one, writes **that** move—not a free-form rant that ignores the weights.
+- **Rank, then realize (fits this library best).** Candidate speech acts are action ids you already allow (`stay`, `leave`, `haggle`). `WeightActions` tints them. The host Pick (or you) chooses. A model, if you use one, writes **that** move, not a free-form rant that ignores the weights.
 - **Condition the prompt.** Put a **small** set of current channels into the system prompt so the line matches mood and traits. Do this **with** ranked moves when you can. Numbers alone in a prompt can be ignored.
 
 The VTT and companion examples in [Applying it in games](APPLICATIONS.md) are the same loop with a human GM or authored lines instead of a model.

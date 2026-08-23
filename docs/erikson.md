@@ -1,4 +1,4 @@
-# Erik Erikson — academic review and in-module mapping
+# Erik Erikson: academic review and in-module mapping
 
 This note reviews Erikson's published research for Personality Engine and records **what is in the `identity` layer**, what is a **project convention**, and what stays **out of scope**. Citations are Erikson as named below.
 
@@ -17,7 +17,7 @@ Erikson is **not** a trait theory and **not** a theory of cognitive operations. 
 
 *Childhood and Society* (Erikson, 1963; first edition 1950) states the **epigenetic principle**: anything that grows has a ground plan, and out of this ground plan the parts arise, each part having its time of special ascendancy, until all parts form a functioning whole. Personality, for Erikson, is this sequence of psychosocial **crises**, not a list of traits.
 
-Each age is a conflict between a **syntonic** (adaptive) pole and a **dystonic** (maladaptive) pole. The healthy outcome is a **favorable ratio** with the syntonic predominating — not the annihilation of the dystonic pole. Mistrust, shame, guilt, and doubt remain available; they become dangerous when they dominate.
+Each age is a conflict between a **syntonic** (adaptive) pole and a **dystonic** (maladaptive) pole. The healthy outcome is a **favorable ratio** with the syntonic predominating, not the annihilation of the dystonic pole. Mistrust, shame, guilt, and doubt remain available; they become dangerous when they dominate.
 
 The eight ages (Erikson, 1963, ch. 7):
 
@@ -44,13 +44,13 @@ Ages in years are **descriptive**, not a game clock. Cross-cultural timing varie
 
 **Psychosocial moratorium**: a sanctioned delay during which the youth may experiment with roles before irreversible adult commitment. Play, apprenticeship, travel, and ideology-shopping belong here when the host marks them as exploration rather than as a finished identity.
 
-**Negative identity**: an identity perversely based on roles that were presented as most undesirable. It is still an identity — a commitment — not mere confusion. Erikson (1968) treats it as a real configuration, often socially recognized by a delinquent or rejected group.
+**Negative identity**: an identity perversely based on roles that were presented as most undesirable. It is still an identity: a commitment, not mere confusion. Erikson (1968) treats it as a real configuration, often socially recognized by a delinquent or rejected group.
 
 **Fidelity** is the adolescent virtue: the ability to sustain loyalties freely pledged despite inevitable value contradictions (Erikson, 1968; 1982).
 
 ### Generativity and integrity (1963, 1982)
 
-**Generativity** is concern for establishing and guiding the next generation — not only one's own children, but work, ideas, and institutions that outlive the self (Erikson, 1963). Its dystonic opposite is **stagnation**.
+**Generativity** is concern for establishing and guiding the next generation, not only one's own children, but work, ideas, and institutions that outlive the self (Erikson, 1963). Its dystonic opposite is **stagnation**.
 
 **Ego integrity** is the accrued assurance of one's one and only life cycle as something that had to be: acceptance of the life that was lived, vs **despair** and fear of death (Erikson, 1963; 1982). *The Life Cycle Completed* (1982) restates the virtues and the last crisis.
 

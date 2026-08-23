@@ -6,9 +6,9 @@ Every published cut of Personality Engine has a **version**, **changelog notes**
 
 The package and assembly version live in `src/PersonalityEngine.Core/PersonalityEngine.Core.csproj` (`Version`). Use SemVer: `MAJOR.MINOR.PATCH`.
 
-- **PATCH** — fixes, docs, packaging
-- **MINOR** — new providers, layers, or compatible API
-- **MAJOR** — breaking snapshot keys, event kinds, or composition contracts
+- **PATCH**: fixes, docs, packaging
+- **MINOR**: new providers, layers, or compatible API
+- **MAJOR**: breaking snapshot keys, event kinds, or composition contracts
 
 The README “Current library version” line must match `Version`.
 

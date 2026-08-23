@@ -1,0 +1,235 @@
+diff --git a/docs/CURSOR_START.md b/docs/CURSOR_START.md
+index 3f2ab96..6ef4165 100644
+--- a/docs/CURSOR_START.md
++++ b/docs/CURSOR_START.md
+@@ -15,7 +15,7 @@ END
+ 
+ Standing rules:
+ 
+-- GitHub is public; the issue tracker is private. Never commit or publish tracker URLs, project keys, or ticket ids — including PR titles, PR bodies, issues, commit messages, and GitHub Releases.
++- GitHub is public; the issue tracker is private. Never commit or publish tracker URLs, project keys, or ticket ids, including PR titles, PR bodies, issues, commit messages, and GitHub Releases.
+ - Product docs live in this repository. The private tracker is Jira only. Do not search, create, or update wiki pages.
+ - This repository is self-contained. Do not name other private or internal projects, studios, or repos.
+ - Every preset knob cites a paper or is labeled project convention.
+diff --git a/docs/DESIGN.md b/docs/DESIGN.md
+index 01c5aa9..8555d7f 100644
+--- a/docs/DESIGN.md
++++ b/docs/DESIGN.md
+@@ -10,10 +10,10 @@ Tables come first. A profession, clan, or temperament file in `presets/` is a **
+ 
+ | Layer | Personality Engine | Archetypes |
+ | --- | --- | --- |
+-| Runtime tick | `AffectEngine.Tick` | — |
+-| Cited theory | `IAffectProvider` implementations | — |
++| Runtime tick | `AffectEngine.Tick` | (none) |
++| Cited theory | `IAffectProvider` implementations | (none) |
+ | Starting profile | Constructor args | Catalog tables → `MindPreset` |
+-| Lore names | — | `philobrain-scholar`, `trog-warrior` |
++| Lore names | (none) | `philobrain-scholar`, `trog-warrior` |
+ | Builder | `AlmaComposition.Create(...)` | `PresetBuilder.Build(preset)` |
+ 
+ A Unity game that ticks those engines lives in [NPC-demo](https://github.com/RossSim/NPC-demo), not in this repo.
+@@ -23,10 +23,10 @@ A Unity game that ticks those engines lives in [NPC-demo](https://github.com/Ros
+ Every public entry should be able to carry:
+ 
+ - `id`, `category` (`profession`, `clan`, `temperament`)
+-- `traits` — five OCEAN 0..1, or a documented band plus a midpoint
+-- `operantSeeds` — action-id → strength for training history
+-- `enabledProviderIds` — which PE providers this seed expects
+-- `citations` — per knob: paper **or** `project convention`
++- `traits`: five OCEAN 0..1, or a documented band plus a midpoint
++- `operantSeeds`: action-id → strength for training history
++- `enabledProviderIds`: which PE providers this seed expects
++- `citations`: per knob: paper **or** `project convention`
+ - optional `cognitiveStage`, `identityStage`
+ - optional `jitter` notes (named vs ambient)
+ - a short **fiction** blurb separate from knobs
+@@ -62,7 +62,7 @@ public sealed record MindPreset(
+     OceanBands? Bands = null);
+ ```
+ 
+-`PresetBuilder.Build(preset)` assembles PE providers from `enabledProviderIds` (PE has no enable-by-id API) and applies catalog operant strengths via `AffectPersist` import — PE 0.6.1 seeds action ids at default operant level only. Named vs ambient jitter is host-side. Optional `Bands` let jitter stay inside the authored range.
++`PresetBuilder.Build(preset)` assembles PE providers from `enabledProviderIds` (PE has no enable-by-id API) and applies catalog operant strengths via `AffectPersist` import. PE 0.6.1 seeds action ids at default operant level only. Named vs ambient jitter is host-side. Optional `Bands` let jitter stay inside the authored range.
+ 
+ `CitationRef` ties each knob to a paper or labels it **project convention**.
+ 
+@@ -84,15 +84,15 @@ These shapes are frozen. New catalog **rows** (another job, clan, or climate) ar
+ 
+ Each clan preset should split:
+ 
+-1. **Fiction** — what players see in the world (“Philobrain clan prizes hypotheticals”)
+-2. **Knobs** — Piaget formal operational, high Openness, strong explore operants
+-3. **Citations** — Piaget 1950; McCrae & Costa 2008; project convention for operant strengths
++1. **Fiction**: what players see in the world (“Philobrain clan prizes hypotheticals”)
++2. **Knobs**: Piaget formal operational, high Openness, strong explore operants
++3. **Citations**: Piaget 1950; McCrae & Costa 2008; project convention for operant strengths
+ 
+ Avoid one bibliography backing the whole archetype. Profession files use the same three sections.
+ 
+ ## Cognitive difference without IQ
+ 
+-Piaget described **child development**. A clan `cognitiveStage` is a host-set flag for PE’s `hypothetical` channel (on at `FormalOperational`). That is a game metaphor — **project convention** — not a claim that a people is stuck in childhood or is less intelligent.
++Piaget described **child development**. A clan `cognitiveStage` is a host-set flag for PE’s `hypothetical` channel (on at `FormalOperational`). That is a game metaphor (**project convention**: not a claim that a people is stuck in childhood or is less intelligent.
+ 
+ | Player-visible behavior | Knob |
+ | --- | --- |
+@@ -116,4 +116,4 @@ Catalog jitter notes on each markdown file are author intent for those magnitude
+ 
+ ## Multiplayer note
+ 
+-Presets produce local PE state. Games replicate persist blobs or authoritative channels on the server — Archetypes does not handle netcode.
++Presets produce local PE state. Games replicate persist blobs or authoritative channels on the server. Archetypes does not handle netcode.
+diff --git a/docs/RELEASING.md b/docs/RELEASING.md
+index 6ab2a93..a23ec73 100644
+--- a/docs/RELEASING.md
++++ b/docs/RELEASING.md
+@@ -6,9 +6,9 @@ Every published cut of Archetypes has a **version**, **changelog notes**, and a
+ 
+ The package and assembly version live in `src/Archetypes.Core/Archetypes.Core.csproj` (`Version`). Use SemVer: `MAJOR.MINOR.PATCH`.
+ 
+-- **PATCH** — fixes, docs, packaging
+-- **MINOR** — new catalog rows, optional additive fields, compatible API
+-- **MAJOR** — removing or renaming `MindPreset` fields, changing JSON keys, changing jitter magnitudes, or dropping a frozen provider id
++- **PATCH**: fixes, docs, packaging
++- **MINOR**: new catalog rows, optional additive fields, compatible API
++- **MAJOR**: removing or renaming `MindPreset` fields, changing JSON keys, changing jitter magnitudes, or dropping a frozen provider id
+ 
+ The README status line must match `Version`.
+ 
+diff --git a/docs/ROADMAP.md b/docs/ROADMAP.md
+index 83dc51f..e41fbbf 100644
+--- a/docs/ROADMAP.md
++++ b/docs/ROADMAP.md
+@@ -1,6 +1,6 @@
+ # Roadmap
+ 
+-Archetypes maps **preset ids** into Personality Engine compositions. Direction only — not a contract. Patch releases fix docs and presets without schema breaks.
++Archetypes maps **preset ids** into Personality Engine compositions. Direction only, not a contract. Patch releases fix docs and presets without schema breaks.
+ 
+ Current status: **1.0** on `main`. Frozen `MindPreset` / `PresetBuilder` / `CatalogJson` contract. Profession, clan, and temperament catalogs. `Archetypes.Core` packs as a GitHub Release nupkg depending on Personality Engine 0.6.1.
+ 
+diff --git a/presets/README.md b/presets/README.md
+index 5015410..5a64be9 100644
+--- a/presets/README.md
++++ b/presets/README.md
+@@ -45,7 +45,7 @@ Every profession entry must pass this list before merge:
+ - Every numeric knob cites a paper **or** is labeled **project convention**
+ - Only Personality Engine 0.6.1+ constructor args (`OceanTraits`, optional Piaget/Erikson stages, operant seeds, enabled provider ids)
+ - Jobs differ by **trait bands + training history**, not by “smarter” or “dumber” people
+-- Generic job names only — not real-world demographic groups
++- Generic job names only, not real-world demographic groups
+ 
+ Clan template and extra clan rules: [clans/README.md](clans/README.md). Temperament template and extra rules: [temperament/README.md](temperament/README.md).
+ 
+diff --git a/presets/clans/README.md b/presets/clans/README.md
+index 2084c49..efbbaee 100644
+--- a/presets/clans/README.md
++++ b/presets/clans/README.md
+@@ -1,6 +1,6 @@
+ # Clan catalog
+ 
+-Fantasy clan seeds. Same row schema as professions ([`../schema.md`](../schema.md)). Every public clan file **must** use three sections — Fiction / Knobs / Citations — not one bibliography for the whole archetype.
++Fantasy clan seeds. Same row schema as professions ([`../schema.md`](../schema.md)). Every public clan file **must** use three sections (Fiction / Knobs / Citations), not one bibliography for the whole archetype.
+ 
+ These are **lore names**, not real-world peoples.
+ 
+@@ -58,7 +58,7 @@ Profession guardrails still apply. In addition:
+ 
+ - Public catalog: **fantasy ids only**
+ - No real-world race, ethnicity, or national cognitive rank tables
+-- Cognitive difference = **structure** (Piaget stage / flags) + **training** (operants) + **trait bands** — never “less intelligent people”
++- Cognitive difference = **structure** (Piaget stage / flags) + **training** (operants) + **trait bands. Never “less intelligent people”
+ - If a clan is worse at hypothetical clues, that is `cognitiveStage` below `FormalOperational` (PE’s `hypothetical` flag is stage-gated). It is not a g score
+ - Fiction must not imply that a paper measured this clan
+ - Three-section split required on every clan file
+diff --git a/presets/clans/trog-warrior.md b/presets/clans/trog-warrior.md
+index 7bc8a9b..8bcbf9e 100644
+--- a/presets/clans/trog-warrior.md
++++ b/presets/clans/trog-warrior.md
+@@ -15,7 +15,7 @@ Trog companies drill the same stand, the same shield wall, the same three answer
+ | `cognitiveStage` | `ConcreteOperational` (PE `hypothetical` flag off; `conservation` on) |
+ | `identityStage` | omitted (combat training is not an Erikson age) |
+ 
+-If a Trog NPC will not follow a hypothetical clue, that is this stage’s structural flag — not a g-factor and not “less intelligent people.” They still conserve, classify, and fight on what is in front of them.
++If a Trog NPC will not follow a hypothetical clue, that is this stage’s structural flag, not a g-factor and not “less intelligent people.” They still conserve, classify, and fight on what is in front of them.
+ 
+ ### traits
+ 
+diff --git a/presets/schema.md b/presets/schema.md
+index 04d0547..4023395 100644
+--- a/presets/schema.md
++++ b/presets/schema.md
+@@ -51,7 +51,7 @@ A job or clan may add other **already-shipped** PE ids (for example `peterson-ma
+ 
+ ## Default temperament providers
+ 
+-Temperament rows enable personality, mood, and optional appraisal — not job training:
++Temperament rows enable personality, mood, and optional appraisal, not job training:
+ 
+ - `ocean`
+ - `ocean-to-pad`
+@@ -69,9 +69,9 @@ PE’s `OperantLearningProvider` currently seeds listed action ids at its defaul
+ 
+ Each entry is one markdown file with three sections. A JSON sidecar named by `id` (`village-smith.json`) is the portable `MindPreset` the assembly embeds. Markdown stays the authoring source.
+ 
+-1. **Fiction** — what a designer or player sees
+-2. **Knobs** — tables for traits, operants, providers, optional stages, jitter
+-3. **Citations** — one row per knob (or per trait), never one bibliography for the whole job
++1. **Fiction**: what a designer or player sees
++2. **Knobs**: tables for traits, operants, providers, optional stages, jitter
++3. **Citations**: one row per knob (or per trait), never one bibliography for the whole job
+ 
+ ## Out of scope on this schema
+ 
+diff --git a/presets/temperament/README.md b/presets/temperament/README.md
+index 5e84694..aefe8d7 100644
+--- a/presets/temperament/README.md
++++ b/presets/temperament/README.md
+@@ -1,6 +1,6 @@
+ # Temperament catalog
+ 
+-Starting **climate** seeds, not types. Same row schema as professions and clans ([`../schema.md`](../schema.md)). Every public temperament file **must** use three sections — Fiction / Knobs / Citations — not one bibliography for the whole constellation.
++Starting **climate** seeds, not types. Same row schema as professions and clans ([`../schema.md`](../schema.md)). Every public temperament file **must** use three sections (Fiction / Knobs / Citations), not one bibliography for the whole constellation.
+ 
+ These rows are Thomas & Chess **easy / difficult / slow-to-warm-up** clusters mapped onto Personality Engine OCEAN bands. PAD mood baseline comes from PE `ocean-to-pad` (Mehrabian coefficients as used in Gebhard ALMA). They are not MBTI, not a four-letter inventory, and not an infant diagnosis.
+ 
+@@ -27,7 +27,7 @@ Designer-facing blurb only. Do not cite papers here. Do not imply a paper measur
+ | `identityStage` | omit |
+ 
+ ### traits
+-(band + midpoint for O, C, E, A, N — spread across traits, not Neuroticism alone)
++(band + midpoint for O, C, E, A, N, spread across traits, not Neuroticism alone)
+ 
+ ### operantSeeds
+ omit (temperament is not job training)
+@@ -67,7 +67,7 @@ Thomas & Chess described nine NYLS dimensions. Personality Engine 0.6.1+ does no
+ | Approach / withdrawal | Extraversion |
+ | Adaptability | Agreeableness |
+ | Threshold of responsiveness | *not a PE knob* |
+-| Intensity of reaction | *not a PE knob* — host OCC magnitudes |
++| Intensity of reaction | *not a PE knob*: host OCC magnitudes |
+ | Quality of mood | Neuroticism (more negative mood → higher N) |
+ | Distractibility | *not a PE knob* |
+ | Attention span / persistence | Conscientiousness (partial) |
+diff --git a/presets/temperament/difficult.md b/presets/temperament/difficult.md
+index 54372df..246eb0b 100644
+--- a/presets/temperament/difficult.md
++++ b/presets/temperament/difficult.md
+@@ -4,7 +4,7 @@ Starting climate. Not a villain type, not an infant diagnosis, and not “high N
+ 
+ ## Fiction
+ 
+-New rooms take work. Routines slip. A loud market reads as too much. When something goes wrong, the reaction is big. Not a moral failing — a starting climate that needs more recovery time.
++New rooms take work. Routines slip. A loud market reads as too much. When something goes wrong, the reaction is big. Not a moral failing. A starting climate that needs more recovery time.
+ 
+ ## Knobs
+ 
+@@ -25,7 +25,7 @@ OCEAN 0..1. Constructor order: Openness, Conscientiousness, Extraversion, Agreea
+ | Conscientiousness | low | 0.35 | NYLS irregularity of biological functions / a less predictable day; weak mapping |
+ | Extraversion | low | 0.32 | Thomas & Chess **withdrawal** |
+ | Agreeableness | low | 0.32 | Slow to adapt; not “mean people” |
+-| Neuroticism | high | 0.72 | More negative quality of mood and a lower threshold in the original cluster — still only one knob on this row |
++| Neuroticism | high | 0.72 | More negative quality of mood and a lower threshold in the original cluster. Still only one knob on this row |
+ 
+ ### operantSeeds
+ 

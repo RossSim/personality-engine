@@ -90,37 +90,37 @@ flowchart TB
 
 Order:
 
-1. `OceanPersonality` — McCrae & Costa Big Five
-2. `OceanToPadMapping` — Gebhard ALMA 2005 baseline on `mood.pad.*`
-3. `OccEmotion` — OCC types as `emotion.occ.*` (host-tagged eliciting events, including fortune-of-others)
-4. `OccToPadMapping` — optional ALMA glue: OCC intensities → `mood.occ-to-pad.*` (coefficients are project convention)
-5. `PadMood` — current PAD on `mood.pad-mood.*`, pulled toward the mapped baseline; adds the OCC overlay when present
+1. `OceanPersonality`: McCrae & Costa Big Five
+2. `OceanToPadMapping`: Gebhard ALMA 2005 baseline on `mood.pad.*`
+3. `OccEmotion`: OCC types as `emotion.occ.*` (host-tagged eliciting events, including fortune-of-others)
+4. `OccToPadMapping`: optional ALMA glue: OCC intensities → `mood.occ-to-pad.*` (coefficients are project convention)
+5. `PadMood`: current PAD on `mood.pad-mood.*`, pulled toward the mapped baseline; adds the OCC overlay when present
 
 Optional supplement ([`peterson.md`](peterson.md)):
 
-6. `StabilityPlasticityProvider` — DeYoung, Peterson & Higgins (2002) metatraits
-7. `OrderChaosMeaningProvider` — Peterson (1999) / CMT meaning layer (`meaning.peterson-maps.*`)
-8. `PetersonMeaningWeighter` — explore vs defend vs integrate vs withdraw
+6. `StabilityPlasticityProvider`: DeYoung, Peterson & Higgins (2002) metatraits
+7. `OrderChaosMeaningProvider`: Peterson (1999) / CMT meaning layer (`meaning.peterson-maps.*`)
+8. `PetersonMeaningWeighter`: explore vs defend vs integrate vs withdraw
 
-Optional supplement ([`skinner.md`](skinner.md)) — **new `learning` layer**, not a personality provider:
+Optional supplement ([`skinner.md`](skinner.md)): **new `learning` layer**, not a personality provider:
 
-9. `OperantLearningProvider` — Skinner (1953) / Ferster & Skinner (1957) operant strengths
-10. `OperantWeighter` — strength × deprivation × SD
+9. `OperantLearningProvider`: Skinner (1953) / Ferster & Skinner (1957) operant strengths
+10. `OperantWeighter`: strength × deprivation × SD
 
-Optional supplement ([`piaget.md`](piaget.md)) — **new `cognition` layer**, not a personality or learning provider:
+Optional supplement ([`piaget.md`](piaget.md)): **new `cognition` layer**, not a personality or learning provider:
 
-11. `PiagetEquilibrationProvider` — Piaget schemas, equilibration, host-set stages (`cognition.piaget-equilibration.*`)
-12. `PiagetCognitionWeighter` — play vs imitate vs accommodate vs explore
+11. `PiagetEquilibrationProvider`: Piaget schemas, equilibration, host-set stages (`cognition.piaget-equilibration.*`)
+12. `PiagetCognitionWeighter`: play vs imitate vs accommodate vs explore
 
-Optional supplement ([`erikson.md`](erikson.md)) — **new `identity` layer**, not a personality, cognition, or learning provider:
+Optional supplement ([`erikson.md`](erikson.md)): **new `identity` layer**, not a personality, cognition, or learning provider:
 
-13. `EriksonPsychosocialProvider` — eight ages, syntonic/dystonic ratio, ego identity (`identity.erikson-psychosocial.*`)
-14. `EriksonIdentityWeighter` — explore vs commit vs care vs withdraw
+13. `EriksonPsychosocialProvider`: eight ages, syntonic/dystonic ratio, ego identity (`identity.erikson-psychosocial.*`)
+14. `EriksonIdentityWeighter`: explore vs commit vs care vs withdraw
 
-Optional supplement ([`dyad.md`](dyad.md)) — **new `relationship` layer**, not an emotion provider:
+Optional supplement ([`dyad.md`](dyad.md)): **new `relationship` layer**, not an emotion provider:
 
-15. `DyadProvider` — pairwise liking toward a named other (`relationship.dyad.liking:{id}`)
-16. `DyadWeighter` — approach vs avoid for opaque `{other}` ids
+15. `DyadProvider`: pairwise liking toward a named other (`relationship.dyad.liking:{id}`)
+16. `DyadWeighter`: approach vs avoid for opaque `{other}` ids
 
 The first green test is (1)+(2): Gebhard’s numeric example. `PadMood` and OCC are optional: omit them and those channels stay absent. The provider contract is `IAffectProvider` plus named-channel snapshots. Providers that keep private values implement `IStatefulProvider` so `AffectEngine.Export` / `Import` can round-trip them. Hosts serialize `AffectPersist` themselves. See [`HOSTING.md`](HOSTING.md).
 

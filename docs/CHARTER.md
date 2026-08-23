@@ -39,10 +39,10 @@ Gebhard ALMA (2005) is the **first wiring** among those three (OCEAN → PAD moo
 
 ### Allowed without a charter change
 
-- **New layers** — values, relationships, morality, motives, **learning** (operant), **cognition** (Piaget), **identity** (Erikson), or anything a host needs that is not personality, mood, or emotion.
-- **Alternate providers on an existing layer** — e.g. HEXACO instead of, or beside, OCEAN.
-- **Supplemental sources or methods on the same layer** — e.g. OCEAN + Dark Triad; PAD plus extra mood axes; a second OCC variant; a non-ALMA personality→mood mapping.
-- **Cited mappings between layers** — ALMA’s OCEAN→PAD is the first mapping provider, not the only allowed glue.
+- **New layers**: values, relationships, morality, motives, **learning** (operant), **cognition** (Piaget), **identity** (Erikson), or anything a host needs that is not personality, mood, or emotion.
+- **Alternate providers on an existing layer**: e.g. HEXACO instead of, or beside, OCEAN.
+- **Supplemental sources or methods on the same layer**: e.g. OCEAN + Dark Triad; PAD plus extra mood axes; a second OCC variant; a non-ALMA personality→mood mapping.
+- **Cited mappings between layers**: ALMA’s OCEAN→PAD is the first mapping provider, not the only allowed glue.
 
 A host may enable a subset. Downstream code must not assume OCEAN, PAD, or OCC are present.
 

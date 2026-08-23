@@ -1,4 +1,4 @@
-# Lampwick — a Unity conversation host
+# Lampwick: a Unity conversation host
 
 A **fictional** game concept for a host that already has Personality Engine, Archetypes, and a language model. It is not a product commitment and not a Unity project inside this repository. It shows *where the plug goes* when NPCs should feel like people over time, speak in natural lines, and never send a prompt off the player’s machine.
 
@@ -174,7 +174,7 @@ flowchart TB
 | Content load | **Addressables** | Characters, scenes, audio; not a database. |
 | Localization | Unity **Localization** | Authored plot strings. Generated lines stay in the session language. |
 
-### Dialogue — do not invent the mechanic
+### Dialogue: do not invent the mechanic
 
 | Path | License | Use when |
 | --- | --- | --- |
@@ -216,7 +216,7 @@ Vendor clients and prompt templates stay **out of this repository**. The game ow
 | Context | Short: speaker, listener, this beat, a handful of channels, winning act, one-line legend | Do not send the combat log or the full persist blob. [What to send](LANGUAGE_MODELS.md). |
 | Fallback | Authored line for that act | If the sidecar is missing, cold, or over-budget on tokens, play the database text. The game must be completable with generation off. |
 
-**First-run:** detect RAM/VRAM, recommend a GGUF tier, verify SHA-256, never upload prompts. Settings store the binary path and context length in PlayerPrefs or a local JSON config — not in PE.
+**First-run:** detect RAM/VRAM, recommend a GGUF tier, verify SHA-256, never upload prompts. Settings store the binary path and context length in PlayerPrefs or a local JSON config, not in PE.
 
 ### Data on disk (no server database)
 
@@ -239,7 +239,7 @@ Do not use a cloud database. Do not treat the snapshot as the save file. If a ho
 | Named people | Distinct outfits on a shared humanoid; 8–12 | Unique sculpts |
 | Faces | Blendshapes driven by `mood.pad-mood.pleasure` / `arousal` / `dominance` and a peak OCC | More visemes |
 | Lip sync | **uLipSync** (free) or Dialogue System visemes on authored VO | Local TTS visemes |
-| Crowd | Shared mesh, no PE, or district seed only | — |
+| Crowd | Shared mesh, no PE, or district seed only | (none) |
 | Lighting | Baked + simple time-of-day | Mood-tinted fill as a *subtle* grade, not a disco |
 
 ### Audio
@@ -263,7 +263,7 @@ Do not use a cloud database. Do not treat the snapshot as the save file. If a ho
 
 - Multiplayer (presets are local; Archetypes does not handle netcode)
 - A second AI that also Picks (GOAP/Utility fighting Dialogue System)
-- Cloud LLM “fallback when local is slow” — that breaks the privacy pitch
+- Cloud LLM “fallback when local is slow”: that breaks the privacy pitch
 - A clinic, a Big Five test of the player, or MBTI
 - Race or ethnicity presets
 
@@ -272,7 +272,7 @@ Do not use a cloud database. Do not treat the snapshot as the save file. If a ho
 This library stays `netstandard2.1`. The game is a **separate Unity repo**. NPC-demo remains the small public adapter, not the campaign.
 
 ```text
-personality-engine/          # this repo — middleware, not the game
+personality-engine/          # this repo (middleware, not the game
 archetypes/                  # preset catalogs (companion repo)
 NPC-demo/                    # Unity adapter + playable slice
 
@@ -317,7 +317,7 @@ Each step is playable. Do not start the LLM until authored conversation works. D
 6. **Archetypes.** Eight named presets (JSON). Ambient jitter only on district seed. Citations per knob in `CAST.md`.
 7. **Local sidecar.** llama.cpp on localhost. Settings: path, context, on/off. Rank-then-realize **one** bark type (greet) with authored fallback. Timeout and empty reply → database line.
 8. **Face and sound.** Blendshapes from PAD; music stems; optional Piper on realized barks only. Plot VO stays authored.
-9. **Content pass.** Speech-act catalog locked. Writers play until a tick feels wrong, then change event intensity — not a new if-statement. See the production pattern in [Applications](APPLICATIONS.md).
+9. **Content pass.** Speech-act catalog locked. Writers play until a tick feels wrong, then change event intensity, not a new if-statement. See the production pattern in [Applications](APPLICATIONS.md).
 10. **Ship hygiene.** Model license, PE disclaimer, generation-off path, no prompt telemetry, SHA-256 for GGUF.
 
 ## Prompt contract (game-owned)
@@ -344,17 +344,17 @@ If the model ignores the act, drop the line and play authored text. Prompt-only 
 ## Out of scope for this concept
 
 - Putting an LLM or prompt template inside Personality Engine ([charter](CHARTER.md))
-- Forking PE to add a “village personality” provider — add a layer or a preset instead
+- Forking PE to add a “village personality” provider: add a layer or a preset instead
 - Inventing a dialogue mechanic when Dialogue System or Yarn already has one
 - Diagnosing the player
 
 ## See also
 
-- [Applying it in games](APPLICATIONS.md) — design loop, layers, fifty uses
-- [Language models as a host](LANGUAGE_MODELS.md) — tag, state, writer; what to send
-- [Hosting](HOSTING.md) — idle tick, persist, folding weights
-- [Architecture](ARCHITECTURE.md) — pipeline and snapshot keys
-- [Examples](EXAMPLES.md) — shopkeeper visits and person-to-nation
-- [Archetypes](https://github.com/RossSim/archetypes) — preset catalogs
-- [NPC-demo](https://github.com/RossSim/NPC-demo) — Unity host
-- [Disclaimer](../DISCLAIMER.md) — not a test, not a medical device
+- [Applying it in games](APPLICATIONS.md): design loop, layers, fifty uses
+- [Language models as a host](LANGUAGE_MODELS.md): tag, state, writer; what to send
+- [Hosting](HOSTING.md): idle tick, persist, folding weights
+- [Architecture](ARCHITECTURE.md): pipeline and snapshot keys
+- [Examples](EXAMPLES.md): shopkeeper visits and person-to-nation
+- [Archetypes](https://github.com/RossSim/archetypes): preset catalogs
+- [NPC-demo](https://github.com/RossSim/NPC-demo): Unity host
+- [Disclaimer](../DISCLAIMER.md): not a test, not a medical device

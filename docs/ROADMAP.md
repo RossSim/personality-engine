@@ -45,8 +45,8 @@ Each of these is an optional layer or provider. Omit it and those channels stay 
 | Version | What a host would get |
 | --- | --- |
 | 0.7 | Personality beyond five traits: HEXACO (including Honesty-Humility), with Dark Triad as an optional supplement |
-| 0.8 | Values: Schwartz — what a character will not trade away |
-| 0.9 | Morality: Moral Foundations — what counts as a violation |
+| 0.8 | Values: Schwartz: what a character will not trade away |
+| 0.9 | Morality: Moral Foundations: what counts as a violation |
 | 0.10 | Motives: McClelland (achievement, affiliation, power), then Self-Determination Theory beside it |
 | 0.11 | Relationship beyond liking: attachment working models, then Heider triads |
 | 0.12 | Goals, standards, and attitudes so OCC can appraise an event, not only accept a host tag. Host-tagged emotion stays valid. |
@@ -59,13 +59,13 @@ Tracked as future epics in the private tracker (no ticket ids in this repo):
 | --- | --- | --- |
 | Personality supplements | HEXACO (incl. Honesty-Humility), Dark Triad, BFAS aspects | personality |
 | Temperament types | Thomas & Chess easy / difficult / slow-to-warm-up → trait bands; Mehrabian temperament PAD bias | personality |
-| Values | Schwartz — what a character will not trade away | values |
-| Morality | Moral Foundations — what counts as a violation | morality |
+| Values | Schwartz: what a character will not trade away | values |
+| Morality | Moral Foundations: what counts as a violation | morality |
 | Motives | McClelland (achievement, affiliation, power); Self-Determination Theory beside it | motives |
-| Vocational interest | Holland RIASEC — vocation fit, not job IQ tables | motives / vocation |
+| Vocational interest | Holland RIASEC: vocation fit, not job IQ tables | motives / vocation |
 | Relationship beyond liking | Attachment working models; Heider triads | relationship |
 | OCC goals and standards | Appraise events, not only host tags; host-tagged emotion stays valid | emotion |
-| Cognitive ability domains | Sternberg triarchic (analytic / creative / practical) — domains, not a g or IQ channel | cognition |
+| Cognitive ability domains | Sternberg triarchic (analytic / creative / practical): domains, not a g or IQ channel | cognition |
 | Agency and culture | Bandura self-efficacy; Gray BIS/BAS; Higgins promotion/prevention; Gelfand tightness–looseness on factions | personality / culture |
 | C++ core parity | Same host contract as C# (snapshot keys, events, persist) | infrastructure |
 
@@ -78,7 +78,7 @@ After 0.12 and the rows above have settled: extras without a minor yet, then a *
 
 ## Companion project (not this repo)
 
-**Archetypes** — [github.com/RossSim/archetypes](https://github.com/RossSim/archetypes) — preset catalogs (profession, temperament, fantasy clan) that map into PE constructor args (`OceanTraits`, Piaget stage, operant seeds, enabled providers). Not new `IAffectProvider` implementations. Presets use cited knobs per field (cognitive stage, operant history, trait bands), not a single IQ score. Real-world race or ethnicity presets are out of scope for the public catalog.
+**Archetypes** ([github.com/RossSim/archetypes](https://github.com/RossSim/archetypes)): preset catalogs (profession, temperament, fantasy clan) that map into PE constructor args (`OceanTraits`, Piaget stage, operant seeds, enabled providers). Not new `IAffectProvider` implementations. Presets use cited knobs per field (cognitive stage, operant history, trait bands), not a single IQ score. Real-world race or ethnicity presets are out of scope for the public catalog.
 
 ## Under consideration
 

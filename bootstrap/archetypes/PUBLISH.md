@@ -11,7 +11,7 @@ git clone https://github.com/RossSim/archetypes.git
 cd archetypes
 ```
 
-Copy everything from `personality-engine/bootstrap/archetypes/` into this repo root (merge with existing `LICENSE` and `README.md` — the bootstrap versions replace the live copies). Omit `PUBLISH.md` from the live repo; it is only for this folder.
+Copy everything from `personality-engine/bootstrap/archetypes/` into this repo root (merge with existing `LICENSE` and `README.md` (the bootstrap versions replace the live copies). Omit `PUBLISH.md` from the live repo; it is only for this folder.
 
 ```bash
 # Example if personality-engine is cloned beside archetypes:

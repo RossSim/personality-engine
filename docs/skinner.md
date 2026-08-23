@@ -28,9 +28,9 @@ Rate of responding is Skinner’s preferred measure of strength. The engine stor
 
 **Schedules** (Ferster & Skinner, 1957):
 
-- **CRF** (continuous) — every `skinner.emit` is reinforced
-- **FR-n** — every nth emit is reinforced
-- **VR** — emit reinforced after a varying count around a mean
+- **CRF** (continuous): every `skinner.emit` is reinforced
+- **FR-n**: every nth emit is reinforced
+- **VR**: emit reinforced after a varying count around a mean
 
 FI / VI interval schedules are documented, not implemented in this slice.
 

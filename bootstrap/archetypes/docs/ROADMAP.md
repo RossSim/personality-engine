@@ -1,6 +1,6 @@
 # Roadmap
 
-Archetypes maps **preset ids** into Personality Engine compositions. Direction only — not a contract. Patch releases fix docs and presets without schema breaks.
+Archetypes maps **preset ids** into Personality Engine compositions. Direction only, not a contract. Patch releases fix docs and presets without schema breaks.
 
 Current status: **0.0.0 skeleton**. Next work is **catalog tables**, not the builder.
 
@@ -22,7 +22,7 @@ flowchart LR
 | Version | What a host would get |
 | --- | --- |
 | 0.0 | README, charter, roadmap, design, disclaimer, repo layout |
-| *now* | Profession and clan catalog tables in `presets/` — no C# builder yet |
+| *now* | Profession and clan catalog tables in `presets/`; no C# builder yet yet |
 | 0.1 | `MindPreset` inferred from those tables, `PresetBuilder` → `AffectEngine`, tests against the hand-authored seeds |
 | later | Temperament catalog (Thomas & Chess bands) + jitter |
 | later | Embedded JSON presets + `docs/CITATIONS.md` per knob |

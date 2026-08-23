@@ -4,29 +4,29 @@ Three clocks, not three tests. **Personality** is who this person is all campaig
 
 None of this is a quiz of the player. The letters are nicknames for published models; the numbers in a game are still **your** direction. Where this goes in a scene: [Applying it in games](APPLICATIONS.md). How to tick and save: [Hosting](HOSTING.md). The OCC type catalog: [OCC emotion](occ.md). Not a clinic: [Disclaimer](../DISCLAIMER.md).
 
-## OCEAN — who they are, slowly
+## OCEAN: who they are, slowly
 
 Five knobs you set once (or change only when the story should):
 
-- **O**penness — curious vs creature of habit
-- **C**onscientiousness — dutiful vs sloppy
-- **E**xtraversion — seeks people vs spends energy being around them
-- **A**greeableness — warm and yielding vs blunt and hard
-- **N**euroticism — easily rattled vs even-keeled
+- **O**penness: curious vs creature of habit
+- **C**onscientiousness: dutiful vs sloppy
+- **E**xtraversion: seeks people vs spends energy being around them
+- **A**greeableness: warm and yielding vs blunt and hard
+- **N**euroticism: easily rattled vs even-keeled
 
 Think of two shopkeepers with the same shop. One is high Extraversion and Agreeableness: they greet, they haggle soft. One is low Extraversion and high Neuroticism: same inventory, tighter voice, quicker to take a slight. That difference should still be there next season. Personality does not spike because someone slammed a door.
 
-## PAD — how they are this hour
+## PAD: how they are this hour
 
 Three numbers for **mood**, not for “what just happened”:
 
-- **P**leasure — feels good vs feels bad
-- **A**rousal — wound-up vs calm
-- **D**ominance — feels in charge vs small
+- **P**leasure: feels good vs feels bad
+- **A**rousal: wound-up vs calm
+- **D**ominance: feels in charge vs small
 
 A raid can shove arousal up and pleasure down. Sleep, a quiet walk, or time on the clock pulls mood back toward whatever is typical **for this person**. That typical mood comes from personality: a high-Neuroticism colonist’s “normal” is already a bit more wound-up than a low-Neuroticism one. Mood is the weather. Personality is the climate.
 
-## OCC — what this moment did
+## OCC: what this moment did
 
 A catalog of **short-lived feelings** with ordinary names: joy, distress, hope, fear, relief, anger, gratitude, shame, pride, pity, gloating, and others like them. The idea is simple: feelings come from **how the person takes the event**, not from a generic “emotion = 0.8.”
 

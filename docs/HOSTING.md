@@ -23,8 +23,8 @@ flowchart LR
 ```mermaid
 flowchart TD
   frame[This frame]
-  frame -->|nothing happened| idle["Tick(dt) — idle decay"]
-  frame -->|something happened| ev["Tick(event, dt) — event plus decay"]
+  frame -->|nothing happened| idle["Tick(dt): idle decay"]
+  frame -->|something happened| ev["Tick(event, dt): event plus decay"]
   idle --> snap[Updated snapshot]
   ev --> snap
 ```
@@ -162,4 +162,4 @@ Runnable sample: `dotnet run --project samples/SocialTint`. It starts with host 
 
 ## Unity
 
-This repository is not a Unity project. Games still consume `netstandard2.1`. A public Unity adapter (`NpcMind`, host events, persist) and a macOS playable — **no Unity Editor required** if you download that repo’s Release `.app` — live in [NPC-demo](https://github.com/RossSim/NPC-demo). It seeds minds from [Archetypes](https://github.com/RossSim/archetypes) catalog ids and ticks `HostEvents` the same way the console samples do.
+This repository is not a Unity project. Games still consume `netstandard2.1`. A public Unity adapter (`NpcMind`, host events, persist) and a macOS playable (**no Unity Editor required** if you download that repo’s Release `.app`) live in [NPC-demo](https://github.com/RossSim/NPC-demo). It seeds minds from [Archetypes](https://github.com/RossSim/archetypes) catalog ids and ticks `HostEvents` the same way the console samples do.

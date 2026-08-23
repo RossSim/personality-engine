@@ -1,6 +1,6 @@
 # Dyad (relationship)
 
-Optional **relationship** layer: pairwise liking toward a named other. OCC treats liking/disliking as an **attitude** that fortune-of-others assumes. This provider stores that attitude. It does not fire happy-for, pity, resentment, or gloating — the host still tags those eliciting conditions. The citation is OCC (1988) for liking as attitude; range, bumps, and decay are **project convention**.
+Optional **relationship** layer: pairwise liking toward a named other. OCC treats liking/disliking as an **attitude** that fortune-of-others assumes. This provider stores that attitude. It does not fire happy-for, pity, resentment, or gloating. The host still tags those eliciting conditions. The citation is OCC (1988) for liking as attitude; range, bumps, and decay are **project convention**.
 
 Layer: `relationship`. Off the default ALMA composition: omit the provider and the channels stay absent.
 
@@ -15,7 +15,7 @@ Layer: `relationship`. Off the default ALMA composition: omit the provider and t
 - Independent others: liking for `ally` does not move liking for `rival`.
 - Slow exponential decay toward 0 over `dt` (**project convention**; default 0.05 /s). Below a floor the channel writes 0 and drops.
 - Persist via `IStatefulProvider`. Rebuild the same composition, then `Import`.
-- `DyadComposition.Create` / `CreateWithAlma` — like Skinner, not wired into `AlmaComposition`.
+- `DyadComposition.Create` / `CreateWithAlma`, like Skinner, not wired into `AlmaComposition`.
 - Fortune-of-others channels are **global**, so a happy-for pulse slightly tints every `approach:{id}`, not only the named Target. Pairwise bias still comes from liking.
 
 ## What stays out
