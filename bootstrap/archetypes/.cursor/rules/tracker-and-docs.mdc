@@ -1,0 +1,12 @@
+---
+description: Product docs live in this repo; Jira is the only tracker
+alwaysApply: true
+---
+
+# Tracker and docs
+
+- Product docs are this repository (`docs/`, README, changelog).
+- The private tracker is Jira. Use Atlassian MCP for Jira issues only.
+- Do not call Confluence tools, CQL search, page/space APIs, or Rovo company-knowledge search. This project does not use Confluence.
+- When closing tickets, update Jira and this repo only.
+- Never commit tracker URLs, project keys, or ticket ids.

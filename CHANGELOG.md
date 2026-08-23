@@ -15,6 +15,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 - Plain-language OCEAN, PAD, and OCC: who they are, how they are this hour, what this moment did
 - Roadmap table for later provider themes (temperament types, vocational interest, cognitive ability domains, agency) and the Archetypes companion repo
 - README link to the Archetypes preset companion (separate GitHub repo)
+- Archetypes bootstrap: catalog-first charter, Cursor start notes, and public-hygiene check
 
 ### Changed
 
