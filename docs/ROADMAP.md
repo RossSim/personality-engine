@@ -95,4 +95,4 @@ After 0.12 and the rows above have settled: extras without a minor yet, then a *
 - A language model in the core (a game that uses a model can still host this library: [Language models as a host](LANGUAGE_MODELS.md))
 - A clinic, diagnostic, or copyrighted item set
 
-Where it goes in a game: [Applying it in games](APPLICATIONS.md). How to tick and save: [Hosting](HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](LANGUAGE_MODELS.md). Preset authoring: [Archetypes](https://github.com/RossSim/archetypes). Unity adapter and macOS playable: [NPC-demo](https://github.com/RossSim/NPC-demo).
+Where it goes in a game: [Applying it in games](APPLICATIONS.md). How to tick and save: [Hosting](HOSTING.md). Beside a language model (the model stays outside): [Language models as a host](LANGUAGE_MODELS.md). A Unity conversation-host sketch with a local model: [Lampwick](LAMPWICK.md). Preset authoring: [Archetypes](https://github.com/RossSim/archetypes). Unity adapter and macOS playable: [NPC-demo](https://github.com/RossSim/NPC-demo).

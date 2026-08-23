@@ -106,6 +106,14 @@ Trainees collect specimens that sometimes *do not fit* last week’s schema. Thi
 
 Piaget’s disequilibrium is the gameplay: a stubborn intern keeps assimilating (play/repeat) until accommodation weight wins. Erikson’s industry vs inferiority (host-set to the trainee’s career stage) decides whether a failed presentation produces “practice more” or “I am not a scientist.” Operant history matters when faking the log paid off once. The player is a senior researcher who sees *behavior*, not a dashboard of theory names.
 
+### *Lampwick* — conversation-first Unity host (local model)
+
+A harbor lantern shop. The player talks; that is the game. Named people keep a Personality Engine instance between visits. **Dialogue System for Unity** (or Yarn Spinner) owns conversation UI, barks, and allowed speech acts so the host does not invent a dialogue mechanic. A language model on **localhost** realizes the act Dialogue System already Picked — it does not Pick, and it does not leave the machine.
+
+**Events you already have:** insult, gift, promise kept or broken, harbor news, silence. **Actions you already have:** greet, refuse, haggle, confess, leave. Writers tag plot nodes as authored VO; everyday texture is rank-then-realize. Crowd walkers skip the stack.
+
+This is the language-model host in [Language models as a host](LANGUAGE_MODELS.md) as a whole game: tech stack, project layout, and build steps live in [Lampwick](LAMPWICK.md). The model stays outside this library.
+
 ---
 
 ## Fifty uses
@@ -236,6 +244,7 @@ If a later theory is needed (values, HEXACO), add a provider. Do not fork the li
 - [Roadmap](ROADMAP.md) — shipped versions and intended next minors
 - [Personality, mood, and feeling](OCEAN_PAD_OCC.md) — OCEAN, PAD, and OCC in ordinary language
 - [Language models as a host](LANGUAGE_MODELS.md) — tick, persist, and rank lines beside a model; the model stays outside
+- [Lampwick](LAMPWICK.md) — fictional Unity conversation host with a local model; Dialogue System (or Yarn) Picks
 - [Architecture](ARCHITECTURE.md) — pipeline and snapshot keys
 - [Examples](EXAMPLES.md) — three stories and a tiny HTML host
 - [NPC-demo](https://github.com/RossSim/NPC-demo) — Unity host and macOS playable (no Editor required to run the Release player)
