@@ -4,11 +4,11 @@ Personality Engine is modular middleware for games: you tell it what happened, i
 
 This page is **direction**, not a contract. Minor versions may land in a different order. Patch releases fix and explain without adding a layer. A **1.0** cut means the host-facing contract (snapshot keys, event kinds, composition) is ready to freeze. There is no date for that.
 
-Current published library: **0.6.1**. History: [Changelog](../CHANGELOG.md). Downloads: [Releases](https://github.com/RossSim/personality-engine/releases).
+Current published library: **0.6.2**. History: [Changelog](../CHANGELOG.md). Downloads: [Releases](https://github.com/RossSim/personality-engine/releases). NuGet: [GitHub Packages](https://github.com/RossSim/personality-engine/packages).
 
 ## Timeline
 
-Shipped minors, then intended minors. The boxes are versions, not calendar dates. Current published cut is **0.6.1** (a patch on 0.6).
+Shipped minors, then intended minors. The boxes are versions, not calendar dates. Current published cut is **0.6.2** (GitHub Packages publish; docs only on 0.6.1 API).
 
 ```mermaid
 flowchart LR
