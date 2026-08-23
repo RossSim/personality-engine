@@ -31,7 +31,7 @@ See [Disclaimer](DISCLAIMER.md).
 
 ## Status
 
-**Skeleton.** Repo structure, roadmap, and design notes only. No NuGet package yet.
+**Skeleton.** Charter, roadmap, and design notes. Next: profession and clan **tables**, then a builder. No NuGet package yet.
 
 Depends on Personality Engine **0.6.1+** (`netstandard2.1`).
 
@@ -39,8 +39,10 @@ Depends on Personality Engine **0.6.1+** (`netstandard2.1`).
 
 | Doc | What it is |
 | --- | --- |
-| [Roadmap](docs/ROADMAP.md) | Intended versions and scope |
-| [Design](docs/DESIGN.md) | MindPreset shape, catalogs, guardrails |
+| [Charter](docs/CHARTER.md) | What is fixed vs catalog-first |
+| [Roadmap](docs/ROADMAP.md) | Tables now; version cuts later |
+| [Design](docs/DESIGN.md) | Catalog row, later MindPreset, guardrails |
+| [Cursor start](docs/CURSOR_START.md) | Standing rules for new sessions |
 | [Changelog](CHANGELOG.md) | Version notes |
 | [Disclaimer](DISCLAIMER.md) | Entertainment middleware; not a test |
 

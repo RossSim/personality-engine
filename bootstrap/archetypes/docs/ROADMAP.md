@@ -2,31 +2,33 @@
 
 Archetypes maps **preset ids** into Personality Engine compositions. Direction only — not a contract. Patch releases fix docs and presets without schema breaks.
 
-Current status: **0.0.0 skeleton** (docs and repo layout; no library artifact).
+Current status: **0.0.0 skeleton**. Next work is **catalog tables**, not the builder.
 
 Personality Engine home: https://github.com/RossSim/personality-engine
 
-## Timeline
+## Sequencing (catalog-first)
+
+Author profession and clan **tables** (fiction / knobs / citations) before locking `MindPreset`. Version numbers below are later intent, not the next coding slice.
 
 ```mermaid
 flowchart LR
-  v00["0.0 skeleton"] --> v01["0.1 core"]
-  v01 --> v02["0.2 professions"]
-  v02 --> v03["0.3 fantasy clans"]
-  v03 --> v10["1.0 stable preset schema"]
+  v00["0.0 skeleton"] --> catalogs["profession + clan tables"]
+  catalogs --> v01["0.1 builder"]
+  v01 --> later["temperament, JSON, 1.0"]
 ```
 
 ## Intended versions
 
 | Version | What a host would get |
 | --- | --- |
-| 0.0 | README, roadmap, design, disclaimer, empty repo layout |
-| 0.1 | `MindPreset` record, `PresetBuilder` → `AffectEngine`, tests against hand-authored PE seeds |
-| 0.2 | Profession catalog (smith, scout, clerk, …) from OCEAN job correlates + operant seeds — not profession→IQ |
-| 0.3 | Temperament catalog (Thomas & Chess bands) + jitter options |
-| 0.4 | Fantasy clan presets as compositions (cognitive stage + operant history + traits) |
-| 0.5 | Embedded JSON presets + `docs/CITATIONS.md` per knob |
+| 0.0 | README, charter, roadmap, design, disclaimer, repo layout |
+| *now* | Profession and clan catalog tables in `presets/` — no C# builder yet |
+| 0.1 | `MindPreset` inferred from those tables, `PresetBuilder` → `AffectEngine`, tests against the hand-authored seeds |
+| later | Temperament catalog (Thomas & Chess bands) + jitter |
+| later | Embedded JSON presets + `docs/CITATIONS.md` per knob |
 | 1.0 | Frozen `MindPreset` schema and builder contract; NuGet `Archetypes.Core` |
+
+Do not start 0.1 until two catalogs have shown which fields Personality Engine can consume.
 
 ## Depends on Personality Engine
 
@@ -38,7 +40,7 @@ flowchart LR
 | Optional layers | Preset lists which providers to enable |
 | Future: Holland RIASEC, Sternberg domains | Vocation and ability presets when PE ships providers |
 
-Track PE provider work in the personality-engine repo and private tracker. This repo consumes PE APIs only.
+Track PE provider work in the personality-engine repo and its private tracker. This repo consumes PE APIs only.
 
 ## Not on this roadmap
 
@@ -46,7 +48,7 @@ Track PE provider work in the personality-engine repo and private tracker. This 
 - IQ, g, or WAIS-style composite scores
 - MBTI or four-letter type inventories
 - New affect providers (file those in personality-engine)
-- Unity samples (games reference both NuGet packages)
+- Unity samples (games reference both packages when they exist)
 
 ## Controversy guardrails (product)
 
@@ -54,4 +56,4 @@ Track PE provider work in the personality-engine repo and private tracker. This 
 - Every preset documents **per-knob** citations in fiction vs science sections
 - Ability differences = structure + training + trait bands, not “less intelligent people”
 
-See [Design](DESIGN.md).
+See [Charter](CHARTER.md) and [Design](DESIGN.md).
