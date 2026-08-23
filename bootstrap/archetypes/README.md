@@ -19,13 +19,13 @@ flowchart LR
 
 - Cited **defaults** per knob (traits, cognitive stage, training history), not a single IQ score
 - Optional **jitter** for named heroes vs ambient NPCs
-- **Fantasy** clan and profession ids — not real-world race or ethnicity presets in the public catalog
+- **Fantasy** clan and profession ids, not real-world race or ethnicity presets in the public catalog
 
 ## What this is not
 
 - Not a psychometric test, clinic, or personality type inventory (no MBTI)
 - Not an `IAffectProvider` implementation (those stay in personality-engine)
-- Not IQ or g-factor channels — use Piaget structure, Sternberg domains (when PE ships them), operant history, and trait bands instead
+- Not IQ or g-factor channels. Use Piaget structure, Sternberg domains (when PE ships them), operant history, and trait bands instead
 
 See [Disclaimer](DISCLAIMER.md).
 

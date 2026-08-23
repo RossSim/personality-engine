@@ -7,7 +7,7 @@
 
 Personality Engine gives game characters a **mood, a personality, and short-lived feelings** that other systems can read.
 
-You already have a game — or you are asking an AI assistant to help you make one. Characters take hits, hear bad news, keep promises, fail, meet friends, and get betrayed. This library does none of the walking, shooting, pathfinding, or dialogue writing. It sits beside those systems. You tell it what just happened. It hands back **named numbers**: how open this person is, how wound-up they are this minute, whether they are angry at someone. Animation, AI, UI, and writing use those numbers so the same companion, shopkeeper, or rival commander does not always behave the same way.
+You already have a game, or you are building one with help from an AI assistant. Characters take hits, hear bad news, keep promises, fail, meet friends, and get betrayed. This library does none of the walking, shooting, pathfinding, or dialogue writing. It sits beside those systems. You tell it what happened; it hands back **named numbers**: how open this person is, how wound-up they are this minute, whether they are angry at someone. Animation, AI, UI, and writing use those numbers so the same companion, shopkeeper, or rival commander does not always behave the same way.
 
 You keep the actions you already allow (flee, haggle, hold the door). The engine can **rank** those actions; it does not invent new ones. You turn on only the layers the fantasy needs. A bartender does not need childhood development stages. Anything you leave out is simply missing, not an error.
 
@@ -34,7 +34,7 @@ Personality Engine is that plug-in layer. It is not a game engine and not a stud
 
 I will not presume this is academically or professionally useful outside of game development. I wanted cited works so the content is not made up out of thin air. Every provider names a source. Numbers that are only game feel are labeled **project convention**. It is not a test and not a clinic; see the [Disclaimer](DISCLAIMER.md).
 
-The three public RossSim repos for this work — this library, [Archetypes](https://github.com/RossSim/archetypes), and [NPC-demo](https://github.com/RossSim/NPC-demo) — were written primarily in Cursor with language models. I reviewed the documentation. I ran testing and security-sweep prompts and addressed findings to the best of my ability. That is not a substitute for your own review. Please test and verify the code and the docs before you use them.
+The three public RossSim repos for this work (this library, [Archetypes](https://github.com/RossSim/archetypes), and [NPC-demo](https://github.com/RossSim/NPC-demo)) were written primarily in Cursor with language models. I reviewed the documentation. I ran testing and security-sweep prompts and addressed findings to the best of my ability. That is not a substitute for your own review. Please test and verify the code and the docs before you use them.
 
 Bugs or security findings: please write [rosssim@proton.me](mailto:rosssim@proton.me). I would appreciate it.
 
@@ -130,13 +130,13 @@ Hosts compose only the providers they want. Missing channels are **absent**, not
 | Identity (optional) | Psychosocial crises | Eight ages | Erikson (1963, 1968) |
 | Relationship (optional) | Pairwise liking | Dyad toward a named other | OCC 1988 (attitude); bumps/decay project convention |
 
-Gebhard ALMA (2005) is the **first wiring** among personality, mood, and emotion — not the definition of the engine. Numeric game knobs are labeled **project convention** and are not attributed to a paper. What the letters mean without the papers: [Personality, mood, and feeling](docs/OCEAN_PAD_OCC.md).
+Gebhard ALMA (2005) is the **first wiring** among personality, mood, and emotion, not the definition of the engine. Numeric game knobs are labeled **project convention** and are not attributed to a paper. What the letters mean without the papers: [Personality, mood, and feeling](docs/OCEAN_PAD_OCC.md).
 
 Inspired by FAtiMA, built from scratch. Not a FAtiMA fork.
 
 ## Companion: Archetypes
 
-[Archetypes](https://github.com/RossSim/archetypes) is a separate MIT repo for **preset catalogs** (profession, temperament, fantasy clan) that build a PE composition — `OceanTraits`, Piaget stage, operant seeds, enabled providers. It is not a second psychology stack and does not add providers to this library. Use it when you want cited defaults for NPC authoring instead of hand-seeding every character.
+[Archetypes](https://github.com/RossSim/archetypes) is a separate MIT repo for **preset catalogs** (profession, temperament, fantasy clan) that build a PE composition: `OceanTraits`, Piaget stage, operant seeds, enabled providers. It is not a second psychology stack and does not add providers to this library. Use it when you want cited defaults for NPC authoring instead of hand-seeding every character.
 
 ## Documentation
 
