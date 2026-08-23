@@ -9,6 +9,7 @@ Versions follow [SemVer](https://semver.org/). GitHub Releases use the same note
 
 ### Added
 
+- [Lampwick](docs/LAMPWICK.md): fictional Unity conversation host using Personality Engine, Archetypes, Dialogue System (or Yarn Spinner), and a local llama.cpp sidecar — tech stack, diagrams, project layout, and build steps. The model stays outside this library.
 - Public roadmap: shipped versions, intended next minors, and what is not planned
 - Public Unity host and macOS playable: [NPC-demo](https://github.com/RossSim/NPC-demo) (this repo stays a `netstandard2.1` library)
 - README author's note: why the library exists for small teams, with cited sources and no clinic claim
