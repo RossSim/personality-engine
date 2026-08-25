@@ -4,23 +4,23 @@ internal static class SkinnerCitations
 {
     public static readonly Citation BehaviorOfOrganisms1938 = new Citation(
         "skinner-1938",
-        "Skinner, B. F. (1938). The Behavior of Organisms: An Experimental Analysis. Appleton-Century.");
+        "Skinner, B. F. (1938). The Behavior of Organisms: An Experimental Analysis. Appleton-Century. https://www.bfskinner.org/product/the-behavior-of-organisms/");
 
     public static readonly Citation ScienceAndHumanBehavior1953 = new Citation(
         "skinner-1953",
-        "Skinner, B. F. (1953). Science and Human Behavior. Macmillan.");
+        "Skinner, B. F. (1953). Science and Human Behavior. Macmillan. https://www.bfskinner.org/product/science-and-human-behavior/");
 
     public static readonly Citation SchedulesOfReinforcement1957 = new Citation(
         "ferster-skinner-1957",
-        "Ferster, C. B., & Skinner, B. F. (1957). Schedules of Reinforcement. Appleton-Century-Crofts.");
+        "Ferster, C. B., & Skinner, B. F. (1957). Schedules of Reinforcement. Appleton-Century-Crofts. https://www.bfskinner.org/product/schedules-of-reinforcement/");
 
     public static readonly Citation VerbalBehavior1957 = new Citation(
         "skinner-verbal-1957",
-        "Skinner, B. F. (1957). Verbal Behavior. Appleton-Century-Crofts. Documented; not implemented in this slice.");
+        "Skinner, B. F. (1957). Verbal Behavior. Appleton-Century-Crofts. https://www.bfskinner.org/product/verbal-behavior-2/ Documented; not implemented in this slice.");
 
     public static readonly Citation BeyondFreedomAndDignity1971 = new Citation(
         "skinner-1971",
-        "Skinner, B. F. (1971). Beyond Freedom and Dignity. Knopf. Cited as philosophy; not a separate provider.");
+        "Skinner, B. F. (1971). Beyond Freedom and Dignity. Knopf. https://www.bfskinner.org/product/beyond-freedom-and-dignity/ Cited as philosophy; not a separate provider.");
 
     public static readonly Citation StrengthDynamics = new Citation(
         "pe-skinner-strength-dynamics",

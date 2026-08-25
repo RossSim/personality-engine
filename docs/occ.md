@@ -33,4 +33,11 @@ Intensities are 0..1 eliciting potentials (**project convention**). Exponential 
 
 ## ALMA wiring
 
-Gebhard ALMA (2005) is the **first** composition that lets OCC influence PAD mood. `OccToPadMapping` writes `mood.occ-to-pad.*`. When `PadMood` is also enabled, it adds that overlay to current mood without accumulating it into the baseline. Hosts may omit the mapping and keep emotion and mood separate.
+[Gebhard ALMA (2005)](https://doi.org/10.1145/1082473.1082478) is the **first** composition that lets OCC influence PAD mood. `OccToPadMapping` writes `mood.occ-to-pad.*`. When `PadMood` is also enabled, it adds that overlay to current mood without accumulating it into the baseline. Hosts may omit the mapping and keep emotion and mood separate.
+
+## References
+
+- [Ortony, Clore & Collins (1988)](https://doi.org/10.1017/CBO9780511525661). *The Cognitive Structure of Emotions.* Cambridge University Press.
+- [Gebhard (2005)](https://doi.org/10.1145/1082473.1082478). ALMA: A layered model of affect. *Proceedings of AAMAS '05* (pp. 29–36). ACM.
+
+Full registry: [Citations](CITATIONS.md).

@@ -26,3 +26,10 @@ Layer: `relationship`. Off the default ALMA composition: omit the provider and t
 - Compound OCC (anger, gratitude)
 
 Hosts that want a social pulse still call `HostEvents.HappyFor(other)` themselves after they have decided the other is liked.
+
+## References
+
+- [Ortony, Clore & Collins (1988)](https://doi.org/10.1017/CBO9780511525661). *The Cognitive Structure of Emotions.* Cambridge University Press. (Liking as attitude.)
+- [Heider (1958)](https://archive.org/details/psychologyofinte00heid). *The Psychology of Interpersonal Relations.* Wiley. (Balance/reputation; not implemented.)
+
+Full registry: [Citations](CITATIONS.md).

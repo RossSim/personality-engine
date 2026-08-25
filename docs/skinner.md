@@ -87,3 +87,14 @@ var both = SkinnerComposition.CreateWithOceanAndPeterson(
     OceanTraits.GebhardExample,
     new[] { "forage", "peterson.explore" });
 ```
+
+## References
+
+- [Skinner (1938)](https://www.bfskinner.org/product/the-behavior-of-organisms/). *The Behavior of Organisms: An Experimental Analysis.* Appleton-Century.
+- [Skinner (1953)](https://www.bfskinner.org/product/science-and-human-behavior/). *Science and Human Behavior.* Macmillan.
+- [Ferster & Skinner (1957)](https://www.bfskinner.org/product/schedules-of-reinforcement/). *Schedules of Reinforcement.* Appleton-Century-Crofts.
+- [Skinner (1957)](https://www.bfskinner.org/product/verbal-behavior-2/). *Verbal Behavior.* Appleton-Century-Crofts. (Documented; not implemented.)
+- [Skinner (1971)](https://www.bfskinner.org/product/beyond-freedom-and-dignity/). *Beyond Freedom and Dignity.* Knopf. (Philosophy; not a provider.)
+- [Herrnstein (1961)](https://doi.org/10.1037/h0046095). On the law of effect. *Journal of the Experimental Analysis of Behavior, 4*(1), 133–144. (Matching law; not attributed to Skinner here.)
+
+Full registry: [Citations](CITATIONS.md).

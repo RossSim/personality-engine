@@ -142,3 +142,16 @@ var engine = EriksonComposition.CreateWithOceanAndPeterson(
 ```
 
 Action tags for the weighter: `erikson.explore`, `erikson.commit`, `erikson.care`, `erikson.withdraw`.
+
+## References
+
+- [Erikson (1963)](https://wwnorton.com/books/9780393310214). *Childhood and Society* (2nd ed.; orig. 1950).
+- [Erikson (1959)](https://archive.org/details/identitylifecycl0000erik). *Identity and the Life Cycle.*
+- [Erikson (1968)](https://wwnorton.com/books/Identity-Youth-and-Crisis/). *Identity: Youth and Crisis.*
+- [Erikson (1982)](https://wwnorton.com/books/The-Life-Cycle-Completed/). *The Life Cycle Completed.*
+- [Erikson (1958)](https://wwnorton.com/books/Young-Man-Luther/). *Young Man Luther.* (Psychohistory; not implemented.)
+- [Erikson (1969)](https://wwnorton.com/books/Gandhis-Truth/). *Gandhi's Truth.* (Psychohistory; not implemented.)
+- [Marcia (1966)](https://doi.org/10.1037/h0023281). Development and validation of ego-identity status. *JPSP, 3*(5), 551–558. (Not implemented.)
+- [Erikson & Erikson (1997)](https://wwnorton.com/books/The-Life-Cycle-Completed-Extended-Version/). *The Life Cycle Completed* (extended). (9th stage; not implemented.)
+
+Full registry: [Citations](CITATIONS.md).

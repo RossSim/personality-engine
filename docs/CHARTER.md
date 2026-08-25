@@ -27,15 +27,15 @@ The engine is a **composition of providers** grouped into **layers**. Layers and
 
 | Layer | Role | First provider (v0.1) | Primary citations |
 | --- | --- | --- | --- |
-| Stable personality | Slow traits | Big Five / OCEAN | McCrae & Costa |
-| Mood | Medium-term affect | PAD | Mehrabian; Gebhard ALMA 2005 |
-| Emotion | Momentary affect | OCC | Ortony, Clore & Collins |
-| Meaning (optional) | Known / unknown / knower | Peterson Maps of Meaning | Peterson (1999); Peterson & Flanders (2002) |
-| Learning (optional) | Operant repertoire | Skinner three-term contingency | Skinner (1953); Ferster & Skinner (1957) |
-| Cognition (optional) | Schemas and stages | Piaget equilibration | Piaget (1950, 1952, 1985); Inhelder & Piaget (1958) |
-| Identity (optional) | Psychosocial crises | Erikson eight ages | Erikson (1963, 1968, 1982) |
+| Stable personality | Slow traits | Big Five / OCEAN | [McCrae & Costa (2008)](https://www.scholars.northwestern.edu/en/publications/the-five-factor-theory-of-personality) |
+| Mood | Medium-term affect | PAD | [Mehrabian & Russell (1974)](https://mitpress.mit.edu/9780262131269/an-approach-to-environmental-psychology/); [Gebhard ALMA (2005)](https://doi.org/10.1145/1082473.1082478) |
+| Emotion | Momentary affect | OCC | [Ortony, Clore & Collins (1988)](https://doi.org/10.1017/CBO9780511525661) |
+| Meaning (optional) | Known / unknown / knower | Peterson Maps of Meaning | [Peterson (1999)](https://www.routledge.com/Maps-of-Meaning-The-Architecture-of-Belief/Peterson/p/book/9780415922227); [Peterson & Flanders (2002)](https://doi.org/10.1016/S0010-9452(08)70680-4) |
+| Learning (optional) | Operant repertoire | Skinner three-term contingency | [Skinner (1953)](https://www.bfskinner.org/product/science-and-human-behavior/); [Ferster & Skinner (1957)](https://www.bfskinner.org/product/schedules-of-reinforcement/) |
+| Cognition (optional) | Schemas and stages | Piaget equilibration | [Piaget (1950)](https://openlibrary.org/works/OL458043W), [(1952)](https://openlibrary.org/works/OL458047W), [(1985)](https://press.uchicago.edu/ucp/books/book/chicago/E/bo3628970.html); [Inhelder & Piaget (1958)](https://openlibrary.org/works/OL458031W) |
+| Identity (optional) | Psychosocial crises | Erikson eight ages | [Erikson (1963)](https://wwnorton.com/books/9780393310214), [(1968)](https://wwnorton.com/books/Identity-Youth-and-Crisis/), [(1982)](https://wwnorton.com/books/The-Life-Cycle-Completed/) |
 
-Gebhard ALMA (2005) is the **first wiring** among those three (OCEAN → PAD mood → OCC emotion). It is one cited composition, not the definition of the engine. Plain-language read of those three: [`OCEAN_PAD_OCC.md`](OCEAN_PAD_OCC.md).
+[Gebhard ALMA (2005)](https://doi.org/10.1145/1082473.1082478) is the **first wiring** among those three (OCEAN → PAD mood → OCC emotion). It is one cited composition, not the definition of the engine. Plain-language read of those three: [`OCEAN_PAD_OCC.md`](OCEAN_PAD_OCC.md).
 
 ### Allowed without a charter change
 

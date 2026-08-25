@@ -65,3 +65,15 @@ engine.Tick(WorldEvent.Tick);
 engine.Tick(new WorldEvent(OrderChaosMeaningProvider.AnomalyKind, intensity: 0.8f));
 var weights = engine.WeightActions(new[] { "peterson.explore", "peterson.defend" });
 ```
+
+## References
+
+- [DeYoung, Peterson & Higgins (2002)](https://doi.org/10.1016/S0191-8869(01)00171-4). Higher-order factors of the Big Five predict conformity. *Personality and Individual Differences, 33*(4), 533–552.
+- [Digman (1997)](https://doi.org/10.1037/0022-3514.73.6.1246). Higher-order factors of the Big Five. *Journal of Personality and Social Psychology, 73*(6), 1246–1256.
+- [DeYoung, Peterson & Higgins (2005)](https://doi.org/10.1111/j.0022-3506.2005.00318.x). Sources of openness/intellect. *Journal of Personality, 73*(4), 825–858. (Related; not implemented here.)
+- [Peterson (1999)](https://www.routledge.com/Maps-of-Meaning-The-Architecture-of-Belief/Peterson/p/book/9780415922227). *Maps of Meaning: The Architecture of Belief.* Routledge.
+- [Peterson & Flanders (2002)](https://doi.org/10.1016/S0010-9452(08)70680-4). Complexity Management Theory. *Cortex, 38*(3), 429–458.
+- [Peterson (2013)](https://doi.org/10.1037/13944-005). Three forms of meaning and the management of complexity. In *The psychology of meaning*. APA.
+- [Hirsh, DeYoung, Xu & Peterson (2010)](https://doi.org/10.1177/0146167210366852). Compassionate liberals and polite conservatives. *PSPB, 36*(5), 655–664. (Not implemented at domain OCEAN level.)
+
+Full registry: [Citations](CITATIONS.md).
