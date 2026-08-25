@@ -43,4 +43,4 @@ In this library the **game** still says which of those it was. A punch is not au
 
 Personality sets the baseline. Mood drifts around it. A tagged feeling can shove mood, then decay. You turn on only what the scene needs. A bartender may only need personality and mood. A named rival may need all three so the duel, the grudge, and who they are do not collapse into one slider.
 
-Papers and in-module mapping: [Citations](CITATIONS.md). The first wiring among these three is Gebhard ALMA (2005); it is one cited composition, not the definition of the engine.
+Papers and in-module mapping: [Citations](CITATIONS.md). The first wiring among these three is [Gebhard ALMA (2005)](https://doi.org/10.1145/1082473.1082478); it is one cited composition, not the definition of the engine.

@@ -12,7 +12,7 @@ internal static class PetersonCitations
 
     public static readonly Citation MapsOfMeaning1999 = new Citation(
         "peterson-maps-1999",
-        "Peterson, J. B. (1999). Maps of Meaning: The Architecture of Belief. Routledge.");
+        "Peterson, J. B. (1999). Maps of Meaning: The Architecture of Belief. Routledge. https://www.routledge.com/Maps-of-Meaning-The-Architecture-of-Belief/Peterson/p/book/9780415922227");
 
     public static readonly Citation ComplexityManagement2002 = new Citation(
         "peterson-flanders-2002",
@@ -20,7 +20,7 @@ internal static class PetersonCitations
 
     public static readonly Citation ThreeFormsOfMeaning2013 = new Citation(
         "peterson-meaning-2013",
-        "Peterson, J. B. (2013). Three forms of meaning and the management of complexity. In K. Markman, T. Proulx, & M. Lindberg (Eds.), The psychology of meaning. American Psychological Association.");
+        "Peterson, J. B. (2013). Three forms of meaning and the management of complexity. In K. Markman, T. Proulx, & M. Lindberg (Eds.), The psychology of meaning. American Psychological Association. https://doi.org/10.1037/13944-005");
 
     public static readonly Citation EqualWeightAggregation = new Citation(
         "pe-equal-weight-metatraits",
@@ -34,5 +34,5 @@ internal static class PetersonCitations
 
     public static readonly Citation Hirsh2010 = new Citation(
         "hirsh-deyoung-xu-peterson-2010",
-        "Hirsh, J. B., DeYoung, C. G., Xu, X., & Peterson, J. B. (2010). Compassionate liberals and polite conservatives: Associations of agreeableness with political ideology and moral values. Personality and Social Psychology Bulletin, 36(5), 655–664. Aspect-level (BFAS) associations; not implemented as domain-level OCEAN scores.");
+        "Hirsh, J. B., DeYoung, C. G., Xu, X., & Peterson, J. B. (2010). Compassionate liberals and polite conservatives: Associations of agreeableness with political ideology and moral values. Personality and Social Psychology Bulletin, 36(5), 655–664. https://doi.org/10.1177/0146167210366852 Aspect-level (BFAS) associations; not implemented as domain-level OCEAN scores.");
 }

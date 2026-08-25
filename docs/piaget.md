@@ -138,3 +138,15 @@ var engine = PiagetComposition.CreateWithOceanAndPeterson(
 ```
 
 Action tags for the weighter: `piaget.play`, `piaget.imitate`, `piaget.accommodate`, `piaget.explore`.
+
+## References
+
+- [Piaget (1952)](https://openlibrary.org/works/OL458047W). *The Origins of Intelligence in Children* (orig. 1936).
+- [Piaget (1954)](https://openlibrary.org/works/OL458050W). *The Construction of Reality in the Child* (orig. 1937).
+- [Piaget (1950)](https://openlibrary.org/works/OL458043W). *The Psychology of Intelligence* (orig. 1947).
+- [Piaget (1951)](https://openlibrary.org/works/OL458044W). *Play, Dreams and Imitation in Childhood* (orig. 1945).
+- [Inhelder & Piaget (1958)](https://openlibrary.org/works/OL458031W). *The Growth of Logical Thinking from Childhood to Adolescence.*
+- [Piaget (1970)](https://archive.org/details/geneticepistemol0000piag). *Genetic Epistemology.*
+- [Piaget (1985)](https://press.uchicago.edu/ucp/books/book/chicago/E/bo3628970.html). *The Equilibration of Cognitive Structures* (orig. 1975).
+
+Full registry: [Citations](CITATIONS.md).

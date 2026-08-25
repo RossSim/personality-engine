@@ -4,11 +4,11 @@ internal static class OceanCitations
 {
     public static readonly Citation FiveFactor = new Citation(
         "mccrae-costa-fft",
-        "McCrae, R. R., & Costa, P. T., Jr. (2008). The five-factor theory of personality. In O. P. John, R. W. Robins, & L. A. Pervin (Eds.), Handbook of personality: Theory and research (3rd ed., pp. 159–181). Guilford Press. This provider stores host-supplied OCEAN floats. It does not implement NEO-PI-R, NEO-FFI, or any copyrighted inventory items.");
+        "McCrae, R. R., & Costa, P. T., Jr. (2008). The five-factor theory of personality. In O. P. John, R. W. Robins, & L. A. Pervin (Eds.), Handbook of personality: Theory and research (3rd ed., pp. 159–181). Guilford Press. https://www.scholars.northwestern.edu/en/publications/the-five-factor-theory-of-personality This provider stores host-supplied OCEAN floats. It does not implement NEO-PI-R, NEO-FFI, or any copyrighted inventory items.");
 
     public static readonly Citation MehrabianPad = new Citation(
         "mehrabian-pad",
-        "Mehrabian, A., & Russell, J. A. (1974). An Approach to Environmental Psychology. MIT Press. Mehrabian, A. (1996). Pleasure-arousal-dominance: A general framework for describing and measuring individual differences in temperament. Current Psychology, 14(4), 261–292.");
+        "Mehrabian, A., & Russell, J. A. (1974). An Approach to Environmental Psychology. MIT Press. https://mitpress.mit.edu/9780262131269/an-approach-to-environmental-psychology/ Mehrabian, A. (1996). Pleasure-arousal-dominance: A general framework for describing and measuring individual differences in temperament. Current Psychology, 14(4), 261–292. https://doi.org/10.1007/BF02686918");
 
     public static readonly Citation GebhardAlma2005 = new Citation(
         "gebhard-alma-2005",

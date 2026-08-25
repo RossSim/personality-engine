@@ -4,7 +4,7 @@ internal static class PadCitations
 {
     public static readonly Citation MehrabianPad = new Citation(
         "mehrabian-pad",
-        "Mehrabian, A., & Russell, J. A. (1974). An Approach to Environmental Psychology. MIT Press. Mehrabian, A. (1996). Pleasure-arousal-dominance: A general framework for describing and measuring individual differences in temperament. Current Psychology, 14(4), 261–292.");
+        "Mehrabian, A., & Russell, J. A. (1974). An Approach to Environmental Psychology. MIT Press. https://mitpress.mit.edu/9780262131269/an-approach-to-environmental-psychology/ Mehrabian, A. (1996). Pleasure-arousal-dominance: A general framework for describing and measuring individual differences in temperament. Current Psychology, 14(4), 261–292. https://doi.org/10.1007/BF02686918");
 
     public static readonly Citation GebhardAlma2005 = new Citation(
         "gebhard-alma-2005",

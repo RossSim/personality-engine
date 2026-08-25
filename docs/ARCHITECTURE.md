@@ -98,13 +98,13 @@ Order:
 
 Optional supplement ([`peterson.md`](peterson.md)):
 
-6. `StabilityPlasticityProvider` — DeYoung, Peterson & Higgins (2002) metatraits
-7. `OrderChaosMeaningProvider` — Peterson (1999) / CMT meaning layer (`meaning.peterson-maps.*`)
+6. `StabilityPlasticityProvider` — [DeYoung, Peterson & Higgins (2002)](https://doi.org/10.1016/S0191-8869(01)00171-4) metatraits
+7. `OrderChaosMeaningProvider` — [Peterson (1999)](https://www.routledge.com/Maps-of-Meaning-The-Architecture-of-Belief/Peterson/p/book/9780415922227) / [CMT (2002)](https://doi.org/10.1016/S0010-9452(08)70680-4) meaning layer (`meaning.peterson-maps.*`)
 8. `PetersonMeaningWeighter` — explore vs defend vs integrate vs withdraw
 
 Optional supplement ([`skinner.md`](skinner.md)) — **new `learning` layer**, not a personality provider:
 
-9. `OperantLearningProvider` — Skinner (1953) / Ferster & Skinner (1957) operant strengths
+9. `OperantLearningProvider` — [Skinner (1953)](https://www.bfskinner.org/product/science-and-human-behavior/) / [Ferster & Skinner (1957)](https://www.bfskinner.org/product/schedules-of-reinforcement/) operant strengths
 10. `OperantWeighter` — strength × deprivation × SD
 
 Optional supplement ([`piaget.md`](piaget.md)) — **new `cognition` layer**, not a personality or learning provider:

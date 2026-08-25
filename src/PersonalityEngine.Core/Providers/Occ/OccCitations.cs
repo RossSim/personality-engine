@@ -4,7 +4,7 @@ internal static class OccCitations
 {
     public static readonly Citation Occ1988 = new Citation(
         "occ-1988",
-        "Ortony, A., Clore, G. L., & Collins, A. (1988). The Cognitive Structure of Emotions. Cambridge University Press. Emotion types from eliciting conditions (well-being, prospect-based, attribution, fortune-of-others, well-being+attribution compounds). ISBN 978-0-521-38664-7.");
+        "Ortony, A., Clore, G. L., & Collins, A. (1988). The Cognitive Structure of Emotions. Cambridge University Press. https://doi.org/10.1017/CBO9780511525661 Emotion types from eliciting conditions (well-being, prospect-based, attribution, fortune-of-others, well-being+attribution compounds). ISBN 978-0-521-38664-7.");
 
     public static readonly Citation GebhardAlma2005 = new Citation(
         "gebhard-alma-2005",
